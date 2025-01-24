@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1invxi4ndf8x"]
+
+[ext_resource type="PackedScene" uid="uid://huou0c4l3ybs" path="res://Meshes/Crab/Crab.glb" id="1_ampdv"]
+
+[node name="Crab" type="Node3D"]
+
+[node name="Crab" parent="." instance=ExtResource("1_ampdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169277, 0.00555944, 0.00310421)
+skeleton = NodePath("")
