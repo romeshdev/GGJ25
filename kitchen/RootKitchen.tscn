@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dpv7ayoetui6n"]
 
-[ext_resource type="PackedScene" uid="uid://dcl42qv1uyaky" path="res://crab/crab.tscn" id="1_gcn2w"]
+[ext_resource type="PackedScene" uid="uid://dcl42qv1uyaky" path="res://crab/RootCrab.tscn" id="1_ue1ke"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
 size = Vector3(10, 0.5, 10)
@@ -8,7 +8,7 @@ size = Vector3(10, 0.5, 10)
 [sub_resource type="BoxMesh" id="BoxMesh_t6ff7"]
 size = Vector3(10, 0.5, 10)
 
-[node name="Kitchen" type="Node3D"]
+[node name="RootKitchen" type="Node3D"]
 
 [node name="Bench" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
@@ -25,4 +25,4 @@ mesh = SubResource("BoxMesh_t6ff7")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0, 4.33209, 0)
 
-[node name="Crab" parent="." instance=ExtResource("1_gcn2w")]
+[node name="Crab" parent="." instance=ExtResource("1_ue1ke")]

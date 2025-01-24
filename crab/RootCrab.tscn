@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dcl42qv1uyaky"]
 
-[ext_resource type="Script" path="res://crab/crab.gd" id="1_06tpv"]
+[ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fgp1e"]
 
@@ -9,7 +9,7 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bj1mu"]
 
-[node name="Crab" type="CharacterBody3D"]
+[node name="RootCrab" type="CharacterBody3D"]
 script = ExtResource("1_06tpv")
 
 [node name="Mesh" type="Node3D" parent="."]
