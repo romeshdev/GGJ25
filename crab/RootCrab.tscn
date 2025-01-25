@@ -10,11 +10,12 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bj1mu"]
 
-[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight")]
+[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan")]
 script = ExtResource("1_06tpv")
 cameraTarget = NodePath("CameraTarget")
 cameraTargetStrafeLeft = NodePath("CameraTargetStafeLeft")
 cameraTargetStrafeRight = NodePath("CameraTargetStafeRight")
+cameraMan = NodePath("CameraMan")
 
 [node name="Mesh" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -38,7 +39,6 @@ transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, 
 shape = SubResource("CapsuleShape3D_bj1mu")
 
 [node name="CameraMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_0bkup")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4, 5)
 target = NodePath("../CameraTarget")
 
 [node name="CameraTarget" type="Node3D" parent="."]

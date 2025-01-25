@@ -15,6 +15,8 @@ const JUMP_VELOCITY : float = 10
 const GRAVITY_MIN : float = 0.5
 const GRAVITY_MAX : float = 2
 
+const HEADCHECK_SPEED : float = 2
+
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
 var camera_target_lateral : float = 0.5
@@ -22,15 +24,17 @@ var camera_target_lateral : float = 0.5
 @export var cameraTarget : Node3D
 @export var cameraTargetStrafeLeft : Node3D
 @export var cameraTargetStrafeRight : Node3D
+@export var cameraMan : CameraMan
 
 func _ready():
 	assert(cameraTarget != null)
 	assert(cameraTargetStrafeLeft != null)
 	assert(cameraTargetStrafeLeft != null)
+	assert(cameraMan != null)
 
 func _process(delta):
-	# Restore position
-	if position.y < -5:
+	# Restore position if you fall off a cliff
+	if position.y < -10:
 		position = Vector3.UP * 3
 		velocity = Vector3.ZERO
 
@@ -67,8 +71,8 @@ func _physics_process(delta):
 	rotate_y(rotation_speed * delta)
 
 	# Handle strafing
-	var input_strafe = Input.get_axis("crab_strafe_left", "crab_strafe_right")
-	var direction = (transform.basis * Vector3(input_strafe, 0, 0))
+	var input_strafe : float = Input.get_axis("crab_strafe_left", "crab_strafe_right")
+	var direction : Vector3 = (transform.basis * Vector3(input_strafe, 0, 0))
 	if input_strafe:
 		var acceleration = (direction * STRAFE_ACCELERATION * delta).normalized()
 		velocity.x = velocity.x + acceleration.x
@@ -76,8 +80,11 @@ func _physics_process(delta):
 		
 	# Update camera target based on strafe
 	var targetInterpolation : float = (input_strafe + 1) / 2
-	camera_target_lateral = lerp(camera_target_lateral, targetInterpolation, delta)
+	camera_target_lateral = lerp(camera_target_lateral, targetInterpolation, delta * HEADCHECK_SPEED)
 	cameraTarget.global_position = cameraTargetStrafeLeft.global_position.lerp(cameraTargetStrafeRight.global_position, camera_target_lateral)
+		
+	# Update camera zoom based on strafe
+	cameraMan.targetZoom = 1 - abs(input_strafe)
 		
 	# Handle friction
 	var deceleration = STRAFE_DECELERATION * delta
