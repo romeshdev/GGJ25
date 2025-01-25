@@ -11,6 +11,11 @@ const JUMP_VELOCITY : float = 4.5
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
 
+func _process(delta):
+	# Restore position
+	if position.y < -5:
+		position = Vector3.UP * 3
+
 func _physics_process(delta):
 	# Fall down
 	var onFloor : bool = is_on_floor()
@@ -44,4 +49,5 @@ func _physics_process(delta):
 	velocity.x = move_toward(velocity.x, 0, deceleration)
 	velocity.z = move_toward(velocity.z, 0, deceleration)
 
+ 	# Update position
 	move_and_slide()
