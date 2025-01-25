@@ -1,23 +1,10 @@
 extends CharacterBody3D
 
-@onready var Claw_L = $CrabBod/Arm_L/GrabbbyBit_L/GrabbyBit_L
-@onready var Claw_R = $CrabBod/Arm_R/GrabbbyBit_R/GrabbyBit_R
-
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 
-var picked_object
-var pull_power = 4
-
-func pick_object_L():
-	var Collider_L = Claw_L.get_collider()
-	if Collider_L != null and Collider_L is RigidBody3D:
-		print("Left Claw with a rigid body")
-		
-func pick_object_R():
-	var Collider_R = Claw_R.get_collider()
-	if Collider_R != null and Collider_R is RigidBody3D:
-		print("Left Claw with a rigid body")
+# This represents the player's inertia.
+var push_force = .5
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -41,8 +28,8 @@ func _physics_process(delta):
 
 	move_and_slide()
 	
-	if Input.is_key_pressed(KEY_E):
-		pick_object_R()
-		
-	if Input.is_key_pressed(KEY_Q):
-		pick_object_L()
+	# after calling move_and_slide()
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)

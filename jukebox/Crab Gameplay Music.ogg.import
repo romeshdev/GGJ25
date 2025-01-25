@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvpslcoehlt7d"
+path="res://.godot/imported/Crab Gameplay Music.ogg-38bd7fdd5ae137249c969450199abede.oggvorbisstr"
+
+[deps]
+
+source_file="res://jukebox/Crab Gameplay Music.ogg"
+dest_files=["res://.godot/imported/Crab Gameplay Music.ogg-38bd7fdd5ae137249c969450199abede.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

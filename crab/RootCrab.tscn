@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=7 format=3 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
+[ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
+[ext_resource type="PackedScene" uid="uid://c1invxi4ndf8x" path="res://crab/mesh_crab.tscn" id="2_ut81w"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fgp1e"]
 
@@ -9,8 +11,12 @@ albedo_color = Color(1, 0, 0, 1)
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bj1mu"]
 
-[node name="RootCrab" type="CharacterBody3D"]
+[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan")]
 script = ExtResource("1_06tpv")
+cameraTarget = NodePath("CameraTarget")
+cameraTargetStrafeLeft = NodePath("CameraTargetStafeLeft")
+cameraTargetStrafeRight = NodePath("CameraTargetStafeRight")
+cameraMan = NodePath("CameraMan")
 
 [node name="Mesh" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -29,12 +35,20 @@ transform = Transform3D(-8.58265e-09, -0.196348, 0.15475, -6.76432e-09, -0.15475
 material_override = SubResource("StandardMaterial3D_3fa5q")
 mesh = SubResource("CapsuleMesh_fgp1e")
 
+[node name="MeshCrab" parent="Mesh" instance=ExtResource("2_ut81w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0.5, 0)
 shape = SubResource("CapsuleShape3D_bj1mu")
 
-[node name="CameraMan" type="Node3D" parent="."]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 4.5, 7)
+[node name="CameraMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_0bkup")]
+target = NodePath("../CameraTarget")
 
-[node name="Camera3D" type="Camera3D" parent="CameraMan"]
-transform = Transform3D(-4.37114e-08, 0.707107, -0.707107, 0, 0.707107, 0.707107, 1, 3.09086e-08, -3.09086e-08, 1.44238, 1.17083, 6.30483e-08)
+[node name="CameraTarget" type="Node3D" parent="."]
+
+[node name="CameraTargetStafeLeft" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="CameraTargetStafeRight" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 0, 0)

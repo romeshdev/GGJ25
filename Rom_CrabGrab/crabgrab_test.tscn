@@ -3,14 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://cehvyh1snjqwm" path="res://Rom_CrabGrab/Crab/Crab.tscn" id="1_8qwkq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6stja"]
-size = Vector3(25.345, 0.195, 11.065)
+size = Vector3(128.495, 0.195, 71.81)
 
 [sub_resource type="BoxMesh" id="BoxMesh_ps60f"]
-size = Vector3(25.345, 0.195, 11.065)
+size = Vector3(128.495, 0.195, 71.81)
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_3fohm"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_1wsal"]
+size = Vector3(2.405, 4.93, 2.34)
 
-[sub_resource type="SphereMesh" id="SphereMesh_8nsyw"]
+[sub_resource type="BoxMesh" id="BoxMesh_npylv"]
+size = Vector3(2.405, 4.93, 2.34)
 
 [node name="Node3D" type="Node3D"]
 
@@ -23,19 +25,20 @@ shape = SubResource("BoxShape3D_6stja")
 mesh = SubResource("BoxMesh_ps60f")
 
 [node name="Crab" parent="." instance=ExtResource("1_8qwkq")]
-transform = Transform3D(0.999963, 0.00241241, 0.00825998, -0.00241569, 0.999997, 0.000387122, -0.00825902, -0.000407062, 0.999966, -0.0842004, 2.74579, 1.03968)
+transform = Transform3D(0.999963, 0.00241241, 0.00825998, -0.00241569, 0.999997, 0.000387122, -0.00825902, -0.000407062, 0.999966, -0.0842004, 2.74579, 5.03968)
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.910178, 0.414217, 0, -0.414217, 0.910178, 0, 5.92126, 7.13814)
+transform = Transform3D(1, 0, 0, 0, 0.910178, 0.414217, 0, -0.414217, 0.910178, 0, 17.5665, 23.216)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.0659256, 0.997825, 0, -0.997825, 0.0659256, 0, 12.0555, 10.4708)
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.88293, 0.842422, -3.04568)
+transform = Transform3D(0.866025, 0, -0.5, 0, 1, 0, 0.5, 0, 0.866025, 8.32642, 3.09047, -17.626)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
-shape = SubResource("SphereShape3D_3fohm")
+shape = SubResource("BoxShape3D_1wsal")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
-mesh = SubResource("SphereMesh_8nsyw")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_npylv")
