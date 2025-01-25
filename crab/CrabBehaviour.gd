@@ -1,7 +1,10 @@
 class_name CrabBehaviour extends CharacterBody3D
 
-const STRAFE_ACCELERATION : float = 20
-const STRAFE_DECELERATION : float = 5
+const ADVANCE_ACCELERATION : float = 0.2
+const RETREAT_ACCELERATION : float = 0.1
+
+const STRAFE_ACCELERATION : float = 1
+const STRAFE_DECELERATION : float = 6
 const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
 const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
 const STRAFE_DECELERATION_FROM_GROUND_FRICTION : float = 10
@@ -20,6 +23,7 @@ const HEADCHECK_SPEED : float = 2
 
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
+var input_advance : float = 0.0
 var camera_target_lateral : float = 0.5
 
 @export var cameraTarget : Node3D
@@ -75,9 +79,17 @@ func _physics_process(delta):
 
 	# Handle strafing
 	var input_strafe : float = Input.get_axis("crab_strafe_left", "crab_strafe_right")
-	var direction : Vector3 = (transform.basis * Vector3(input_strafe, 0, 0))
 	if input_strafe:
-		var acceleration = (direction * STRAFE_ACCELERATION * delta).normalized()
+		var direction : Vector3 = (transform.basis * Vector3(input_strafe, 0, 0))
+		var acceleration = (direction * delta).normalized()*STRAFE_ACCELERATION
+		velocity.x = velocity.x + acceleration.x
+		velocity.z = velocity.z + acceleration.z
+		
+	# Handle advance / retreat
+	if input_advance:
+		var direction : Vector3 = (transform.basis * Vector3(0, 0, input_advance))
+		var acceleration_amount = ADVANCE_ACCELERATION if input_advance < 0 else RETREAT_ACCELERATION
+		var acceleration = (direction * delta).normalized()*ADVANCE_ACCELERATION
 		velocity.x = velocity.x + acceleration.x
 		velocity.z = velocity.z + acceleration.z
 		
@@ -86,18 +98,19 @@ func _physics_process(delta):
 	camera_target_lateral = lerp(camera_target_lateral, targetInterpolation, delta * HEADCHECK_SPEED)
 	cameraTarget.global_position = cameraTargetStrafeLeft.global_position.lerp(cameraTargetStrafeRight.global_position, camera_target_lateral)
 		
-	# Update camera zoom based on strafe / jumpign
+	# Update camera zoom based on strafe / jumping
+	var input_move_amount : float = max(abs(input_strafe), abs(input_advance))
 	if not onFloor:
 		cameraMan.targetZoom = 0
 	else:
-		cameraMan.targetZoom = 1 - abs(input_strafe)
+		cameraMan.targetZoom = 1 - input_move_amount
 		
 	# Handle friction
 	var deceleration = STRAFE_DECELERATION * delta
 	var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if onFloor else STRAFE_DECELERATION_FROM_AIR_ROTATION
 	deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
 	var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
-	deceleration = deceleration * (1 + (1 - abs(input_strafe)) * strafing_friction)
+	deceleration = deceleration * (1 + (1 - input_move_amount) * strafing_friction)
 	velocity.x = move_toward(velocity.x, 0, deceleration)
 	velocity.z = move_toward(velocity.z, 0, deceleration)
 

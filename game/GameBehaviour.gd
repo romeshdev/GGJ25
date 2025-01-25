@@ -9,3 +9,4 @@ func _ready():
 
 func _process(delta):
 	crab.input_rotation = akimbo.rotation_axis
+	crab.input_advance = akimbo.movement_axis
