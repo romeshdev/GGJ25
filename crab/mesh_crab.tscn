@@ -1,9 +1,82 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1invxi4ndf8x"]
+[gd_scene load_steps=5 format=3 uid="uid://c1invxi4ndf8x"]
 
 [ext_resource type="PackedScene" uid="uid://dlx305d41030k" path="res://Meshes/Crab/Import/Crab_Rig.fbx" id="1_ahsck"]
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="2_jvmw5"]
+[ext_resource type="Script" path="res://crab/ik_target.gd" id="3_g843j"]
+[ext_resource type="Script" path="res://crab/step_ray.gd" id="4_gof13"]
 
 [node name="Crab_Rig" instance=ExtResource("1_ahsck")]
+
+[node name="Skeleton3D" parent="." index="0"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+bones/1/rotation = Quaternion(-5.88138e-18, -0.0232618, -1.19475e-16, 0.999729)
+bones/2/position = Vector3(8.8556, 6.93889e-16, -0.280676)
+bones/2/rotation = Quaternion(4.84744e-27, 0.0167431, -2.05043e-18, 0.99986)
+bones/2/scale = Vector3(1, 1, 1)
+bones/3/position = Vector3(6.79804, 8.67362e-16, 0.463734)
+bones/3/rotation = Quaternion(2.84512e-18, 0.014585, 1.20645e-16, 0.999894)
+bones/3/scale = Vector3(1, 1, 1)
+bones/5/rotation = Quaternion(2.18514e-16, -0.00403615, -1.21023e-16, 0.999992)
+bones/6/position = Vector3(8.07708, 6.93889e-16, 7.63278e-15)
+bones/6/rotation = Quaternion(-2.17267e-16, -0.00613926, 1.24487e-16, 0.999981)
+bones/7/position = Vector3(5.88051, -7.80626e-16, 4.02456e-14)
+bones/7/rotation = Quaternion(0, -0.00453987, 5.55974e-19, 0.99999)
+bones/9/rotation = Quaternion(-2.0195e-28, -0.00399771, 4.89578e-19, 0.999992)
+bones/10/position = Vector3(6.93945, -1.12757e-15, -1.38778e-15)
+bones/10/rotation = Quaternion(2.19588e-16, 0.0128662, -1.26873e-16, 0.999917)
+bones/11/position = Vector3(5.38195, 8.67362e-16, -1.59595e-14)
+bones/11/rotation = Quaternion(-2.14334e-16, -0.0533496, 1.40621e-16, 0.998576)
+bones/13/rotation = Quaternion(6.75274e-17, 0.998728, 4.33051e-18, -0.0504304)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/position = Vector3(8.98237, 1.73472e-16, 0.247845)
+bones/14/rotation = Quaternion(2.53331e-17, -0.000560128, -1.40246e-17, 1)
+bones/15/position = Vector3(6.79004, 3.46945e-16, 0.0161436)
+bones/15/rotation = Quaternion(3.94772e-17, -0.046976, 5.19484e-18, 0.998896)
+bones/15/scale = Vector3(1, 1, 1)
+bones/17/rotation = Quaternion(1.308e-17, 0.999513, 1.15523e-16, -0.0311931)
+bones/18/position = Vector3(7.66918, 6.93889e-16, -2.35922e-14)
+bones/18/rotation = Quaternion(1.48782e-17, -0.0151041, 5.04706e-17, 0.999886)
+bones/18/scale = Vector3(1, 1, 1)
+bones/19/position = Vector3(6.27109, 1.73472e-16, -0.0870855)
+bones/19/rotation = Quaternion(6.59427e-18, 0.0607838, 1.2229e-17, 0.998151)
+bones/21/rotation = Quaternion(6.78329e-17, 0.999465, -6.06763e-17, -0.0327216)
+bones/22/position = Vector3(7.09277, -2.60209e-16, -1.04083e-14)
+bones/22/rotation = Quaternion(-2.56184e-16, -0.000662736, -4.76526e-18, 1)
+bones/22/scale = Vector3(1, 1, 1)
+bones/23/position = Vector3(5.59981, 8.67362e-17, 0.168296)
+bones/23/rotation = Quaternion(3.23607e-18, -0.0196736, -1.7368e-17, 0.999806)
+bones/25/rotation = Quaternion(1.37098e-15, 0.635875, -1.20741e-15, 0.771792)
+bones/26/position = Vector3(3.24903, 3.46945e-16, -1.38778e-15)
+bones/26/rotation = Quaternion(4.21039e-15, 0.0632745, -4.9949e-16, 0.997996)
+bones/27/position = Vector3(2.73061, -3.46945e-16, -1.38778e-15)
+bones/27/rotation = Quaternion(-2.8801e-15, -0.0669755, 6.17935e-16, 0.997755)
+bones/28/position = Vector3(2.95859, -3.46945e-16, 1.04083e-15)
+bones/28/rotation = Quaternion(-3.08902e-15, 0.112119, -3.62268e-16, 0.993695)
+bones/31/rotation = Quaternion(-1.04677e-15, 0.787391, 1.26204e-15, 0.616454)
+bones/32/position = Vector3(4.00877, 0, 1.04083e-15)
+bones/32/rotation = Quaternion(-1.62611e-15, -0.0204212, -1.03197e-16, 0.999792)
+bones/33/position = Vector3(2.34387, 0, 1.04083e-15)
+bones/33/rotation = Quaternion(5.29161e-16, 0.0402965, 2.47835e-16, 0.999188)
+bones/34/position = Vector3(3.23804, 0, -2.60209e-15)
+bones/34/rotation = Quaternion(1.06207e-14, -0.182954, 9.55015e-16, 0.983121)
+bones/40/position = Vector3(-2.75199, -0.352281, 6.26229)
+bones/40/rotation = Quaternion(0.00484049, 0.0114048, 0.390662, 0.920451)
+bones/40/scale = Vector3(1, 1, 1)
+bones/42/position = Vector3(2.8507, -0.219824, 6.43029)
+bones/42/rotation = Quaternion(0.388107, 0.921531, -0.00480883, -0.0114182)
+bones/42/scale = Vector3(1, 1, 1)
+bones/44/position = Vector3(5.54617, -5.71452e-16, 0.856977)
+bones/44/rotation = Quaternion(4.53671e-24, -0.68417, 8.37867e-17, 0.729322)
+bones/45/position = Vector3(12.8115, -7.45375e-17, -0.0540339)
+bones/45/rotation = Quaternion(-2.59102e-26, 0.0684569, -8.38356e-18, 0.997654)
+bones/46/position = Vector3(7.10712, -7.10983e-17, 0.334886)
+bones/46/rotation = Quaternion(-1.21782e-16, -0.14595, 7.12261e-18, 0.989292)
+bones/48/position = Vector3(-5.4969, 8.14869e-16, 1.13068)
+bones/48/rotation = Quaternion(0.712147, -8.93162e-17, -0.702031, 3.42611e-18)
+bones/49/position = Vector3(-12.8115, 1.35843e-16, 0.0540428)
+bones/49/rotation = Quaternion(-7.42929e-17, 0.0684569, -8.02463e-18, 0.997654)
+bones/50/position = Vector3(-7.10715, 8.74056e-17, -0.334898)
+bones/50/rotation = Quaternion(5.3758e-17, -0.14595, 6.341e-18, 0.989292)
 
 [node name="Crab_Body" parent="Skeleton3D" index="0"]
 material_override = ExtResource("2_jvmw5")
@@ -115,3 +188,97 @@ material_override = ExtResource("2_jvmw5")
 
 [node name="Swimmer_R_End" parent="Skeleton3D" index="36"]
 material_override = ExtResource("2_jvmw5")
+
+[node name="IKTargets" type="Node3D" parent="Skeleton3D" index="37"]
+
+[node name="IK_Target_L1" type="Marker3D" parent="Skeleton3D/IKTargets" index="0" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.6221, -6.29974, -4.54244)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_L2")
+
+[node name="IK_Target_L2" type="Marker3D" parent="Skeleton3D/IKTargets" index="1" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.482, -6.29974, 0)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_L3")
+
+[node name="IK_Target_L3" type="Marker3D" parent="Skeleton3D/IKTargets" index="2" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.1304, -6.29974, 4.24368)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_L2")
+
+[node name="IK_Target_R1" type="Marker3D" parent="Skeleton3D/IKTargets" index="3" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.6938, -6.29974, -3)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_R2")
+
+[node name="IK_Target_R2" type="Marker3D" parent="Skeleton3D/IKTargets" index="4" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.6938, -6.29974, 2)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_R3")
+
+[node name="IK_Target_R3" type="Marker3D" parent="Skeleton3D/IKTargets" index="5" node_paths=PackedStringArray("adjacent_target")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.6938, -6.29974, 4)
+top_level = true
+script = ExtResource("3_g843j")
+adjacent_target = NodePath("../IK_Target_R2")
+
+[node name="StepTargets" type="Node3D" parent="Skeleton3D" index="38"]
+
+[node name="RayCast_L1" type="RayCast3D" parent="Skeleton3D/StepTargets" index="0" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, -2.18939e-09, 5.48646e-11, 2.18939e-09, 0.998745, -0.0500874, 5.48646e-11, 0.0500874, 0.998745, 4.54244, 4.97941, -20.6221)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_L1")
+
+[node name="Step_Target_L1" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_L1" index="0"]
+transform = Transform3D(1, 2.18939e-09, 5.48646e-11, -2.18939e-09, 0.998745, 0.0500874, 5.48646e-11, -0.0500874, 0.998745, 0, -11.265, 0.564943)
+
+[node name="RayCast_L2" type="RayCast3D" parent="Skeleton3D/StepTargets" index="1" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, -2.60836e-09, 7.78932e-11, 2.60836e-09, 0.998218, -0.0596722, 7.78932e-11, 0.0596722, 0.998218, 7.64163e-07, 4.97941, -17.482)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_L2")
+
+[node name="Step_Target_L2" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_L2" index="0"]
+transform = Transform3D(1, 2.60836e-09, 7.78897e-11, -2.60836e-09, 0.998218, 0.0596723, 7.78932e-11, -0.0596723, 0.998218, -2.94201e-08, -11.259, 0.673052)
+
+[node name="RayCast_L3" type="RayCast3D" parent="Skeleton3D/StepTargets" index="2" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, -2.35472e-09, 6.34692e-11, 2.35472e-09, 0.998548, -0.0538697, 6.34692e-11, 0.0538697, 0.998548, -4.24368, 4.97941, -15.1304)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_L3")
+
+[node name="Step_Target_L3" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_L3" index="0"]
+transform = Transform3D(1, 2.35472e-09, 6.34692e-11, -2.35472e-09, 0.998548, 0.0538697, 6.34728e-11, -0.0538697, 0.998548, 0, -11.2628, 0.607604)
+
+[node name="RayCast_R1" type="RayCast3D" parent="Skeleton3D/StepTargets" index="3" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, 4.31635e-09, 2.13635e-10, -4.31635e-09, 0.995113, 0.0987466, 2.13639e-10, -0.0987466, 0.995113, 3, 4.97941, 21.6938)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_R1")
+
+[node name="Step_Target_R1" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_R1" index="0"]
+transform = Transform3D(1, -4.31635e-09, 2.13635e-10, 4.31635e-09, 0.995113, -0.0987466, 2.13632e-10, 0.0987466, 0.995113, 0, -11.224, -1.11378)
+
+[node name="RayCast_R2" type="RayCast3D" parent="Skeleton3D/StepTargets" index="4" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, 3.61358e-09, 1.49623e-10, -3.61358e-09, 0.996577, 0.0826691, 1.49619e-10, -0.0826691, 0.996577, -2, 4.97941, 18.6938)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_R2")
+
+[node name="Step_Target_R2" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_R2" index="0"]
+transform = Transform3D(1, -3.61358e-09, 1.49619e-10, 3.61358e-09, 0.996577, -0.0826691, 1.49626e-10, 0.0826691, 0.996577, 0, -11.2405, -0.932436)
+
+[node name="RayCast_R3" type="RayCast3D" parent="Skeleton3D/StepTargets" index="5" node_paths=PackedStringArray("step_target")]
+transform = Transform3D(1, 3.38316e-09, 1.31116e-10, -3.38316e-09, 0.997, 0.0773977, 1.31124e-10, -0.0773977, 0.997, -4, 4.97941, 15.6938)
+target_position = Vector3(0, -20, 0)
+script = ExtResource("4_gof13")
+step_target = NodePath("Step_Target_R3")
+
+[node name="Step_Target_R3" type="Marker3D" parent="Skeleton3D/StepTargets/RayCast_R3" index="0"]
+transform = Transform3D(1, -3.38316e-09, 1.3112e-10, 3.38316e-09, 0.997, -0.0773977, 1.31116e-10, 0.0773977, 0.997, 0, -11.2453, -0.872979)
