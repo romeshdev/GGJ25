@@ -1,4 +1,4 @@
-class_name Title extends Control
+class_name TitleBehaviour extends Control
 
 func _ready():
 	Jukebox.playTitleMusic()

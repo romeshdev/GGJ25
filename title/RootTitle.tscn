@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://4cwxqhtacnap"]
+[gd_scene load_steps=3 format=3 uid="uid://4cwxqhtacnap"]
 
-[ext_resource type="Script" path="res://title/Title.gd" id="1_n85if"]
+[ext_resource type="Script" path="res://title/TitleBehaviour.gd" id="1_n85if"]
+[ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_3w8f5"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -30,6 +31,8 @@ text = "Not Too Hot Pot"
 [node name="ButtonPlay" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
+
+[node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonPlay" instance=ExtResource("2_3w8f5")]
 
 [node name="ButtonQuit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
