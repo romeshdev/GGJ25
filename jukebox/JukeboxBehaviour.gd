@@ -5,11 +5,13 @@ class_name JukeboxBehaviour extends Node
 
 func playInGameMusic() -> void:
 	titleMusic.stop()
-	inGameMusic.play()
+	if !inGameMusic.playing:
+		inGameMusic.play()
 
 func playTitleMusic() -> void:
 	inGameMusic.stop()
-	titleMusic.play()
+	if !titleMusic.playing:
+		titleMusic.play()
 
 func _ready():
 	assert(inGameMusic != null)

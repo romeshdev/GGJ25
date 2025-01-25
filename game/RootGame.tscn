@@ -31,3 +31,5 @@ layout_mode = 1
 layout_mode = 1
 
 [node name="RootJukebox" parent="." instance=ExtResource("5_366d5")]
+
+[connection signal="timeout" from="RootInterface/TimerInferface" to="." method="_on_timer_inferface_timeout"]
