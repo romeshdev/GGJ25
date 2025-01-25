@@ -44,7 +44,7 @@ func _ready():
 	assert(leftClawRotator != null)
 	assert(rightClawRotator != null)
 
-func _process(delta):
+func _process(_delta):
 	# Restore position if you fall off a cliff
 	if position.y < -10:
 		position = Vector3.UP * 3

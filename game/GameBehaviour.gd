@@ -13,7 +13,7 @@ func _ready():
 	assert(akimbo != null)
 	Jukebox.playInGameMusic()
 
-func _process(delta):
+func _process(_delta):
 	# Send information from UI to crab
 	crab.input_rotation = akimbo.rotation_axis
 	crab.input_advance = akimbo.movement_axis

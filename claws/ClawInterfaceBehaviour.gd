@@ -17,7 +17,7 @@ func _ready():
 	assert(actionUp != "")
 	assert(actionDown != "")
 
-func _process(delta):
+func _process(_delta):
 	input = Input.get_vector(actionLeft, actionRight, actionUp, actionDown)
 	clawPosition.set_position(clawContainer.size * 0.5 * input)
 	
