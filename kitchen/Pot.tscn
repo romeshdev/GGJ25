@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhgn140g4n1tt"]
+
+[ext_resource type="PackedScene" uid="uid://dcobbcilltmbp" path="res://kitchen/Import/Pot_Mesh.fbx" id="1_wox25"]
+
+[node name="Pot_Mesh" instance=ExtResource("1_wox25")]

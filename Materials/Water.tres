@@ -1,0 +1,37 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://xpssu1fq3qil"]
+
+[ext_resource type="Shader" path="res://Materials/Water.gdshader" id="1_2bhgb"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ddhk6"]
+seed = 2
+frequency = 0.0031
+domain_warp_enabled = true
+domain_warp_type = 1
+domain_warp_amplitude = 0.02
+domain_warp_fractal_octaves = 1
+domain_warp_fractal_lacunarity = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bjg77"]
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_ddhk6")
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2bhgb")
+shader_parameter/time_speed = 1.0
+shader_parameter/surface_speed = 1.0
+shader_parameter/spin = 0.0
+shader_parameter/brightness = 0.2
+shader_parameter/color_intensity = 0.0
+shader_parameter/horizontal_frequency = 2.0
+shader_parameter/vertical_frequency = 2.0
+shader_parameter/size = 2.5
+shader_parameter/banding_bias = 0.6
+shader_parameter/wave_height = 0.1
+shader_parameter/texture_height = 0.0
+shader_parameter/color1 = Color(0.458239, 0.822361, 0.822824, 1)
+shader_parameter/color2 = Color(0.608494, 0.486751, 0.413965, 1)
+shader_parameter/color3 = Color(0.658112, 0.252139, 0.435031, 1)
+shader_parameter/color4 = Color(0.457365, 0.426295, 0.434254, 1)
+shader_parameter/wave_texture = SubResource("NoiseTexture2D_bjg77")

@@ -3,20 +3,20 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d3g3e0ri13wxb"
-path="res://.godot/imported/Crab_Mesh.dae-cdcdfa92dd9a6021356868e6ed1d3129.scn"
+uid="uid://dcobbcilltmbp"
+path="res://.godot/imported/Pot_Mesh.fbx-e391374fdf9cbefcbc37526a9d7a0876.scn"
 
 [deps]
 
-source_file="res://Meshes/Crab/Import/Crab_Mesh.dae"
-dest_files=["res://.godot/imported/Crab_Mesh.dae-cdcdfa92dd9a6021356868e6ed1d3129.scn"]
+source_file="res://kitchen/Import/Pot_Mesh.fbx"
+dest_files=["res://.godot/imported/Pot_Mesh.fbx-e391374fdf9cbefcbc37526a9d7a0876.scn"]
 
 [params]
 
-nodes/root_type="Node3D"
-nodes/root_name="Crab_model"
+nodes/root_type="MeshInstance3D"
+nodes/root_name="Pot_Mesh"
 nodes/apply_root_scale=true
-nodes/root_scale=1.0
+nodes/root_scale=100.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true
@@ -27,8 +27,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
