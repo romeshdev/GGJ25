@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpv7ayoetui6n"]
+[gd_scene load_steps=8 format=3 uid="uid://dpv7ayoetui6n"]
+
+[ext_resource type="PackedScene" uid="uid://copgtu32iuviw" path="res://kitchen/Import/kitchenBlockout.tscn" id="1_qfwpg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
 size = Vector3(100, 0.5, 100)
@@ -6,11 +8,22 @@ size = Vector3(100, 0.5, 100)
 [sub_resource type="BoxMesh" id="BoxMesh_t6ff7"]
 size = Vector3(100, 0.5, 100)
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_6wbq0"]
+size = Vector3(0.899353, 0.702209, 3.89697)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78j0e"]
+size = Vector3(0.317383, 0.00592041, 1.58374)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbnq0"]
+size = Vector3(0.396057, 0.0449829, 0.230957)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ves4t"]
+size = Vector3(0.129028, 1.73254, 3.94098)
+
 [node name="RootKitchen" type="Node3D"]
-transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
 
 [node name="Bench" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31254, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bench"]
 
@@ -19,7 +32,30 @@ transform = Transform3D(0.999999, -0.00132203, -0.000751907, 0.00132111, 0.99999
 shape = SubResource("BoxShape3D_sihou")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Bench/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.0221336, -0.0108392)
 mesh = SubResource("BoxMesh_t6ff7")
+
+[node name="Kitchen" parent="Bench/StaticBody3D" instance=ExtResource("1_qfwpg")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bench/StaticBody3D/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0062561, 0.542641, -0.0446777)
+shape = SubResource("BoxShape3D_6wbq0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Bench/StaticBody3D/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.341309, 1.21365, 0.230835)
+shape = SubResource("BoxShape3D_78j0e")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Bench/StaticBody3D/Kitchen"]
+transform = Transform3D(0.575334, -0.817919, 0, 0.817919, 0.575334, 0, 0, 0, 1, 0.0880745, 1.04685, 0.874298)
+shape = SubResource("BoxShape3D_gbnq0")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Bench/StaticBody3D/Kitchen"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.509175, 0.732099, -0.0143127)
+shape = SubResource("BoxShape3D_ves4t")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0, 4.33209, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-1.45705e-08, 0.34202, -0.313231, 0, 0.939693, 0.114007, 0.333333, 1.49502e-08, -1.36918e-08, -0.45, 1.65, 0.01)
+fov = 58.6
