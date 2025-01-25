@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://d60p00unrcxi"]
+
+[ext_resource type="Script" path="res://claws/ClawRotationBehaviour.gd" id="1_1u0jg"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dsnk"]
+albedo_color = Color(1, 0.966667, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_htyoa"]
+size = Vector3(3, 3, 25)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_amkeg"]
+radius = 2.5
+
+[node name="RootClawRotator" type="Node3D"]
+script = ExtResource("1_1u0jg")
+
+[node name="ClawMesh" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.36454)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="ClawMesh"]
+material_override = SubResource("StandardMaterial3D_6dsnk")
+mesh = SubResource("BoxMesh_htyoa")
+skeleton = NodePath("../..")
+
+[node name="ClawHotSpot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+
+[node name="Area3D" type="Area3D" parent="ClawHotSpot"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ClawHotSpot/Area3D"]
+shape = SubResource("SphereShape3D_amkeg")

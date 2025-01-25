@@ -33,11 +33,16 @@ var camera_target_lateral : float = 0.5
 @export var cameraTargetStrafeRight : Node3D
 @export var cameraMan : CameraMan
 
+@export var leftClawRotator : ClawRotatorBehaviour
+@export var rightClawRotator : ClawRotatorBehaviour
+
 func _ready():
 	assert(cameraTarget != null)
 	assert(cameraTargetStrafeLeft != null)
 	assert(cameraTargetStrafeLeft != null)
 	assert(cameraMan != null)
+	assert(leftClawRotator != null)
+	assert(rightClawRotator != null)
 
 func _process(delta):
 	# Restore position if you fall off a cliff
