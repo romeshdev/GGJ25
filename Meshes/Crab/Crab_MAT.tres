@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://dqd5eybt24o1i" path="res://Meshes/Crab/Import/Crab_1.jpg" id="4_7o7au"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0dor7"]
-load_path = "res://.godot/imported/Crab2_2.jpg-58aca66109441ec2f1991b5f6330623f.s3tc.ctex"
 
 [resource]
 resource_name = "Crab_MAT"
