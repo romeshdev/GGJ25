@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/Crab.glb-68cd0acb1b57945f7074b10f0898d829.scn
 
 [params]
 
-nodes/root_type="MeshInstance3D"
+nodes/root_type="RigidBody3D"
 nodes/root_name="Crab"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
@@ -56,15 +56,6 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://Meshes/Crab/Crab_Arm_R.res"
-},
-"Crab_Claw_Low": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Claw_Low.res"
 },
 "Crab_Claw_R": {
 "generate/lightmap_uv": 0,
@@ -120,51 +111,6 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_Mid.res"
 },
-"Crab_Leg_L_1_Mid2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_Mid2.res"
-},
-"Crab_Leg_L_1_Mid3": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_Mid3.res"
-},
-"Crab_Leg_L_1_tip": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_tip.res"
-},
-"Crab_Leg_L_1_tip2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_tip2.res"
-},
-"Crab_Leg_L_1_tip3": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_L_1_tip3.res"
-},
 "Crab_Leg_L_2": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -201,24 +147,6 @@ _subresources={
 "save_to_file/enabled": true,
 "save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_Mid.res"
 },
-"Crab_Leg_R_1_Mid2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_Mid2.res"
-},
-"Crab_Leg_R_1_Mid3": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_Mid3.res"
-},
 "Crab_Leg_R_1_tip": {
 "generate/lightmap_uv": 0,
 "generate/lods": 0,
@@ -227,24 +155,6 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_tip.res"
-},
-"Crab_Leg_R_1_tip2": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_tip2.res"
-},
-"Crab_Leg_R_1_tip3": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Leg_R_1_tip3.res"
 },
 "Crab_Leg_R_2": {
 "generate/lightmap_uv": 0,
@@ -281,15 +191,6 @@ _subresources={
 "lods/normal_split_angle": 25.0,
 "save_to_file/enabled": true,
 "save_to_file/path": "res://Meshes/Crab/Crab_Mouth_R.res"
-},
-"Crab_Pincer_Low": {
-"generate/lightmap_uv": 0,
-"generate/lods": 0,
-"generate/shadow_meshes": 0,
-"lods/normal_merge_angle": 60.0,
-"lods/normal_split_angle": 25.0,
-"save_to_file/enabled": true,
-"save_to_file/path": "res://Meshes/Crab/Crab_Pincer_Low.res"
 },
 "Crab_Pincer_R": {
 "generate/lightmap_uv": 0,
