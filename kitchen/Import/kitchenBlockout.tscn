@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://copgtu32iuviw"]
+
+[ext_resource type="PackedScene" uid="uid://f3waflu4bi3r" path="res://kitchen/Import/KitchenBlockout.glb" id="1_jfnat"]
+
+[node name="Kitchen" instance=ExtResource("1_jfnat")]
