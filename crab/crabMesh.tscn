@@ -1,16 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://dynjip28sjse3"]
+[gd_scene load_steps=8 format=3 uid="uid://dynjip28sjse3"]
 
-[ext_resource type="PackedScene" uid="uid://huou0c4l3ybs" path="res://Meshes/Crab/Crab.glb" id="1_ampdv"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_piao4"]
-radius = 0.535369
+[ext_resource type="ArrayMesh" uid="uid://bqpp8ijdkhhot" path="res://Meshes/Crab/Crab_Crab_Body.res" id="1_e45uu"]
+[ext_resource type="ArrayMesh" uid="uid://cy8ew13ujtlne" path="res://Meshes/Crab/Crab_Arm_L.res" id="2_5prwb"]
+[ext_resource type="ArrayMesh" uid="uid://cjfi68174utab" path="res://Meshes/Crab/Crab_Claw_Low.res" id="3_vnh7r"]
+[ext_resource type="ArrayMesh" uid="uid://cfc535417kk11" path="res://Meshes/Crab/Crab_Pincer_Low.res" id="4_8wjbd"]
+[ext_resource type="ArrayMesh" uid="uid://dtkmvqj1sgvk3" path="res://Meshes/Crab/Crab_Arm_R.res" id="5_f6dl0"]
+[ext_resource type="ArrayMesh" uid="uid://bij6vjhi486tj" path="res://Meshes/Crab/Crab_Claw_R.res" id="6_645xq"]
+[ext_resource type="ArrayMesh" uid="uid://bxrp1tl2xf03j" path="res://Meshes/Crab/Crab_Pincer_R.res" id="7_tq0qp"]
 
 [node name="Crab" type="Node3D"]
 
-[node name="Crab" parent="." instance=ExtResource("1_ampdv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169277, 0.00555944, 0.00310421)
-skeleton = NodePath("")
+[node name="Skeleton3D" type="Skeleton3D" parent="."]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Crab"]
-transform = Transform3D(-5.89342e-07, -13.4826, 0, 13.4826, -5.89342e-07, 0, 0, 0, 13.4826, 0, 4.89552, 0)
-shape = SubResource("CapsuleShape3D_piao4")
+[node name="Body" type="MeshInstance3D" parent="."]
+mesh = ExtResource("1_e45uu")
+
+[node name="Arm_L" type="MeshInstance3D" parent="Body"]
+mesh = ExtResource("2_5prwb")
+
+[node name="Claw_L" type="MeshInstance3D" parent="Body/Arm_L"]
+mesh = ExtResource("3_vnh7r")
+skeleton = NodePath("../..")
+
+[node name="Pincer_L" type="MeshInstance3D" parent="Body/Arm_L/Claw_L"]
+mesh = ExtResource("4_8wjbd")
+skeleton = NodePath("../../..")
+
+[node name="Arm_R" type="MeshInstance3D" parent="Body"]
+mesh = ExtResource("5_f6dl0")
+
+[node name="Claw_R" type="MeshInstance3D" parent="Body/Arm_R"]
+mesh = ExtResource("6_645xq")
+skeleton = NodePath("../..")
+
+[node name="Pincer_R" type="MeshInstance3D" parent="Body/Arm_R/Claw_R"]
+mesh = ExtResource("7_tq0qp")
+skeleton = NodePath("../../..")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D9" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D10" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D11" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D12" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D13" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D14" type="MeshInstance3D" parent="Body"]
+
+[node name="MeshInstance3D15" type="MeshInstance3D" parent="Body"]

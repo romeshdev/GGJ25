@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cc680nn6uoldr"
-path.s3tc="res://.godot/imported/Crab_3.jpg-b5e90b284b0f520a03fbdab3236f2f0e.s3tc.ctex"
+path.s3tc="res://.godot/imported/Crab_3.jpg-953e6133cdb69c3274a6f7fcb654e214.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -14,8 +14,8 @@ generator_parameters={
 
 [deps]
 
-source_file="res://Meshes/Crab/Crab_3.jpg"
-dest_files=["res://.godot/imported/Crab_3.jpg-b5e90b284b0f520a03fbdab3236f2f0e.s3tc.ctex"]
+source_file="res://Meshes/Crab/Import/Crab_3.jpg"
+dest_files=["res://.godot/imported/Crab_3.jpg-953e6133cdb69c3274a6f7fcb654e214.s3tc.ctex"]
 
 [params]
 
