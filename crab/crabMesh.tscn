@@ -6,7 +6,6 @@
 radius = 0.535369
 
 [node name="Crab" type="Node3D"]
-transform = Transform3D(1.00067, 0, 0, 0, 1.00067, 0, 0, 0, 1.00067, 0, 0, 0)
 
 [node name="Crab" parent="." instance=ExtResource("1_ampdv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169277, 0.00555944, 0.00310421)
