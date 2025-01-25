@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://btno0h7kc8ui4"]
+
+[ext_resource type="Script" path="res://jukebox/JukeboxBehaviour.gd" id="1_co200"]
+[ext_resource type="AudioStream" uid="uid://ceqprsg3ergq8" path="res://jukebox/Crab Gameplay Music.wav" id="2_uhjff"]
+
+[node name="RootJukebox" type="Node"]
+script = ExtResource("1_co200")
+
+[node name="InGameMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uhjff")
+autoplay = true
