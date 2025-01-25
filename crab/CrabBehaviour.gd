@@ -17,9 +17,9 @@ const ROTATE_DECELERATION_GROUND : float = 40
 const ROTATE_DECELERATION_AIR : float = 3
 const ROTATE_MAX_SPEED : float = 20
 
-const JUMP_VELOCITY : float = 10
-const GRAVITY_MIN : float = 0.5
-const GRAVITY_MAX : float = 2
+const JUMP_VELOCITY : float = 140
+const GRAVITY_MIN : float = 16
+const GRAVITY_MAX : float = 30
 
 const HEADCHECK_SPEED : float = 2
 
