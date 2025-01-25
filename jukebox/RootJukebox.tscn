@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://btno0h7kc8ui4"]
+[gd_scene load_steps=4 format=3 uid="uid://btno0h7kc8ui4"]
 
 [ext_resource type="Script" path="res://jukebox/JukeboxBehaviour.gd" id="1_co200"]
 [ext_resource type="AudioStream" uid="uid://dvpslcoehlt7d" path="res://jukebox/Crab Gameplay Music.ogg" id="2_j1mmn"]
+[ext_resource type="AudioStream" uid="uid://bmprbvd6k78s" path="res://jukebox/Crab Menu Loop.ogg" id="3_0jk3k"]
 
-[node name="RootJukebox" type="Node"]
+[node name="RootJukebox" type="Node" node_paths=PackedStringArray("inGameMusic", "titleMusic")]
 script = ExtResource("1_co200")
+inGameMusic = NodePath("InGameMusicPlayer")
+titleMusic = NodePath("TitleMusicPlayer")
 
 [node name="InGameMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_j1mmn")
-autoplay = true
+
+[node name="TitleMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_0jk3k")

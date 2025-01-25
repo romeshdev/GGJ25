@@ -6,6 +6,7 @@ class_name GameBehaviour extends Node
 func _ready():
 	assert(crab != null)
 	assert(akimbo != null)
+	Jukebox.playInGameMusic()
 
 func _process(delta):
 	# Send information from UI to crab
