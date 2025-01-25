@@ -2,7 +2,8 @@ class_name CrabBehaviour extends CharacterBody3D
 
 const STRAFE_ACCELERATION : float = 20
 const STRAFE_DECELERATION : float = 5
-const STRAFE_DECELERATION_FROM_ROTATION : float = 2 
+const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
+const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
 const STRAFE_DECELERATION_FROM_GROUND_FRICTION : float = 10
 const STRAFE_DECELERATION_FROM_AIR_FRICTION : float = 1
 
@@ -21,6 +22,7 @@ func _process(delta):
 	# Restore position
 	if position.y < -5:
 		position = Vector3.UP * 3
+		velocity = Vector3.ZERO
 
 func _physics_process(delta):
 	# Handle jump
@@ -31,11 +33,16 @@ func _physics_process(delta):
 		
 	# Fall down
 	if not onFloor:
+		# Variable jumping height
 		var gravity = get_gravity()
 		if holdingJump and velocity.y > 0:
 			gravity = gravity * GRAVITY_MIN
 		else:
 			gravity = gravity * GRAVITY_MAX
+		# Apply helicopter
+		var helicopter : float = abs(rotation_speed) / ROTATE_MAX_SPEED
+		gravity = gravity * (1 - helicopter)
+		# Apply gravity
 		velocity += gravity * delta
 
 	# Handle rotation
@@ -59,9 +66,10 @@ func _physics_process(delta):
 		
 	# Handle friction
 	var deceleration = STRAFE_DECELERATION * delta
-	deceleration = deceleration * (1 + abs(input_rotation) * STRAFE_DECELERATION_FROM_ROTATION)
-	var friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
-	deceleration = deceleration * (1 + (1 - abs(input_strafe)) * friction)
+	var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if onFloor else STRAFE_DECELERATION_FROM_AIR_ROTATION
+	deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
+	var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
+	deceleration = deceleration * (1 + (1 - abs(input_strafe)) * strafing_friction)
 	velocity.x = move_toward(velocity.x, 0, deceleration)
 	velocity.z = move_toward(velocity.z, 0, deceleration)
 
