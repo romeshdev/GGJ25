@@ -8,7 +8,7 @@ size = Vector3(0.25, 0.25, 2)
 [sub_resource type="BoxMesh" id="BoxMesh_m8nwp"]
 size = Vector3(1, 0.25, 1)
 
-[node name="Claw" type="Node3D"]
+[node name="Claws" type="Node3D"]
 
 [node name="Pincer_L" type="Node3D" parent="."]
 transform = Transform3D(0.983647, 0, -0.180107, 0, 1, 0, 0.180107, 0, 0.983647, 0.352793, 0, 0)

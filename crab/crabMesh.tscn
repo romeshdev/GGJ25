@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dynjip28sjse3"]
+
+[ext_resource type="PackedScene" uid="uid://huou0c4l3ybs" path="res://Meshes/Crab/Crab.glb" id="1_ampdv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_piao4"]
+radius = 0.535369
+
+[node name="Crab" type="Node3D"]
+
+[node name="Crab" parent="." instance=ExtResource("1_ampdv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00169277, 0.00555944, 0.00310421)
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Crab"]
+transform = Transform3D(-5.89342e-07, -13.4826, 0, 13.4826, -5.89342e-07, 0, 0, 0, 13.4826, 0, 4.89552, 0)
+shape = SubResource("CapsuleShape3D_piao4")

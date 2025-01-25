@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://dlss7mgyb4553"]
+
+[ext_resource type="Material" uid="uid://qi4e31wy35rp" path="res://Rom_CrabGrab/Crab/box_crab_material_3d.tres" id="1_lt86h"]
+[ext_resource type="Script" path="res://Rom_CrabGrab/Crab/claws.gd" id="1_s53jg"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3pqfy"]
+size = Vector3(0.25, 0.25, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_m8nwp"]
+size = Vector3(1, 0.25, 1)
+
+[node name="Claws" type="Node3D"]
+script = ExtResource("1_s53jg")
+
+[node name="Claw_R" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.71057, 0, -1.83508)
+
+[node name="Pincer_Static" type="Node3D" parent="Claw_R"]
+transform = Transform3D(0.999998, 0, 0.00197222, 0, 1, 0, -0.00197222, 0, 0.999998, 0.361458, 0, 0)
+
+[node name="Pincer" type="MeshInstance3D" parent="Claw_R/Pincer_Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.996704)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_3pqfy")
+skeleton = NodePath("../..")
+
+[node name="Pincer" type="Node3D" parent="Claw_R"]
+transform = Transform3D(0.984808, 0, 0.173648, 0, 1, 0, -0.173648, 0, 0.984808, -0.327199, 0, 0)
+
+[node name="Pincer" type="MeshInstance3D" parent="Claw_R/Pincer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.996704)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_3pqfy")
+skeleton = NodePath("../..")
+
+[node name="ClawBase" type="MeshInstance3D" parent="Claw_R"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00220335, 0, 0)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_m8nwp")
+
+[node name="Claw_L" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.74304, 0, -1.83508)
+
+[node name="Pincer" type="Node3D" parent="Claw_L"]
+transform = Transform3D(0.984808, 0, -0.173648, 0, 1, 0, 0.173648, 0, 0.984808, 0.352793, 0, 0)
+
+[node name="Pincer" type="MeshInstance3D" parent="Claw_L/Pincer"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.996704)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_3pqfy")
+skeleton = NodePath("../..")
+
+[node name="Pincer_Static" type="Node3D" parent="Claw_L"]
+transform = Transform3D(0.999973, 0, 0.00740011, 0, 1, 0, -0.00740011, 0, 0.999973, -0.380117, 0, 0)
+
+[node name="Pincer" type="MeshInstance3D" parent="Claw_L/Pincer_Static"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.996704)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_3pqfy")
+skeleton = NodePath("../..")
+
+[node name="ClawBase" type="MeshInstance3D" parent="Claw_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00220335, 0, 0)
+material_override = ExtResource("1_lt86h")
+mesh = SubResource("BoxMesh_m8nwp")
