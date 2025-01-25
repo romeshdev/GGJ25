@@ -41,6 +41,7 @@ func _ready():
 	assert(rightClaw != null)
 
 func _process(delta):
+	# Parse rotation
 	rotation_axis = (leftClaw.input.y - rightClaw.input.y) / 2
 	rotation_axis = rotation_axis*rotation_axis*rotation_axis
 	if abs(rotation_axis) < ROTATION_DEAD_ZONE:
