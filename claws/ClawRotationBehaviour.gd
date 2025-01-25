@@ -24,7 +24,6 @@ func _process(delta):
 	if flip:
 		target.x = max(0.00001, target.x)
 		angle = _normalizeAngle(-PI/2 -target.angle())
-		print(angle)
 		angle = clamp(angle, MIN_ANGLE_FLIPPED, MAX_ANGLE_FLIPPED)
 	else:
 		target.x = min(0, target.x)
