@@ -1,117 +1,117 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1invxi4ndf8x"]
 
-[ext_resource type="PackedScene" uid="uid://d3g3e0ri13wxb" path="res://Meshes/Crab/Import/Crab_Mesh.dae" id="1_ntqmh"]
-[ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="2_8147d"]
+[ext_resource type="PackedScene" uid="uid://dlx305d41030k" path="res://Meshes/Crab/Import/Crab_Rig.fbx" id="1_ahsck"]
+[ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="2_jvmw5"]
 
-[node name="Crab_model" instance=ExtResource("1_ntqmh")]
+[node name="Crab_Rig" instance=ExtResource("1_ahsck")]
 
 [node name="Crab_Body" parent="Skeleton3D" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_3" parent="Skeleton3D/Crab_Body" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_3" parent="Skeleton3D" index="1"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_Mid" parent="Skeleton3D/Crab_Body/Leg_L_3" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_2" parent="Skeleton3D" index="2"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_tip" parent="Skeleton3D/Crab_Body/Leg_L_3/Leg_L_1_Mid" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1" parent="Skeleton3D" index="3"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_2" parent="Skeleton3D/Crab_Body" index="1"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_L" parent="Skeleton3D" index="4"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_Mid_ncl1_1" parent="Skeleton3D/Crab_Body/Leg_L_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Arm_L" parent="Skeleton3D" index="5"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_tip_ncl1_1" parent="Skeleton3D/Crab_Body/Leg_L_2/Leg_L_1_Mid_ncl1_1" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Eye_L" parent="Skeleton3D" index="6"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1" parent="Skeleton3D/Crab_Body" index="2"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Mouth_L" parent="Skeleton3D" index="7"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_Mid_ncl1_2" parent="Skeleton3D/Crab_Body/Leg_L_1" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Mouth_R" parent="Skeleton3D" index="8"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_L_1_tip_ncl1_2" parent="Skeleton3D/Crab_Body/Leg_L_1/Leg_L_1_Mid_ncl1_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Eye_R" parent="Skeleton3D" index="9"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_L" parent="Skeleton3D/Crab_Body" index="3"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Arm_R" parent="Skeleton3D" index="10"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_L_2" parent="Skeleton3D/Crab_Body/Swimmer_L" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_R" parent="Skeleton3D" index="11"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_L_3" parent="Skeleton3D/Crab_Body/Swimmer_L/Swimmer_L_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1" parent="Skeleton3D" index="12"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_L_End" parent="Skeleton3D/Crab_Body/Swimmer_L/Swimmer_L_2/Swimmer_L_3" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_2" parent="Skeleton3D" index="13"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Arm_L" parent="Skeleton3D/Crab_Body" index="4"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_3" parent="Skeleton3D" index="14"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Claw_Low" parent="Skeleton3D/Crab_Body/Arm_L" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_Mid" parent="Skeleton3D" index="15"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Pincer_Low" parent="Skeleton3D/Crab_Body/Arm_L/Claw_Low" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_Mid2" parent="Skeleton3D" index="16"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Eye_L" parent="Skeleton3D/Crab_Body" index="5"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_Mid3" parent="Skeleton3D" index="17"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Mouth_L" parent="Skeleton3D/Crab_Body" index="6"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_L_2" parent="Skeleton3D" index="18"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Mouth_R" parent="Skeleton3D/Crab_Body" index="7"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Claw_Low" parent="Skeleton3D" index="19"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Eye_R" parent="Skeleton3D/Crab_Body" index="8"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Claw_R" parent="Skeleton3D" index="20"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Arm_R" parent="Skeleton3D/Crab_Body" index="9"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_R_2" parent="Skeleton3D" index="21"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Claw_R" parent="Skeleton3D/Crab_Body/Arm_R" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_Mid" parent="Skeleton3D" index="22"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Pincer_R" parent="Skeleton3D/Crab_Body/Arm_R/Claw_R" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_Mid2" parent="Skeleton3D" index="23"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_R" parent="Skeleton3D/Crab_Body" index="10"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_Mid3" parent="Skeleton3D" index="24"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_R_2" parent="Skeleton3D/Crab_Body/Swimmer_R" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_tip" parent="Skeleton3D" index="25"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_R_3" parent="Skeleton3D/Crab_Body/Swimmer_R/Swimmer_R_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_tip2" parent="Skeleton3D" index="26"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Swimmer_R_End" parent="Skeleton3D/Crab_Body/Swimmer_R/Swimmer_R_2/Swimmer_R_3" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_L_1_tip3" parent="Skeleton3D" index="27"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1" parent="Skeleton3D/Crab_Body" index="11"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_L_3" parent="Skeleton3D" index="28"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_Mid" parent="Skeleton3D/Crab_Body/Leg_R_1" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Pincer_Low" parent="Skeleton3D" index="29"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_tip" parent="Skeleton3D/Crab_Body/Leg_R_1/Leg_R_1_Mid" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Pincer_R" parent="Skeleton3D" index="30"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_2" parent="Skeleton3D/Crab_Body" index="12"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_R_3" parent="Skeleton3D" index="31"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_Mid_ncl1_1" parent="Skeleton3D/Crab_Body/Leg_R_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_tip" parent="Skeleton3D" index="32"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_tip_ncl1_1" parent="Skeleton3D/Crab_Body/Leg_R_2/Leg_R_1_Mid_ncl1_1" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_tip2" parent="Skeleton3D" index="33"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_3" parent="Skeleton3D/Crab_Body" index="13"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Leg_R_1_tip3" parent="Skeleton3D" index="34"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_Mid_ncl1_2" parent="Skeleton3D/Crab_Body/Leg_R_3" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_L_End" parent="Skeleton3D" index="35"]
+material_override = ExtResource("2_jvmw5")
 
-[node name="Leg_R_1_tip_ncl1_2" parent="Skeleton3D/Crab_Body/Leg_R_3/Leg_R_1_Mid_ncl1_2" index="0"]
-surface_material_override/0 = ExtResource("2_8147d")
+[node name="Swimmer_R_End" parent="Skeleton3D" index="36"]
+material_override = ExtResource("2_jvmw5")

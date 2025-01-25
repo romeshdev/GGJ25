@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c6bs52ig3ixel"
-path="res://.godot/imported/Rig.dae-ea07eb227323b0e42a4f5b0d952929a6.scn"
+uid="uid://dlx305d41030k"
+path="res://.godot/imported/Crab_Rig.fbx-1ddd2279b5765b627dc10b051060e809.scn"
 
 [deps]
 
-source_file="res://Meshes/Crab/Import/Rig.dae"
-dest_files=["res://.godot/imported/Rig.dae-ea07eb227323b0e42a4f5b0d952929a6.scn"]
+source_file="res://Meshes/Crab/Import/Crab_Rig.fbx"
+dest_files=["res://.godot/imported/Crab_Rig.fbx-1ddd2279b5765b627dc10b051060e809.scn"]
 
 [params]
 
-nodes/root_type=""
-nodes/root_name=""
+nodes/root_type="CharacterBody3D"
+nodes/root_name="Crab_TEst"
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false
@@ -27,8 +27,11 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
 _subresources={}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
