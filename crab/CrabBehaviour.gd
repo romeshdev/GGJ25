@@ -1,12 +1,13 @@
 class_name CrabBehaviour extends CharacterBody3D
 
-const MOVE_ACCELERATION = 0.2
-const MOVE_DECELERATION = 0.4
-const ROTATE_ACCELERATION = 0.2
-const ROTATE_DECELERATION = 0.4
-const JUMP_VELOCITY = 4.5
+const MOVE_ACCELERATION : float = 0.2
+const MOVE_DECELERATION : float = 0.4
+const ROTATE_ACCELERATION : float = 0.2
+const ROTATE_DECELERATION : float = 0.4
+const JUMP_VELOCITY : float = 4.5
 
-var rotation_speed = 0.0
+var rotation_speed : float = 0.0
+var input_rotation : float = 0.0 
 
 func _physics_process(delta):
 	# Fall down
@@ -19,7 +20,6 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 		
 	# Handle rotation
-	var input_rotation = Input.get_axis("crab_rotate_left", "crab_rotate_right")
 	if input_rotation:
 		rotation_speed = move_toward(rotation_speed, input_rotation, ROTATE_ACCELERATION)
 	else:
@@ -27,8 +27,7 @@ func _physics_process(delta):
 		
 	rotate_y(rotation_speed * delta)
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
+	# Handle strafing
 	var input_strafe = Input.get_axis("crab_strafe_left", "crab_strafe_right")
 	var direction = (transform.basis * Vector3(input_strafe, 0, 0)).normalized()
 	if input_strafe:

@@ -7,6 +7,8 @@ class_name ClawInterface extends Control
 @export var actionUp : StringName
 @export var actionDown : StringName
 
+var input : Vector2
+
 func _ready():
 	assert(clawContainer != null)
 	assert(clawPosition != null)
@@ -16,6 +18,6 @@ func _ready():
 	assert(actionDown != "")
 
 func _process(delta):
-	var input : Vector2 = Input.get_vector(actionLeft, actionRight, actionUp, actionDown)
+	input = Input.get_vector(actionLeft, actionRight, actionUp, actionDown)
 	clawPosition.set_position(clawContainer.size * 0.5 * input)
 	
