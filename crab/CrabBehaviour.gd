@@ -18,6 +18,15 @@ const GRAVITY_MAX : float = 2
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
 
+@export var cameraTarget : Node3D
+@export var cameraTargetStrafeLeft : Node3D
+@export var cameraTargetStrafeRight : Node3D
+
+func _ready():
+	assert(cameraTarget != null)
+	assert(cameraTargetStrafeLeft != null)
+	assert(cameraTargetStrafeLeft != null)
+
 func _process(delta):
 	# Restore position
 	if position.y < -5:
@@ -63,6 +72,10 @@ func _physics_process(delta):
 		var acceleration = (direction * STRAFE_ACCELERATION * delta).normalized()
 		velocity.x = velocity.x + acceleration.x
 		velocity.z = velocity.z + acceleration.z
+		
+	# Update camera target based on strafe
+	var targetInterpolation : float = (input_strafe + 1) / 2
+	cameraTarget.global_position = cameraTargetStrafeLeft.global_position.lerp(cameraTargetStrafeRight.global_position, targetInterpolation)
 		
 	# Handle friction
 	var deceleration = STRAFE_DECELERATION * delta
