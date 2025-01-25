@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cehvyh1snjqwm"]
+[gd_scene load_steps=8 format=3 uid="uid://cehvyh1snjqwm"]
 
 [ext_resource type="Script" path="res://Rom_CrabGrab/Crab/crab.gd" id="1_ievgp"]
 [ext_resource type="Material" uid="uid://qi4e31wy35rp" path="res://Rom_CrabGrab/Crab/box_crab_material_3d.tres" id="1_uny77"]
 [ext_resource type="PackedScene" uid="uid://dlss7mgyb4553" path="res://Rom_CrabGrab/Crab/claws.tscn" id="3_jgypo"]
+[ext_resource type="PackedScene" uid="uid://huou0c4l3ybs" path="res://Meshes/Crab/Crab.glb" id="4_edt0r"]
+[ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="4_ynrov"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rhln5"]
 size = Vector3(1.965, 0.595, 1)
@@ -22,3 +24,16 @@ material_override = ExtResource("1_uny77")
 mesh = SubResource("BoxMesh_2vedn")
 
 [node name="Claws" parent="CrabBod" instance=ExtResource("3_jgypo")]
+visible = false
+
+[node name="Claw_L" parent="CrabBod" instance=ExtResource("4_ynrov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 0)
+claw_side = "L"
+
+[node name="Claw_R" parent="CrabBod" instance=ExtResource("4_ynrov")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.95502, 0, 0)
+
+[node name="Crab" parent="." instance=ExtResource("4_edt0r")]
+visible = false
+
+[editable path="Crab"]
