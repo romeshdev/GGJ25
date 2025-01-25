@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw88hd3ruqhfo"]
+[gd_scene load_steps=3 format=3 uid="uid://bc1csvwju4t4j"]
 
-[ext_resource type="Script" path="res://defeat/DefeatBehaviour.gd" id="1_pbima"]
-[ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_e2yms"]
+[ext_resource type="Script" path="res://victory/VictoryBehaviour.gd" id="1_0i7pn"]
+[ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_etivm"]
 
-[node name="RootDefeat" type="Control"]
+[node name="RootVictory" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_pbima")
+script = ExtResource("1_0i7pn")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -26,12 +26,12 @@ theme_override_constants/separation = 60
 
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You lose!"
+text = "You win!"
 
 [node name="ButtonTitle" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Okay"
 
-[node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonTitle" instance=ExtResource("2_e2yms")]
+[node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonTitle" instance=ExtResource("2_etivm")]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonTitle" to="." method="_on_button_title_pressed"]
