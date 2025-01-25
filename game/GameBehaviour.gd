@@ -15,6 +15,8 @@ func _ready():
 
 func _process(_delta):
 	# Send information from UI to crab
+	crab.left_claw_position = akimbo.leftClawPosition
+	crab.right_claw_position = akimbo.rightClawPosition
 	crab.input_rotation = akimbo.rotation_axis
 	crab.input_advance = akimbo.movement_axis
 	

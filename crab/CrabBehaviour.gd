@@ -27,6 +27,8 @@ var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
 var input_advance : float = 0.0
 var camera_target_lateral : float = 0.5
+var right_claw_position : Vector2
+var left_claw_position : Vector2
 
 @export var cameraTarget : Node3D
 @export var cameraTargetStrafeLeft : Node3D
@@ -73,6 +75,10 @@ func _physics_process(delta):
 		# Apply gravity
 		velocity += gravity * delta
 
+	# Handle claw positions
+	if left_claw_position.length_squared() > 0.1:
+		leftClawRotator.target = left_claw_position
+
 	# Handle rotation
 	if input_rotation and onFloor:
 		var acceleration : float = ROTATE_ACCELERATION * delta * input_rotation
@@ -97,7 +103,7 @@ func _physics_process(delta):
 	if input_advance != 0:
 		var direction : Vector3 = (transform.basis * Vector3(0, 0, input_advance))
 		var acceleration_amount = ADVANCE_ACCELERATION if input_advance < 0 else RETREAT_ACCELERATION
-		var acceleration = direction.normalized() * delta * ADVANCE_ACCELERATION
+		var acceleration = direction.normalized() * delta * acceleration_amount
 		velocity.x = velocity.x + acceleration.x
 		velocity.z = velocity.z + acceleration.z
 		
