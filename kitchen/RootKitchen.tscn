@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpv7ayoetui6n"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(100, 0.5, 100)
 
 [sub_resource type="BoxMesh" id="BoxMesh_t6ff7"]
-size = Vector3(10, 0.5, 10)
+size = Vector3(100, 0.5, 100)
 
 [node name="RootKitchen" type="Node3D"]
 transform = Transform3D(3, 0, 0, 0, 1, 0, 0, 0, 3, 0, 0, 0)
