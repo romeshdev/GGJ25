@@ -1,9 +1,9 @@
 class_name CrabBehaviour extends CharacterBody3D
 
-const ADVANCE_ACCELERATION : float = 0.2
-const RETREAT_ACCELERATION : float = 0.1
+const ADVANCE_ACCELERATION : float = 5
+const RETREAT_ACCELERATION : float = 2
 
-const STRAFE_ACCELERATION : float = 1
+const STRAFE_ACCELERATION : float = 100
 const STRAFE_DECELERATION : float = 6
 const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
 const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
@@ -79,17 +79,17 @@ func _physics_process(delta):
 
 	# Handle strafing
 	var input_strafe : float = Input.get_axis("crab_strafe_left", "crab_strafe_right")
-	if input_strafe:
+	if input_strafe != 0:
 		var direction : Vector3 = (transform.basis * Vector3(input_strafe, 0, 0))
-		var acceleration = (direction * delta).normalized()*STRAFE_ACCELERATION
+		var acceleration = direction.normalized() * delta * STRAFE_ACCELERATION
 		velocity.x = velocity.x + acceleration.x
 		velocity.z = velocity.z + acceleration.z
 		
 	# Handle advance / retreat
-	if input_advance:
+	if input_advance != 0:
 		var direction : Vector3 = (transform.basis * Vector3(0, 0, input_advance))
 		var acceleration_amount = ADVANCE_ACCELERATION if input_advance < 0 else RETREAT_ACCELERATION
-		var acceleration = (direction * delta).normalized()*ADVANCE_ACCELERATION
+		var acceleration = direction.normalized() * delta * ADVANCE_ACCELERATION
 		velocity.x = velocity.x + acceleration.x
 		velocity.z = velocity.z + acceleration.z
 		
@@ -106,13 +106,14 @@ func _physics_process(delta):
 		cameraMan.targetZoom = 1 - input_move_amount
 		
 	# Handle friction
-	var deceleration = STRAFE_DECELERATION * delta
-	var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if onFloor else STRAFE_DECELERATION_FROM_AIR_ROTATION
-	deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
-	var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
-	deceleration = deceleration * (1 + (1 - input_move_amount) * strafing_friction)
-	velocity.x = move_toward(velocity.x, 0, deceleration)
-	velocity.z = move_toward(velocity.z, 0, deceleration)
+	if input_move_amount == 0:
+		var deceleration = STRAFE_DECELERATION * delta
+		var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if onFloor else STRAFE_DECELERATION_FROM_AIR_ROTATION
+		deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
+		var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
+		deceleration = deceleration * (1 + (1 - input_move_amount) * strafing_friction)
+		velocity.x = move_toward(velocity.x, 0, deceleration)
+		velocity.z = move_toward(velocity.z, 0, deceleration)
 
  	# Update position
 	move_and_slide()
