@@ -32,4 +32,5 @@ layout_mode = 1
 
 [node name="RootJukebox" parent="." instance=ExtResource("5_366d5")]
 
+[connection signal="fellOffCliff" from="RootCrab" to="." method="_on_root_crab_fell_off_cliff"]
 [connection signal="timeout" from="RootInterface/TimerInferface" to="." method="_on_timer_inferface_timeout"]

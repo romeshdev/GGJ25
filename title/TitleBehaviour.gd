@@ -8,7 +8,7 @@ func _process(delta):
 		_quit()
 
 func _quit():
-	_quit()
+	get_tree().quit()
 
 func _on_button_play_pressed():
 	var game = load("res://game/RootGame.tscn").instantiate()
@@ -16,4 +16,4 @@ func _on_button_play_pressed():
 	queue_free()
 
 func _on_button_quit_pressed():
-	get_tree().quit()
+	_quit()

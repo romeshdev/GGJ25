@@ -1,5 +1,7 @@
 class_name CrabBehaviour extends CharacterBody3D
 
+signal fellOffCliff
+
 const ADVANCE_ACCELERATION : float = 5
 const RETREAT_ACCELERATION : float = 2
 
@@ -42,6 +44,7 @@ func _process(delta):
 	if position.y < -10:
 		position = Vector3.UP * 3
 		velocity = Vector3.ZERO
+		fellOffCliff.emit()
 
 func _physics_process(delta):
 	# Handle jump

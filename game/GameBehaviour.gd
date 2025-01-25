@@ -3,6 +3,11 @@ class_name GameBehaviour extends Node
 @export var crab : CrabBehaviour
 @export var akimbo : AkimboInterface
 
+func _goToVictory():
+	var victory = load("res://victory/RootVictory.tscn").instantiate()
+	get_tree().root.add_child(victory)
+	queue_free()
+
 func _ready():
 	assert(crab != null)
 	assert(akimbo != null)
@@ -23,3 +28,6 @@ func _on_timer_inferface_timeout():
 	var defeat = load("res://defeat/RootDefeat.tscn").instantiate()
 	get_tree().root.add_child(defeat)
 	queue_free()
+
+func _on_root_crab_fell_off_cliff():
+	_goToVictory()
