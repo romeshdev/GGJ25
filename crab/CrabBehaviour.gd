@@ -1,9 +1,11 @@
 class_name CrabBehaviour extends CharacterBody3D
 
-const MOVE_ACCELERATION : float = 0.2
-const MOVE_DECELERATION : float = 0.4
-const ROTATE_ACCELERATION : float = 0.2
-const ROTATE_DECELERATION : float = 0.4
+const STRAFE_ACCELERATION : float = 20
+const STRAFE_DECELERATION : float = 5
+const STRAFE_DECELERATION_FROM_ROTATION : float = 2 
+const STRAFE_DECELERATION_FROM_NO_INPUT : float = 10
+const ROTATE_ACCELERATION : float = 20
+const ROTATE_DECELERATION : float = 40
 const JUMP_VELOCITY : float = 4.5
 
 var rotation_speed : float = 0.0
@@ -29,12 +31,17 @@ func _physics_process(delta):
 
 	# Handle strafing
 	var input_strafe = Input.get_axis("crab_strafe_left", "crab_strafe_right")
-	var direction = (transform.basis * Vector3(input_strafe, 0, 0)).normalized()
+	var direction = (transform.basis * Vector3(input_strafe, 0, 0))
 	if input_strafe:
-		velocity.x = velocity.x + direction.x * MOVE_ACCELERATION
-		velocity.z = velocity.z + direction.z * MOVE_ACCELERATION
-	else:
-		velocity.x = move_toward(velocity.x, 0, MOVE_DECELERATION)
-		velocity.z = move_toward(velocity.z, 0, MOVE_DECELERATION)
+		var acceleration = (direction * STRAFE_ACCELERATION * delta).normalized()
+		velocity.x = velocity.x + acceleration.x
+		velocity.z = velocity.z + acceleration.z
+		
+	# Handle friction
+	var deceleration = STRAFE_DECELERATION * delta
+	deceleration = deceleration * (1 + abs(input_rotation) * STRAFE_DECELERATION_FROM_ROTATION)
+	deceleration = deceleration * (1 + (1 - abs(input_strafe)) * STRAFE_DECELERATION_FROM_NO_INPUT)
+	velocity.x = move_toward(velocity.x, 0, deceleration)
+	velocity.z = move_toward(velocity.z, 0, deceleration)
 
 	move_and_slide()
