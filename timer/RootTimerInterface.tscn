@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk2qxui4d4s0l"]
+
+[ext_resource type="Script" path="res://timer/TimerBehaviour.gd" id="1_houmj"]
+
+[node name="TimerInferface" type="Control" node_paths=PackedStringArray("label")]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+script = ExtResource("1_houmj")
+label = NodePath("Label")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "05:00"
+horizontal_alignment = 1
