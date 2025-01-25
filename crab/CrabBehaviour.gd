@@ -83,8 +83,11 @@ func _physics_process(delta):
 	camera_target_lateral = lerp(camera_target_lateral, targetInterpolation, delta * HEADCHECK_SPEED)
 	cameraTarget.global_position = cameraTargetStrafeLeft.global_position.lerp(cameraTargetStrafeRight.global_position, camera_target_lateral)
 		
-	# Update camera zoom based on strafe
-	cameraMan.targetZoom = 1 - abs(input_strafe)
+	# Update camera zoom based on strafe / jumpign
+	if not onFloor:
+		cameraMan.targetZoom = 0
+	else:
+		cameraMan.targetZoom = 1 - abs(input_strafe)
 		
 	# Handle friction
 	var deceleration = STRAFE_DECELERATION * delta
