@@ -8,7 +8,8 @@ const STRAFE_DECELERATION_FROM_GROUND_FRICTION : float = 10
 const STRAFE_DECELERATION_FROM_AIR_FRICTION : float = 1
 
 const ROTATE_ACCELERATION : float = 20
-const ROTATE_DECELERATION : float = 40
+const ROTATE_DECELERATION_GROUND : float = 40
+const ROTATE_DECELERATION_AIR : float = 3
 const ROTATE_MAX_SPEED : float = 20
 
 const JUMP_VELOCITY : float = 10
@@ -55,18 +56,20 @@ func _physics_process(delta):
 			gravity = gravity * GRAVITY_MAX
 		# Apply helicopter
 		var helicopter : float = abs(rotation_speed) / ROTATE_MAX_SPEED
+		helicopter = helicopter * helicopter * helicopter
 		gravity = gravity * (1 - helicopter)
 		# Apply gravity
 		velocity += gravity * delta
 
 	# Handle rotation
-	if input_rotation:
+	if input_rotation and onFloor:
 		var acceleration : float = ROTATE_ACCELERATION * delta * input_rotation
 		rotation_speed = rotation_speed + acceleration
 		if abs(rotation_speed) > ROTATE_MAX_SPEED:
 			rotation_speed = ROTATE_MAX_SPEED * sign(rotation_speed)
 	else:
-		var deceleration : float = ROTATE_DECELERATION * delta
+		var deceleration_rate : float = ROTATE_DECELERATION_GROUND if onFloor else ROTATE_DECELERATION_AIR 
+		var deceleration : float = deceleration_rate * delta
 		rotation_speed = move_toward(rotation_speed, 0, deceleration)
 	rotate_y(rotation_speed * delta)
 
