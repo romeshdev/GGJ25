@@ -16,6 +16,3 @@ func playTitleMusic() -> void:
 func _ready():
 	assert(inGameMusic != null)
 	assert(titleMusic != null)
-	 
-func _process(delta):
-	pass

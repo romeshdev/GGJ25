@@ -36,6 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ClawIndicator" type="ColorRect" parent="CenterContainer/ClawOrigin/ClawPosition"]
+visible = false
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
 anchors_preset = 8

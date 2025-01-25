@@ -3,7 +3,7 @@ class_name TitleBehaviour extends Control
 func _ready():
 	Jukebox.playTitleMusic()
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("ui_cancel"):
 		_quit()
 
