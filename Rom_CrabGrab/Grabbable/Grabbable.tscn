@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://d18ky2n8vt4td"]
+
+[node name="Grabbable" type="Node3D"]

@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://cmancnhnv4k1a"]
+
+[ext_resource type="Script" path="res://game/GameBehaviour.gd" id="1_pk437"]
+[ext_resource type="PackedScene" uid="uid://dpv7ayoetui6n" path="res://kitchen/RootKitchen.tscn" id="2_me5x7"]
+[ext_resource type="PackedScene" uid="uid://dcl42qv1uyaky" path="res://crab/RootCrab.tscn" id="2_tl46b"]
+[ext_resource type="PackedScene" uid="uid://b1kniidog757q" path="res://claws/AkimboInterface.tscn" id="3_dx6u8"]
+[ext_resource type="PackedScene" uid="uid://btno0h7kc8ui4" path="res://jukebox/RootJukebox.tscn" id="5_366d5"]
+
+[node name="RootGame" type="Node" node_paths=PackedStringArray("crab", "akimbo")]
+script = ExtResource("1_pk437")
+crab = NodePath("RootCrab")
+akimbo = NodePath("RootInterface/AkimboInterface")
+
+[node name="RootCrab" parent="." instance=ExtResource("2_tl46b")]
+
+[node name="RootKitchen" parent="." instance=ExtResource("2_me5x7")]
+
+[node name="RootInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AkimboInterface" parent="RootInterface" instance=ExtResource("3_dx6u8")]
+layout_mode = 1
+
+[node name="RootJukebox" parent="." instance=ExtResource("5_366d5")]

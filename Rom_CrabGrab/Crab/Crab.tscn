@@ -1,3 +1,54 @@
-[gd_scene format=3 uid="uid://cehvyh1snjqwm"]
+[gd_scene load_steps=7 format=3 uid="uid://cehvyh1snjqwm"]
 
-[node name="Crab" type="Node3D"]
+[ext_resource type="Script" path="res://Rom_CrabGrab/Crab/crab.gd" id="1_ievgp"]
+[ext_resource type="Material" uid="uid://qi4e31wy35rp" path="res://Rom_CrabGrab/Crab/box_crab_material_3d.tres" id="1_uny77"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhln5"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2vedn"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_f8nl8"]
+
+[sub_resource type="PrismMesh" id="PrismMesh_fs3sf"]
+
+[node name="Crab" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.284004, 0)
+script = ExtResource("1_ievgp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_rhln5")
+
+[node name="CrabBod" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.57216, 0, 0, 0, 0.795134, 0, 0, 0, 1.3436, 0, 0, 0)
+material_override = ExtResource("1_uny77")
+mesh = SubResource("BoxMesh_2vedn")
+
+[node name="Arm_R" type="MeshInstance3D" parent="CrabBod"]
+transform = Transform3D(-3.93459e-09, 0.250057, 0.112713, -0.452715, -5.49736e-08, 0, 8.96709e-09, -0.569891, 0.181249, 0.695785, 0.280791, -0.939397)
+material_override = ExtResource("1_uny77")
+mesh = SubResource("CylinderMesh_f8nl8")
+skeleton = NodePath("../..")
+
+[node name="GrabbbyBit_R" type="MeshInstance3D" parent="CrabBod/Arm_R"]
+transform = Transform3D(-3.8368e-08, -1.3647, 4.56766e-08, 0.315966, -2.14732e-08, -0.376153, 0.993471, 3.2013e-15, 0.834508, -0.290705, -1.84093, -9.793)
+material_override = ExtResource("1_uny77")
+mesh = SubResource("PrismMesh_fs3sf")
+skeleton = NodePath("../../..")
+
+[node name="GrabbyBit_R" type="Marker3D" parent="CrabBod/Arm_R/GrabbbyBit_R"]
+transform = Transform3D(2.03563, -7.52631e-15, -2.72152e-29, 2.23278e-22, 2.03563, 7.36084e-15, 6.17472e-08, 4.13032e-15, 2.03563, 9.40832, -0.1276, -0.139279)
+
+[node name="Arm_L" type="MeshInstance3D" parent="CrabBod"]
+transform = Transform3D(3.59576e-09, -0.228523, 0.119087, -0.452715, -5.49736e-08, 1.0881e-15, 9.47416e-09, -0.602117, -0.165641, -0.63586, 0.280791, -0.939397)
+material_override = ExtResource("1_uny77")
+mesh = SubResource("CylinderMesh_f8nl8")
+skeleton = NodePath("../..")
+
+[node name="GrabbbyBit_L" type="MeshInstance3D" parent="CrabBod/Arm_L"]
+transform = Transform3D(3.50639e-08, -1.3647, 4.82595e-08, -0.288756, -2.14732e-08, -0.397423, 1.04965, 1.19097e-14, -0.762643, -0.290705, -1.54333, 10.0646)
+material_override = ExtResource("1_uny77")
+mesh = SubResource("PrismMesh_fs3sf")
+skeleton = NodePath("../../..")
+
+[node name="GrabbyBit_L" type="Marker3D" parent="CrabBod/Arm_L/GrabbbyBit_L"]
+transform = Transform3D(2.03563, -4.07554e-15, 3.08736e-07, -7.44355e-15, 2.03563, 2.73417e-15, 6.17472e-08, 3.62256e-15, 2.03563, -9.25352, -0.1276, -0.106479)
