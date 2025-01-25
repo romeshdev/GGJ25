@@ -1,0 +1,17 @@
+[gd_resource type="StandardMaterial3D" load_steps=6 format=3 uid="uid://dhw84spmd70gq"]
+
+[ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="1_srru5"]
+[ext_resource type="Texture2D" uid="uid://cmgc1nw0bcpqf" path="res://Meshes/Crab/Import/Crab_AO.png" id="2_f6w3a"]
+[ext_resource type="Texture2D" uid="uid://dgh6d64jvwurx" path="res://Meshes/Crab/Import/Crab_M.png" id="3_q6c5o"]
+[ext_resource type="Texture2D" uid="uid://eervgsg8ko21" path="res://Meshes/Crab/Import/Crab_N.png" id="4_p5p1c"]
+[ext_resource type="Texture2D" uid="uid://1rtpiq3skrum" path="res://Meshes/Crab/Import/Crab_R.png" id="5_3o5sg"]
+
+[resource]
+albedo_texture = ExtResource("1_srru5")
+metallic = 1.0
+metallic_texture = ExtResource("3_q6c5o")
+roughness_texture = ExtResource("5_3o5sg")
+normal_enabled = true
+normal_texture = ExtResource("4_p5p1c")
+ao_enabled = true
+ao_texture = ExtResource("2_f6w3a")

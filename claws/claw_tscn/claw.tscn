@@ -1,24 +1,15 @@
-[gd_scene load_steps=21 format=4 uid="uid://b7wc5euwb1h3c"]
+[gd_scene load_steps=17 format=4 uid="uid://b7wc5euwb1h3c"]
 
 [ext_resource type="Script" path="res://claws/claw_tscn/claw.gd" id="1_ai3y7"]
-[ext_resource type="Texture2D" uid="uid://cc680nn6uoldr" path="res://Meshes/Crab/Import/Crab_3.jpg" id="2_mrj3l"]
-[ext_resource type="Texture2D" uid="uid://b2kn7b2ewjtv2" path="res://Meshes/Crab/Import/Crab_2.jpg" id="3_d0p8h"]
-[ext_resource type="Texture2D" uid="uid://b7deymesqk6bx" path="res://Meshes/Crab/Import/Crab_0.jpg" id="4_q4xh1"]
-[ext_resource type="Texture2D" uid="uid://dqd5eybt24o1i" path="res://Meshes/Crab/Import/Crab_1.jpg" id="5_6vsfo"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_snuo0"]
 resource_name = "Crab_MAT"
-albedo_texture = ExtResource("2_mrj3l")
 metallic = 1.0
-metallic_texture = ExtResource("4_q4xh1")
 metallic_texture_channel = 2
-roughness_texture = ExtResource("4_q4xh1")
 roughness_texture_channel = 1
 emission_enabled = true
 normal_enabled = true
-normal_texture = ExtResource("5_6vsfo")
 ao_enabled = true
-ao_texture = ExtResource("3_d0p8h")
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_etf0v"]
 _surfaces = [{
