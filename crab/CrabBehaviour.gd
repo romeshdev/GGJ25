@@ -78,6 +78,8 @@ func _physics_process(delta):
 	# Handle claw positions
 	if left_claw_position.length_squared() > 0.1:
 		leftClawRotator.target = left_claw_position
+	if right_claw_position.length_squared() > 0.1:
+		rightClawRotator.target = right_claw_position
 
 	# Handle rotation
 	if input_rotation and onFloor:
