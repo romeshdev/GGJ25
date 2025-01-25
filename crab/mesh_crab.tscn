@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=4 uid="uid://c1invxi4ndf8x"]
+[gd_scene load_steps=55 format=4 uid="uid://c1invxi4ndf8x"]
 
 [ext_resource type="ArrayMesh" uid="uid://cjkjy5igkh5xb" path="res://Meshes/Crab/Crab_Crab_Body.res" id="1_v1e33"]
 [ext_resource type="Material" uid="uid://cey6y67a5umay" path="res://Meshes/Crab/Crab_MAT.tres" id="2_pb3y4"]
@@ -277,6 +277,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_cyi3d")
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_80ke4"]
+radius = 1.53065
+height = 14.3047
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_0nnh5"]
 _surfaces = [{
 "aabb": AABB(-0.394324, -0.573665, -0.62556, 6.77108, 1.42486, 2.0018),
@@ -413,221 +417,233 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_v6f2j")
 
-[node name="Node3D" type="Node3D"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_00vek"]
+radius = 6.63916
+height = 19.0612
+
+[node name="MeshCrab" type="Node3D"]
 
 [node name="RigidBody3D" type="RigidBody3D" parent="."]
 
-[node name="Crab_Body" type="MeshInstance3D" parent="."]
+[node name="Crab_Body" type="MeshInstance3D" parent="RigidBody3D"]
 mesh = ExtResource("1_v1e33")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_3" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_L_3" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8495, -0.509369, 3.98667)
 mesh = ExtResource("3_5wlrq")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_3_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_L_3"]
+[node name="Leg_L_3_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.54634, 0.290025, -0.524777)
 mesh = SubResource("ArrayMesh_cdfwp")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_3_Tip" type="MeshInstance3D" parent="Crab_Body/Leg_L_3/Leg_L_3_Mid"]
+[node name="Leg_L_3_Tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_3/Leg_L_3_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.45177, 1.90735e-06, 0.198676)
 mesh = SubResource("ArrayMesh_iirlp")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_2" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_L_2" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.68268, -1.45036, 1.96815)
 mesh = ExtResource("6_rfm6e")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_2_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_L_2"]
+[node name="Leg_L_2_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21535, 0.290025, -0.499391)
 mesh = SubResource("ArrayMesh_55r4t")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_2_Tip" type="MeshInstance3D" parent="Crab_Body/Leg_L_2/Leg_L_2_Mid"]
+[node name="Leg_L_2_Tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_2/Leg_L_2_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.90043, 1.90735e-06, 0.213359)
 mesh = SubResource("ArrayMesh_g4uhb")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_1" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_L_1" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.44134, -1.58418, -0.264927)
 mesh = ExtResource("7_31f4y")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_1_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_L_1"]
+[node name="Leg_L_1_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.92275, 0.290025, -0.6383)
 mesh = ExtResource("8_eaiyq")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_L_1_Tip" type="MeshInstance3D" parent="Crab_Body/Leg_L_1/Leg_L_1_Mid"]
+[node name="Leg_L_1_Tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_L_1/Leg_L_1_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.34959, 1.90735e-06, -0.118351)
 mesh = SubResource("ArrayMesh_5xnxn")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Swimmer_L" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Swimmer_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.31716, 0, 5.92812)
 mesh = ExtResource("9_57rfb")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Swimmer_L_2" type="MeshInstance3D" parent="Crab_Body/Swimmer_L"]
+[node name="Swimmer_L_2" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_L"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.489952, 0, 3.30545)
 mesh = ExtResource("10_n0of0")
 skeleton = NodePath("")
 
-[node name="Swimmer_L_3" type="MeshInstance3D" parent="Crab_Body/Swimmer_L/Swimmer_L_2"]
+[node name="Swimmer_L_3" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_L/Swimmer_L_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61654, 0, 2.32404)
 mesh = ExtResource("11_1p5ey")
 skeleton = NodePath("")
 
-[node name="Swimmer_L_End" type="MeshInstance3D" parent="Crab_Body/Swimmer_L/Swimmer_L_2/Swimmer_L_3"]
+[node name="Swimmer_L_End" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_L/Swimmer_L_2/Swimmer_L_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.381789, 0, 2.64899)
 mesh = ExtResource("12_6ku11")
 skeleton = NodePath("")
 
-[node name="Arm_L" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Arm_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.6, -1.885, -3.413)
 mesh = ExtResource("13_oeqp1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Claw_L" type="MeshInstance3D" parent="Crab_Body/Arm_L"]
+[node name="Claw_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Arm_L"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 0, -12.782)
 mesh = SubResource("ArrayMesh_jkdbr")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Pincer_L" type="MeshInstance3D" parent="Crab_Body/Arm_L/Claw_L"]
+[node name="Pincer_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Arm_L/Claw_L"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.97, 0, -5.829)
 mesh = SubResource("ArrayMesh_r3wje")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Eye_L" type="MeshInstance3D" parent="Crab_Body"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Crab_Body/Arm_L"]
+transform = Transform3D(1, 0, 0, 0, -1.78796e-08, -1, 0, 0.409038, -4.37114e-08, -0.275359, 0, -15.4968)
+shape = SubResource("CapsuleShape3D_80ke4")
+
+[node name="Eye_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.41659, 1.74703, -7.75641)
 mesh = ExtResource("14_pdn14")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Mouth_L" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Mouth_L" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.59205, -1.37423, -7.08193)
 mesh = ExtResource("15_culrj")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Mouth_R" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Mouth_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61198, -1.37423, -7.08193)
 mesh = ExtResource("16_qmsst")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Eye_R" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Eye_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.56576, 1.74703, -7.75641)
 mesh = ExtResource("17_ivurb")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Arm_R" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Arm_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6, -1.885, -3.413)
 mesh = ExtResource("18_1bfuc")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Claw_R" type="MeshInstance3D" parent="Crab_Body/Arm_R"]
+[node name="Claw_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Arm_R"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0, -12.782)
 mesh = ExtResource("19_xhxym")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Pincer_R" type="MeshInstance3D" parent="Crab_Body/Arm_R/Claw_R"]
+[node name="Pincer_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Arm_R/Claw_R"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.97, 0, -5.522)
 mesh = ExtResource("20_tfcbf")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Swimmer_R" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Swimmer_R" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.19524, 0, 5.92812)
 mesh = ExtResource("21_d6xsx")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Swimmer_R_2" type="MeshInstance3D" parent="Crab_Body/Swimmer_R"]
+[node name="Swimmer_R_2" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_R"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.417331, 0, 3.30545)
 mesh = ExtResource("22_1syrc")
 skeleton = NodePath("")
 
-[node name="Swimmer_R_3" type="MeshInstance3D" parent="Crab_Body/Swimmer_R/Swimmer_R_2"]
+[node name="Swimmer_R_3" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_R/Swimmer_R_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.542888, 0, 2.32404)
 mesh = ExtResource("23_1r446")
 skeleton = NodePath("")
 
-[node name="Swimmer_R_End" type="MeshInstance3D" parent="Crab_Body/Swimmer_R/Swimmer_R_2/Swimmer_R_3"]
+[node name="Swimmer_R_End" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Swimmer_R/Swimmer_R_2/Swimmer_R_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34393, 0, 2.64899)
 mesh = ExtResource("24_ior6q")
 skeleton = NodePath("")
 
-[node name="Leg_R_1" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_R_1" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.42286, -1.58418, -0.264927)
 mesh = ExtResource("25_3wd5l")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_1_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_R_1"]
+[node name="Leg_R_1_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_1"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.22851, 0.4102, -0.557191)
 mesh = ExtResource("26_7tiqb")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_1_tip" type="MeshInstance3D" parent="Crab_Body/Leg_R_1/Leg_R_1_Mid"]
+[node name="Leg_R_1_tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_1/Leg_R_1_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.3914, 0.253542, 0)
 mesh = ExtResource("27_b5o3c")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_2" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_R_2" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.56305, -1.45036, 1.96815)
 mesh = ExtResource("28_gcx75")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_2_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_R_2"]
+[node name="Leg_R_2_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.56066, 0.4102, -0.524439)
 mesh = SubResource("ArrayMesh_bnu18")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_2_Tip" type="MeshInstance3D" parent="Crab_Body/Leg_R_2/Leg_R_2_Mid"]
+[node name="Leg_R_2_Tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_2/Leg_R_2_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.86845, 0.253542, 0.332785)
 mesh = SubResource("ArrayMesh_y7y25")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_3" type="MeshInstance3D" parent="Crab_Body"]
+[node name="Leg_R_3" type="MeshInstance3D" parent="RigidBody3D/Crab_Body"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.67152, -0.509369, 3.98667)
 mesh = ExtResource("29_kuh0c")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_3_Mid" type="MeshInstance3D" parent="Crab_Body/Leg_R_3"]
+[node name="Leg_R_3_Mid" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.91645, 0.4102, -0.457878)
 mesh = SubResource("ArrayMesh_gwh4t")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
 
-[node name="Leg_R_3_Tip" type="MeshInstance3D" parent="Crab_Body/Leg_R_3/Leg_R_3_Mid"]
+[node name="Leg_R_3_Tip" type="MeshInstance3D" parent="RigidBody3D/Crab_Body/Leg_R_3/Leg_R_3_Mid"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.30916, 0.253542, 0.320843)
 mesh = SubResource("ArrayMesh_ejok1")
 skeleton = NodePath("")
 surface_material_override/0 = ExtResource("2_pb3y4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D/Crab_Body"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0.438322, 2.65211, -0.766396)
+shape = SubResource("CapsuleShape3D_00vek")

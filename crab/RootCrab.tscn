@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=7 format=3 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
+[ext_resource type="PackedScene" uid="uid://c1invxi4ndf8x" path="res://crab/mesh_crab.tscn" id="2_ut81w"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_fgp1e"]
 
@@ -33,6 +34,9 @@ mesh = SubResource("CapsuleMesh_fgp1e")
 transform = Transform3D(-8.58265e-09, -0.196348, 0.15475, -6.76432e-09, -0.15475, -0.196348, 0.25, -1.09278e-08, 4.77671e-16, 0.366099, 0.931929, -0.496396)
 material_override = SubResource("StandardMaterial3D_3fa5q")
 mesh = SubResource("CapsuleMesh_fgp1e")
+
+[node name="MeshCrab" parent="Mesh" instance=ExtResource("2_ut81w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0.5, 0)
