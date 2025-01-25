@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b1kniidog757q"]
+
+[ext_resource type="Script" path="res://claws/AkimboInterfaceBehaviour.gd" id="1_nmry2"]
+[ext_resource type="PackedScene" uid="uid://pr2gmue3fsc" path="res://claws/ClawInterface.tscn" id="2_tu7rb"]
+
+[node name="AkimboInterface" type="Control" node_paths=PackedStringArray("leftClaw", "rightClaw")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nmry2")
+leftClaw = NodePath("HBoxContainer/CrabClawInterfaceLeft")
+rightClaw = NodePath("HBoxContainer/CrabClawInterfaceRight")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrabClawInterfaceLeft" parent="HBoxContainer" instance=ExtResource("2_tu7rb")]
+layout_mode = 2
+actionLeft = &"lclaw_left"
+actionRight = &"lclaw_right"
+actionUp = &"lclaw_up"
+actionDown = &"lclaw_down"
+
+[node name="CrabClawInterfaceRight" parent="HBoxContainer" instance=ExtResource("2_tu7rb")]
+layout_mode = 2
+actionLeft = &"rclaw_left"
+actionRight = &"rclaw_right"
+actionUp = &"rclaw_up"
+actionDown = &"rclaw_down"
