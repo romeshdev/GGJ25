@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dqd5eybt24o1i"
-path.s3tc="res://.godot/imported/Crab_1.jpg-3ca37c1a0d72d4643141fe0a19eb0425.s3tc.ctex"
+uid="uid://b2kn7b2ewjtv2"
+path.s3tc="res://.godot/imported/Crab_2.jpg-0f1f565b88db351206bf154e660bdd5d.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "acffb6fc6688f8941b425b101eb91da3"
+"md5": "0119a612f2e2ce5cc0ce507970c12abe"
 }
 
 [deps]
 
-source_file="res://Meshes/Crab/Crab_1.jpg"
-dest_files=["res://.godot/imported/Crab_1.jpg-3ca37c1a0d72d4643141fe0a19eb0425.s3tc.ctex"]
+source_file="res://Meshes/Crab/Crab_2.jpg"
+dest_files=["res://.godot/imported/Crab_2.jpg-0f1f565b88db351206bf154e660bdd5d.s3tc.ctex"]
 
 [params]
 
@@ -23,11 +23,11 @@ compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
-compress/normal_map=1
+compress/normal_map=0
 compress/channel_pack=0
 mipmaps/generate=true
 mipmaps/limit=-1
-roughness/mode=1
+roughness/mode=8
 roughness/src_normal="res://Meshes/Crab/Crab_1.jpg"
 process/fix_alpha_border=true
 process/premult_alpha=false
