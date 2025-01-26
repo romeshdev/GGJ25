@@ -38,7 +38,7 @@ func _process(delta):
 		angle = _normalizeAngle(-PI/2 -target.angle())
 		angle = clamp(angle, MIN_ANGLE, MAX_ANGLE)
 	rotation.y = lerp_angle(rotation.y, angle, delta * ROTATION_SPEED)
-	#clawMarker.rotation.y = rotation.y * 1.5 
+	clawMarker.rotation.y = rotation.y * 1.5 
 	
 	# Grab shit
 	if Input.is_action_just_pressed(actionName) && egg != null:

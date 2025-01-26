@@ -13,7 +13,7 @@ crab = NodePath("RootCrab")
 akimbo = NodePath("RootInterface/AkimboInterface")
 
 [node name="RootCrab" parent="." instance=ExtResource("2_tl46b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.679, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 67.5182, 140.892, 60.5114)
 
 [node name="RootKitchen" parent="." instance=ExtResource("2_me5x7")]
 
