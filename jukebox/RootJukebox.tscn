@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://btno0h7kc8ui4"]
+[gd_scene load_steps=9 format=3 uid="uid://btno0h7kc8ui4"]
 
 [ext_resource type="Script" path="res://jukebox/JukeboxBehaviour.gd" id="1_co200"]
 [ext_resource type="AudioStream" uid="uid://dvpslcoehlt7d" path="res://jukebox/Crab Gameplay Music.ogg" id="2_j1mmn"]
@@ -7,8 +7,9 @@
 [ext_resource type="AudioStream" uid="uid://rbbri6k5gq5h" path="res://jukebox/Winner Winner Crab Dinner.ogg" id="5_kkj2g"]
 [ext_resource type="AudioStream" uid="uid://byssnpympyeoe" path="res://audio/Crab_Jump_01.wav" id="6_remc3"]
 [ext_resource type="AudioStream" uid="uid://d3qsyodb0gigg" path="res://audio/Crab_Spin_01.wav" id="7_mpukt"]
+[ext_resource type="AudioStream" uid="uid://b7qrr7ddtffw7" path="res://audio/Crab_Claw_01.wav" id="7_v518i"]
 
-[node name="RootJukebox" type="Node" node_paths=PackedStringArray("inGameMusic", "titleMusic", "defeatJingle", "victoryJingle", "jumpSound", "spinSound")]
+[node name="RootJukebox" type="Node" node_paths=PackedStringArray("inGameMusic", "titleMusic", "defeatJingle", "victoryJingle", "jumpSound", "spinSound", "menuSelectSound")]
 script = ExtResource("1_co200")
 inGameMusic = NodePath("InGameMusicPlayer")
 titleMusic = NodePath("TitleMusicPlayer")
@@ -16,6 +17,7 @@ defeatJingle = NodePath("DefeatJinglePlayer")
 victoryJingle = NodePath("VictoryJinglePlayer")
 jumpSound = NodePath("JumpPlayer")
 spinSound = NodePath("SpinPlayer")
+menuSelectSound = NodePath("MenuSelectPlayer")
 
 [node name="InGameMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_j1mmn")
@@ -36,3 +38,6 @@ stream = ExtResource("6_remc3")
 
 [node name="SpinPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_mpukt")
+
+[node name="MenuSelectPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_v518i")

@@ -6,6 +6,7 @@ class_name JukeboxBehaviour extends Node
 @export var victoryJingle : AudioStreamPlayer
 @export var jumpSound : AudioStreamPlayer
 @export var spinSound : AudioStreamPlayer
+@export var menuSelectSound : AudioStreamPlayer
 
 func stopAllMusic() -> void:
 	titleMusic.stop()
@@ -42,3 +43,4 @@ func _ready():
 	assert(victoryJingle != null)
 	assert(jumpSound != null)
 	assert(spinSound != null)
+	assert(menuSelectSound != null)
