@@ -3,18 +3,18 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dcobbcilltmbp"
-path="res://.godot/imported/Pot_Mesh.fbx-e391374fdf9cbefcbc37526a9d7a0876.scn"
+uid="uid://72sfvxbvk43c"
+path="res://.godot/imported/Bench.fbx-84826694c23fa25a6b2f607ba133027d.scn"
 
 [deps]
 
-source_file="res://kitchen/Import/Pot_Mesh.fbx"
-dest_files=["res://.godot/imported/Pot_Mesh.fbx-e391374fdf9cbefcbc37526a9d7a0876.scn"]
+source_file="res://Meshes/Prop/Import/Bench.fbx"
+dest_files=["res://.godot/imported/Bench.fbx-84826694c23fa25a6b2f607ba133027d.scn"]
 
 [params]
 
-nodes/root_type="MeshInstance3D"
-nodes/root_name="Pot_Mesh"
+nodes/root_type="StaticBody3D"
+nodes/root_name=""
 nodes/apply_root_scale=true
 nodes/root_scale=10.0
 nodes/import_as_skeleton_bones=false

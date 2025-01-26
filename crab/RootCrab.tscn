@@ -1,7 +1,8 @@
-[gd_scene load_steps=87 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=86 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
+[ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
 [ext_resource type="Script" path="res://crab/ik_target.gd" id="33_rwqql"]
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="33_uert8"]
@@ -1269,155 +1270,6 @@ bind/1/name = &"Swim_R_4"
 bind/1/bone = -1
 bind/1/pose = Transform3D(-0.110432, 1.3524e-17, 0.993884, -1.58887e-14, 1, -1.77902e-15, -0.993884, -1.5988e-14, -0.110432, -15.3356, -1.64435, 7.00675)
 
-[sub_resource type="Animation" id="Animation_q4g5p"]
-resource_name = "Take 001"
-length = 5.0
-tracks/0/type = "rotation_3d"
-tracks/0/imported = true
-tracks/0/enabled = true
-tracks/0/path = NodePath("Skeleton3D:L_leg_01_1")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = PackedFloat32Array(0, 1, 0, -0.00742175, 0, 0.999972)
-tracks/1/type = "rotation_3d"
-tracks/1/imported = true
-tracks/1/enabled = true
-tracks/1/path = NodePath("Skeleton3D:R_leg_01_1")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = PackedFloat32Array(0, 1, 0, 0.999328, 0, -0.0366509)
-tracks/2/type = "position_3d"
-tracks/2/imported = true
-tracks/2/enabled = true
-tracks/2/path = NodePath("Skeleton3D:R_Mouf")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = PackedFloat32Array(0, 1, -2.57015, -0.342189, 6.25778)
-tracks/3/type = "rotation_3d"
-tracks/3/imported = true
-tracks/3/enabled = true
-tracks/3/path = NodePath("Skeleton3D:R_Mouf")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = PackedFloat32Array(0, 1, -0.103165, -0.286207, 0.323025, 0.896157)
-tracks/4/type = "position_3d"
-tracks/4/imported = true
-tracks/4/enabled = true
-tracks/4/path = NodePath("Skeleton3D:L_Mouf")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = PackedFloat32Array(0, 1, 2.85102, -0.219824, 6.43028)
-tracks/5/type = "rotation_3d"
-tracks/5/imported = true
-tracks/5/enabled = true
-tracks/5/path = NodePath("Skeleton3D:L_Mouf")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = PackedFloat32Array(0, 1, -0.375462, -0.891261, 0.0987362, 0.234378)
-tracks/6/type = "position_3d"
-tracks/6/imported = true
-tracks/6/enabled = true
-tracks/6/path = NodePath("Skeleton3D:L_leg_01_2")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = PackedFloat32Array(0, 1, 8.86004, 0, 3.13083e-14)
-tracks/7/type = "rotation_3d"
-tracks/7/imported = true
-tracks/7/enabled = true
-tracks/7/path = NodePath("Skeleton3D:L_leg_01_2")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = PackedFloat32Array(0, 1, 0, -0.0331473, 0, 0.999451)
-tracks/8/type = "position_3d"
-tracks/8/imported = true
-tracks/8/enabled = true
-tracks/8/path = NodePath("Skeleton3D:R_leg_01_2")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = PackedFloat32Array(0, 1, 8.98579, 0, -5.77316e-15)
-tracks/9/type = "rotation_3d"
-tracks/9/imported = true
-tracks/9/enabled = true
-tracks/9/path = NodePath("Skeleton3D:R_leg_01_2")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = PackedFloat32Array(0, 1, 0, 0.0120435, 0, 0.999927)
-tracks/10/type = "rotation_3d"
-tracks/10/imported = true
-tracks/10/enabled = true
-tracks/10/path = NodePath("Skeleton3D:R_leg_02_2")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = PackedFloat32Array(0, 1, 0, -0.00816164, 0, 0.999967)
-tracks/11/type = "rotation_3d"
-tracks/11/imported = true
-tracks/11/enabled = true
-tracks/11/path = NodePath("Skeleton3D:R_leg_03_2")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = PackedFloat32Array(0, 1, 0, -0.0156845, 0, 0.999877)
-tracks/12/type = "position_3d"
-tracks/12/imported = true
-tracks/12/enabled = true
-tracks/12/path = NodePath("Skeleton3D:L_leg_01_3")
-tracks/12/interp = 1
-tracks/12/loop_wrap = true
-tracks/12/keys = PackedFloat32Array(0, 1, 6.81384, 0, 7.77156e-15)
-tracks/13/type = "rotation_3d"
-tracks/13/imported = true
-tracks/13/enabled = true
-tracks/13/path = NodePath("Skeleton3D:L_leg_01_3")
-tracks/13/interp = 1
-tracks/13/loop_wrap = true
-tracks/13/keys = PackedFloat32Array(0, 1, 0, 0.0486215, 0, 0.998817)
-tracks/14/type = "position_3d"
-tracks/14/imported = true
-tracks/14/enabled = true
-tracks/14/path = NodePath("Skeleton3D:R_leg_01_3")
-tracks/14/interp = 1
-tracks/14/loop_wrap = true
-tracks/14/keys = PackedFloat32Array(0, 1, 6.79006, 0, -1.15359e-14)
-tracks/15/type = "rotation_3d"
-tracks/15/imported = true
-tracks/15/enabled = true
-tracks/15/path = NodePath("Skeleton3D:R_leg_01_3")
-tracks/15/interp = 1
-tracks/15/loop_wrap = true
-tracks/15/keys = PackedFloat32Array(0, 1, 0, -0.0457885, 0, 0.998951)
-tracks/16/type = "position_3d"
-tracks/16/imported = true
-tracks/16/enabled = true
-tracks/16/path = NodePath("Skeleton3D:R_leg_02_3")
-tracks/16/interp = 1
-tracks/16/loop_wrap = true
-tracks/16/keys = PackedFloat32Array(0, 1, 6.27169, 0, 1.80828e-14)
-tracks/17/type = "rotation_3d"
-tracks/17/imported = true
-tracks/17/enabled = true
-tracks/17/path = NodePath("Skeleton3D:R_leg_02_3")
-tracks/17/interp = 1
-tracks/17/loop_wrap = true
-tracks/17/keys = PackedFloat32Array(0, 1, 0, 0.0538522, 0, 0.998549)
-tracks/18/type = "position_3d"
-tracks/18/imported = true
-tracks/18/enabled = true
-tracks/18/path = NodePath("Skeleton3D:R_leg_03_3")
-tracks/18/interp = 1
-tracks/18/loop_wrap = true
-tracks/18/keys = PackedFloat32Array(0, 1, 5.60234, 0, 5.38458e-15)
-tracks/19/type = "rotation_3d"
-tracks/19/imported = true
-tracks/19/enabled = true
-tracks/19/path = NodePath("Skeleton3D:R_leg_03_3")
-tracks/19/interp = 1
-tracks/19/loop_wrap = true
-tracks/19/keys = PackedFloat32Array(0, 1, 0, -0.0046525, 0, 0.999989)
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_0vv5t"]
-_data = {
-"Take 001": SubResource("Animation_q4g5p")
-}
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bj1mu"]
 radius = 4.74912
 height = 18.4457
@@ -1434,53 +1286,66 @@ rightClawRotator = NodePath("RootClawRotatorRight")
 [node name="IKTargets" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="IK_Target_L1" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -20.6221, -6.29974, -4.54244)
+[node name="IK_Target_L1" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.5971, -6.29974, -10.2615)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_L1/Step_Target_L1")
 adjacent_target = NodePath("../IK_Target_L2")
+character = NodePath("../..")
 
-[node name="IK_Target_L2" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -17.482, -6.29974, 0)
+[node name="IK_Target_L2" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.5113, -6.29974, -1.94147)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_L2/Step_Target_L2")
 adjacent_target = NodePath("../IK_Target_L3")
+character = NodePath("../..")
 
-[node name="IK_Target_L3" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -15.1304, -6.29974, 4.24368)
+[node name="IK_Target_L3" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -13.7067, -6.29974, 5.92629)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_L3/Step_Target_L3")
 adjacent_target = NodePath("../IK_Target_L2")
+character = NodePath("../..")
 
-[node name="IK_Target_R1" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 21.6938, -6.29974, -3)
+[node name="IK_Target_R1" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 13.6636, -6.29974, -9.60738)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_R1/Step_Target_R1")
 adjacent_target = NodePath("../IK_Target_R2")
+character = NodePath("../..")
 
-[node name="IK_Target_R2" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 18.6938, -6.29974, 2)
+[node name="IK_Target_R2" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 17.8525, -6.29974, -2.01237)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_R2/Step_Target_R2")
 adjacent_target = NodePath("../IK_Target_R3")
+character = NodePath("../..")
 
-[node name="IK_Target_R3" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target")]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 15.6938, -6.29974, 4)
+[node name="IK_Target_R3" type="Marker3D" parent="IKTargets" node_paths=PackedStringArray("step_target", "adjacent_target", "character")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 14.2346, -6.29974, 6.45919)
 top_level = true
 script = ExtResource("33_rwqql")
 step_target = NodePath("../../StepTargets/RayCast_R3/Step_Target_R3")
 adjacent_target = NodePath("../IK_Target_R2")
+character = NodePath("../..")
+
+[node name="SwimmerTarget_L" type="Marker3D" parent="IKTargets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4496, -0.200195, -0.900042)
+
+[node name="SwimmerTarget_R" type="Marker3D" parent="IKTargets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4496, -0.200195, 0.719805)
 
 [node name="StepTargets" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+script = ExtResource("31_i5iqv")
 
 [node name="RayCast_L1" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, -2.18939e-09, 5.48646e-11, 2.18939e-09, 0.998745, -0.0500874, 5.48646e-11, 0.0500874, 0.998745, 4.54244, 4.97941, -20.6221)
+transform = Transform3D(1, -2.18939e-09, 5.48646e-11, 2.18939e-09, 0.998745, -0.0500874, 5.48646e-11, 0.0500874, 0.998745, 10.2615, 4.97941, -13.5971)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_L1")
@@ -1489,7 +1354,7 @@ step_target = NodePath("Step_Target_L1")
 transform = Transform3D(1, 2.18939e-09, 5.48646e-11, -2.18939e-09, 0.998745, 0.0500874, 5.48646e-11, -0.0500874, 0.998745, 0, -11.265, 0.564943)
 
 [node name="RayCast_L2" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, -2.60836e-09, 7.78932e-11, 2.60836e-09, 0.998218, -0.0596722, 7.78932e-11, 0.0596722, 0.998218, 7.64163e-07, 4.97941, -17.482)
+transform = Transform3D(1, -2.60836e-09, 7.78932e-11, 2.60836e-09, 0.998218, -0.0596722, 7.78932e-11, 0.0596722, 0.998218, 1.94147, 4.97941, -16.5113)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_L2")
@@ -1498,7 +1363,7 @@ step_target = NodePath("Step_Target_L2")
 transform = Transform3D(1, 2.60836e-09, 7.78897e-11, -2.60836e-09, 0.998218, 0.0596723, 7.78932e-11, -0.0596723, 0.998218, -2.94201e-08, -11.259, 0.673052)
 
 [node name="RayCast_L3" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, -2.35472e-09, 6.34692e-11, 2.35472e-09, 0.998548, -0.0538697, 6.34692e-11, 0.0538697, 0.998548, -4.24368, 4.97941, -15.1304)
+transform = Transform3D(1, -2.35472e-09, 6.34692e-11, 2.35472e-09, 0.998548, -0.0538697, 6.34692e-11, 0.0538697, 0.998548, -5.92629, 4.97941, -13.7067)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_L3")
@@ -1507,7 +1372,7 @@ step_target = NodePath("Step_Target_L3")
 transform = Transform3D(1, 2.35472e-09, 6.34692e-11, -2.35472e-09, 0.998548, 0.0538697, 6.34728e-11, -0.0538697, 0.998548, 0, -11.2628, 0.607604)
 
 [node name="RayCast_R1" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, 4.31635e-09, 2.13635e-10, -4.31635e-09, 0.995113, 0.0987466, 2.13639e-10, -0.0987466, 0.995113, 3, 4.97941, 21.6938)
+transform = Transform3D(1, 4.31635e-09, 2.13635e-10, -4.31635e-09, 0.995113, 0.0987466, 2.13639e-10, -0.0987466, 0.995113, 9.60738, 4.97941, 13.6636)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_R1")
@@ -1516,7 +1381,7 @@ step_target = NodePath("Step_Target_R1")
 transform = Transform3D(1, -4.31635e-09, 2.13635e-10, 4.31635e-09, 0.995113, -0.0987466, 2.13632e-10, 0.0987466, 0.995113, 0, -11.224, -1.11378)
 
 [node name="RayCast_R2" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, 3.61358e-09, 1.49623e-10, -3.61358e-09, 0.996577, 0.0826691, 1.49619e-10, -0.0826691, 0.996577, -2, 4.97941, 18.6938)
+transform = Transform3D(1, 3.61358e-09, 1.49623e-10, -3.61358e-09, 0.996577, 0.0826691, 1.49619e-10, -0.0826691, 0.996577, 2.01237, 4.97941, 17.8525)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_R2")
@@ -1525,7 +1390,7 @@ step_target = NodePath("Step_Target_R2")
 transform = Transform3D(1, -3.61358e-09, 1.49619e-10, 3.61358e-09, 0.996577, -0.0826691, 1.49626e-10, 0.0826691, 0.996577, 0, -11.2405, -0.932436)
 
 [node name="RayCast_R3" type="RayCast3D" parent="StepTargets" node_paths=PackedStringArray("step_target")]
-transform = Transform3D(1, 3.38316e-09, 1.31116e-10, -3.38316e-09, 0.997, 0.0773977, 1.31124e-10, -0.0773977, 0.997, -4, 4.97941, 15.6938)
+transform = Transform3D(1, 3.38316e-09, 1.31116e-10, -3.38316e-09, 0.997, 0.0773977, 1.31124e-10, -0.0773977, 0.997, -6.45919, 4.97941, 14.2346)
 target_position = Vector3(0, -20, 0)
 script = ExtResource("33_yth4f")
 step_target = NodePath("Step_Target_R3")
@@ -1534,7 +1399,7 @@ step_target = NodePath("Step_Target_R3")
 transform = Transform3D(1, -3.38316e-09, 1.3112e-10, 3.38316e-09, 0.997, -0.0773977, 1.31116e-10, 0.0773977, 0.997, 0, -11.2453, -0.872979)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
-transform = Transform3D(1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, 0, 0, 0)
+transform = Transform3D(1, 0, -1.74846e-07, -3.67256e-08, 0.977692, -0.210045, 1.70945e-07, 0.210045, 0.977692, 0, 0.597102, 0)
 bones/0/name = "Crab_Root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(-0.999693, 0, 0.0247772, 0, 1, 0, -0.0247772, 0, -0.999693, 0, 0, 0)
@@ -1848,7 +1713,7 @@ bones/44/parent = 0
 bones/44/rest = Transform3D(0.0638221, -1.22215e-16, -0.997961, 1.22215e-16, 1, -1.14649e-16, 0.997961, -1.14649e-16, 0.0638221, 5.54617, -5.71452e-16, 0.856977)
 bones/44/enabled = true
 bones/44/position = Vector3(5.54617, -5.71452e-16, 0.856977)
-bones/44/rotation = Quaternion(4.53671e-24, -0.68417, 8.37867e-17, 0.729322)
+bones/44/rotation = Quaternion(0.235475, -0.709525, 0.000474975, 0.729475)
 bones/44/scale = Vector3(1, 1, 1)
 bones/45/name = "L_Claw"
 bones/45/parent = 44
@@ -1876,7 +1741,7 @@ bones/48/parent = 0
 bones/48/rest = Transform3D(0.0143055, -1.22402e-16, -0.999898, -1.32023e-16, -1, 1.20526e-16, -0.999898, 1.30285e-16, -0.0143056, -5.4969, 8.14869e-16, 1.13068)
 bones/48/enabled = true
 bones/48/position = Vector3(-5.4969, 8.14869e-16, 1.13068)
-bones/48/rotation = Quaternion(0.712147, -8.93162e-17, -0.702031, 3.42611e-18)
+bones/48/rotation = Quaternion(0.742475, 0.200475, -0.702525, 0.000474975)
 bones/48/scale = Vector3(1, 1, 1)
 bones/49/name = "R_Claw"
 bones/49/parent = 48
@@ -1899,6 +1764,60 @@ bones/51/enabled = true
 bones/51/position = Vector3(-10.1447, -1.38492e-16, 0.052095)
 bones/51/rotation = Quaternion(2.21412e-24, -0.664615, 8.19506e-17, 0.747186)
 bones/51/scale = Vector3(1, 1, 1)
+
+[node name="SkeletonIK_L1" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"L_leg_01_1"
+tip_bone = &"L_leg_01_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_L1")
+script = ExtResource("32_5wnoc")
+
+[node name="SkeletonIK_L2" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"L_leg_02_1"
+tip_bone = &"L_leg_02_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_L2")
+script = ExtResource("32_5wnoc")
+
+[node name="SkeletonIK_L3" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"L_leg_03_1"
+tip_bone = &"L_leg_03_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_L3")
+script = ExtResource("32_5wnoc")
+
+[node name="SkeletonIK_R1" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"R_leg_01_1"
+tip_bone = &"R_leg_01_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_R1")
+script = ExtResource("32_5wnoc")
+
+[node name="SkeletonIK_R2" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"R_leg_02_1"
+tip_bone = &"R_leg_02_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_R2")
+script = ExtResource("32_5wnoc")
+
+[node name="SkeletonIK_R3" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
+root_bone = &"R_leg_03_1"
+tip_bone = &"R_leg_03_4"
+use_magnet = true
+magnet = Vector3(0, 10, 0)
+target_node = NodePath("../../IKTargets/IK_Target_R3")
+script = ExtResource("32_5wnoc")
 
 [node name="Crab_Body" type="MeshInstance3D" parent="Skeleton3D"]
 material_override = ExtResource("33_uert8")
@@ -2085,116 +2004,22 @@ material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_neeg7")
 skin = SubResource("Skin_resro")
 
-[node name="SkeletonIK_L1" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"L_leg_01_1"
-tip_bone = &"L_leg_01_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_L1")
+[node name="L_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1678, 1.48447, 10.4526)
+root_bone = &"Swim_L_1"
+tip_bone = &"Swim_L_5"
+target_node = NodePath("../../IKTargets/SwimmerTarget_L")
 script = ExtResource("32_5wnoc")
 
-[node name="SkeletonIK_L2" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"L_leg_02_1"
-tip_bone = &"L_leg_02_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_L2")
+[node name="R_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78648, 1.48447, 10.3664)
+root_bone = &"Swim_R_1"
+tip_bone = &"Swim_R_5"
+target_node = NodePath("../../IKTargets/SwimmerTarget_R")
 script = ExtResource("32_5wnoc")
-
-[node name="SkeletonIK_L3" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"L_leg_03_1"
-tip_bone = &"L_leg_03_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_L3")
-script = ExtResource("32_5wnoc")
-
-[node name="SkeletonIK_R1" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"R_leg_01_1"
-tip_bone = &"R_leg_01_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_R1")
-script = ExtResource("32_5wnoc")
-
-[node name="SkeletonIK_R2" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"R_leg_02_1"
-tip_bone = &"R_leg_02_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_R2")
-script = ExtResource("32_5wnoc")
-
-[node name="SkeletonIK_R3" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 0, 0, 0)
-root_bone = &"R_leg_03_1"
-tip_bone = &"R_leg_03_4"
-use_magnet = true
-magnet = Vector3(0, 10, 0)
-target_node = NodePath("../../IKTargets/IK_Target_R3")
-script = ExtResource("32_5wnoc")
-
-[node name="Crab_Rig" type="CharacterBody3D" parent="."]
-visible = false
-
-[node name="Crab_Body" type="Node3D" parent="Crab_Rig"]
-
-[node name="Leg_L_3" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_L_1_Mid" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_L_3"]
-
-[node name="Leg_L_2" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_L_1_Mid2" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_L_2"]
-
-[node name="Leg_L_1" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_L_1_Mid3" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_L_1"]
-
-[node name="Swimmer_L" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Swimmer_L_2" type="Node3D" parent="Crab_Rig/Crab_Body/Swimmer_L"]
-
-[node name="Swimmer_L_3" type="Node3D" parent="Crab_Rig/Crab_Body/Swimmer_L/Swimmer_L_2"]
-
-[node name="Arm_L" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Claw_Low" type="Node3D" parent="Crab_Rig/Crab_Body/Arm_L"]
-
-[node name="Arm_R" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Claw_R" type="Node3D" parent="Crab_Rig/Crab_Body/Arm_R"]
-
-[node name="Swimmer_R" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Swimmer_R_2" type="Node3D" parent="Crab_Rig/Crab_Body/Swimmer_R"]
-
-[node name="Swimmer_R_3" type="Node3D" parent="Crab_Rig/Crab_Body/Swimmer_R/Swimmer_R_2"]
-
-[node name="Leg_R_1" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_R_1_Mid" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_R_1"]
-
-[node name="Leg_R_2" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_R_1_Mid2" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_R_2"]
-
-[node name="Leg_R_3" type="Node3D" parent="Crab_Rig/Crab_Body"]
-
-[node name="Leg_R_1_Mid3" type="Node3D" parent="Crab_Rig/Crab_Body/Leg_R_3"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Crab_Rig"]
-libraries = {
-"": SubResource("AnimationLibrary_0vv5t")
-}
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0.538483, 0)
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -2.46152, 0)
 shape = SubResource("CapsuleShape3D_bj1mu")
 
 [node name="CameraMan" parent="." node_paths=PackedStringArray("target") instance=ExtResource("2_0bkup")]
