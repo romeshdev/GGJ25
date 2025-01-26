@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://yp0yb10pq2rv"
+path="res://.godot/imported/All Dried Up.ogg-96a8ea357c79cca739d59882b08b9526.oggvorbisstr"
+
+[deps]
+
+source_file="res://jukebox/All Dried Up.ogg"
+dest_files=["res://.godot/imported/All Dried Up.ogg-96a8ea357c79cca739d59882b08b9526.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

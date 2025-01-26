@@ -1,7 +1,7 @@
 class_name DefeatBehaviour extends Control
 
 func _ready():
-	Jukebox.playTitleMusic()
+	Jukebox.playDefeatJingle()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
