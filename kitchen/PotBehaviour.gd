@@ -3,6 +3,8 @@ class_name PotBehaviour extends Node3D
 signal eggInPot
 signal crabInPot
 
+@export var sploosh: AudioStreamPlayer
+
 var gameEnding : bool = false
 var isDefeat : bool = false
 var timer : float = -1
@@ -23,6 +25,7 @@ func _process(delta):
 			eggInPot.emit()
 
 func _on_pot_water_body_entered(body):
+	sploosh.play()
 	if body is CrabBehaviour:
 		isDefeat = true
 		timer = 2
