@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=4 uid="uid://bhgn140g4n1tt"]
+[gd_scene load_steps=13 format=4 uid="uid://bhgn140g4n1tt"]
 
-[ext_resource type="Material" uid="uid://btuw40vkqghln" path="res://Materials/Pot_MAT.tres" id="1_b101r"]
+[ext_resource type="Material" path="res://Materials/Pot_MAT.tres" id="1_b101r"]
+[ext_resource type="Script" path="res://kitchen/PotBehaviour.gd" id="1_ul6h8"]
 [ext_resource type="Material" uid="uid://xpssu1fq3qil" path="res://Materials/Water.tres" id="2_c1wes"]
-[ext_resource type="PackedScene" uid="uid://dheaeuvjshvlm" path="res://Meshes/Bubbles.tscn" id="3_hw7al"]
+[ext_resource type="PackedScene" uid="uid://ch51i1uamehab" path="res://Meshes/Bubbles.tscn" id="3_hw7al"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_30sgx"]
 resource_name = "lambert1"
@@ -92,6 +93,7 @@ height = 0.1
 radius = 2.1
 
 [node name="Pot" type="Node3D"]
+script = ExtResource("1_ul6h8")
 
 [node name="Pot_Mesh" type="StaticBody3D" parent="."]
 
@@ -118,3 +120,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06727, 0)
 shape = SubResource("CylinderShape3D_s8xms")
 
 [node name="Bubble" parent="." instance=ExtResource("3_hw7al")]
+
+[connection signal="body_entered" from="Pot_Water" to="." method="_on_pot_water_body_entered"]
+[connection signal="body_exited" from="Pot_Water" to="." method="_on_pot_water_body_exited"]
