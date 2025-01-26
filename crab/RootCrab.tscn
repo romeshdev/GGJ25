@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=99 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
@@ -9,13 +9,15 @@
 [ext_resource type="AudioStream" uid="uid://0lh1q15h00bi" path="res://audio/Crab_Steps_05.wav" id="6_ok35n"]
 [ext_resource type="AudioStream" uid="uid://cniss0534vfon" path="res://audio/Crab_Steps_06.wav" id="7_eb51a"]
 [ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
+[ext_resource type="PackedScene" uid="uid://d2fi83ef3ewir" path="res://crab/bubble_particles.tscn" id="14_kpic8"]
+[ext_resource type="AudioStream" uid="uid://fjoe263ovb6s" path="res://audio/Fall_Slide_Whistle_01.wav" id="17_tuxvv"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
 [ext_resource type="Script" path="res://crab/ik_target.gd" id="33_rwqql"]
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="33_uert8"]
 [ext_resource type="Script" path="res://crab/step_ray.gd" id="33_yth4f"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="34_pogxy"]
-[ext_resource type="PackedScene" uid="uid://d60p00unrcxi" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
+[ext_resource type="PackedScene" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u1ru0"]
 radius = 2.5
@@ -1293,7 +1295,7 @@ height = 18.4457
 radius = 1.70423
 height = 13.4819
 
-[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot")]
+[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot", "fallingSound")]
 script = ExtResource("1_06tpv")
 cameraTarget = NodePath("CameraTarget")
 cameraTargetStrafeLeft = NodePath("CameraTargetStafeLeft")
@@ -1304,6 +1306,7 @@ rightClawRotator = NodePath("RootClawRotatorRight")
 skeleton = NodePath("Skeleton3D")
 rightClawHotspot = NodePath("R_ClawHotSpot")
 leftClawHotspot = NodePath("L_ClawHotSpot")
+fallingSound = NodePath("FallSound")
 
 [node name="IKTargets" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -1937,6 +1940,9 @@ material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_8h0dl")
 skin = SubResource("Skin_20ix8")
 
+[node name="BubbleParticles" parent="Skeleton3D/Crab_Body" instance=ExtResource("14_kpic8")]
+transform = Transform3D(1, -3.67255e-08, 1.70945e-07, 1.92445e-13, 0.977691, 0.210045, -1.74845e-07, -0.210045, 0.977691, 2.19289e-08, -0.583781, 0.125418)
+
 [node name="Leg_L_3" type="MeshInstance3D" parent="Skeleton3D"]
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_vloai")
@@ -2213,3 +2219,9 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorRight/Arm_R/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_60d23")
+
+[node name="FallSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_tuxvv")
+volume_db = 30.0
+unit_size = 5.0
+max_distance = 200.0
