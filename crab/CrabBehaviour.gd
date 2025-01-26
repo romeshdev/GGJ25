@@ -59,7 +59,7 @@ func _ready():
 
 func _process(_delta):
 	# Restore position if you fall off a cliff
-	if position.y < -200:
+	if position.y < 9:
 		global_position = startPosition
 		velocity = Vector3.ZERO
 		fellOffCliff.emit()
@@ -150,11 +150,12 @@ func _physics_process(delta):
 		cameraMan.targetZoom = 1 - input_move_amount
 		
 	# Handle friction
-	if input_move_amount == 0:
+	var airborne = !onFloor or velocity.y > 0
+	if !airborne && input_move_amount == 0:
 		var deceleration = STRAFE_DECELERATION * delta
-		var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if onFloor else STRAFE_DECELERATION_FROM_AIR_ROTATION
+		var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if airborne else STRAFE_DECELERATION_FROM_AIR_ROTATION
 		deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
-		var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if onFloor else STRAFE_DECELERATION_FROM_AIR_FRICTION
+		var strafing_friction : float = STRAFE_DECELERATION_FROM_GROUND_FRICTION if airborne else STRAFE_DECELERATION_FROM_AIR_FRICTION
 		deceleration = deceleration * (1 + (1 - input_move_amount) * strafing_friction)
 		velocity.x = move_toward(velocity.x, 0, deceleration)
 		velocity.z = move_toward(velocity.z, 0, deceleration)

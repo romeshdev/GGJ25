@@ -1,0 +1,22 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://dy148aumuhu5b"]
+
+[ext_resource type="FontFile" uid="uid://c63jyn2f1vntm" path="res://fonts/FingerPaint-Regular.ttf" id="1_5k8ab"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki5q7"]
+bg_color = Color(0.89, 0.89, 0.89, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_43k2w"]
+bg_color = Color(0.89, 0.89, 0.89, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhren"]
+bg_color = Color(0.89, 0.89, 0.89, 0)
+
+[resource]
+default_font = ExtResource("1_5k8ab")
+default_font_size = 72
+Button/colors/font_color = Color(0.305882, 0.462745, 0.607843, 1)
+Button/colors/font_focus_color = Color(0.639216, 0.0705882, 0.00392157, 1)
+Button/colors/font_hover_color = Color(0.662745, 0.0941176, 0.0196078, 1)
+Button/styles/focus = SubResource("StyleBoxFlat_ki5q7")
+Button/styles/hover = SubResource("StyleBoxFlat_43k2w")
+Button/styles/normal = SubResource("StyleBoxFlat_lhren")
