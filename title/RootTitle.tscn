@@ -38,6 +38,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PaddingMiddle" type="Control" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -49,9 +50,21 @@ size_flags_horizontal = 3
 layout_mode = 2
 theme_override_constants/separation = 60
 
+[node name="PaddingLeft" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ButtonPlay" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
-text = "Play"
+theme_type_variation = &"FlatButton"
+text = "
+
+                    
+
+
+
+
+                                   "
 icon = ExtResource("3_7dql2")
 icon_alignment = 1
 expand_icon = true
@@ -60,10 +73,24 @@ expand_icon = true
 
 [node name="ButtonQuit" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
-text = "Quit"
+theme_type_variation = &"FlatButton"
+text = "
+
+
+
+
+                         "
 icon = ExtResource("5_q57bo")
 icon_alignment = 1
 expand_icon = true
+
+[node name="PaddingLeft2" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft3" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
