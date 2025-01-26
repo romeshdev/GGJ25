@@ -16,9 +16,9 @@ func _process(delta):
 	var velocity = character.global_position - previous_position
 	#global_position = character.global_position + velocity * offset
 	var thing = abs(previous_position.distance_to(character.global_position)) / 2
-	print("Step distance: " + str(step_distance).pad_decimals(2))
-	print("Velocity: " + str(velocity))
-	print("Proposed step: " + str(thing))
+	#print("Step distance: " + str(step_distance).pad_decimals(2))
+	#print("Velocity: " + str(velocity))
+	#print("Proposed step: " + str(thing))
 	previous_position = character.global_position
 	
 	if !is_stepping && !adjacent_target.is_stepping && abs(global_position.distance_to(step_target.global_position)) > (step_distance):
