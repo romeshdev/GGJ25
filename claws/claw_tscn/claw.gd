@@ -3,18 +3,23 @@ extends Node3D
 @export var claw_side = "R":
 	set(value):
 		claw_side = value
+		
+@export var snip: AudioStreamPlayer
 
-var grip_strenth = .1;
+var grip_strenth = .5;
 var max_pincer_rotation_degrees = 10
 var target_claw: Node3D;
+var was_previously_closed: bool = false
 
 func _ready():
 	if(claw_side == "R"):
 		$Claw_L_real.hide()
 		target_claw = $Claw_R_real/Pincer
+		target_claw.rotation_degrees.y = 5
 	if(claw_side == "L"):
 		$Claw_R_real.hide()
 		target_claw = $Claw_L_real/Pincer
+		target_claw.rotation_degrees.y = -5
 
 func _grip_claw(pincer: Node3D):
 	if(claw_side == "R"):
@@ -35,6 +40,11 @@ func _grip_claw(pincer: Node3D):
 			
 		if(final_r_rotation_y < 0 and final_r_rotation_y < right_max_rotation):
 			pincer.rotation_degrees = Vector3(0, right_max_rotation, 0)
+		
+		if(r_fully_closed and !was_previously_closed):
+			snip.play()
+		
+		was_previously_closed = r_fully_closed;
 	
 	if(claw_side == "L"):
 		var left_min_rotation = 0
@@ -54,6 +64,11 @@ func _grip_claw(pincer: Node3D):
 			
 		if(final_l_rotation_y < 0 and final_l_rotation_y < left_min_rotation):
 			pincer.rotation_degrees = Vector3(0, left_min_rotation, 0)
+			
+		if(l_fully_closed and !was_previously_closed):
+			snip.play()	
+		
+		was_previously_closed = l_fully_closed;
 
 func _physics_process(_delta):
 	_grip_claw(target_claw)

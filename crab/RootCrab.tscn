@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=99 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://0lh1q15h00bi" path="res://audio/Crab_Steps_05.wav" id="6_ok35n"]
 [ext_resource type="AudioStream" uid="uid://cniss0534vfon" path="res://audio/Crab_Steps_06.wav" id="7_eb51a"]
 [ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
+[ext_resource type="PackedScene" uid="uid://d2fi83ef3ewir" path="res://crab/bubble_particles.tscn" id="14_kpic8"]
 [ext_resource type="AudioStream" uid="uid://fjoe263ovb6s" path="res://audio/Fall_Slide_Whistle_01.wav" id="17_tuxvv"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
@@ -16,7 +17,7 @@
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="33_uert8"]
 [ext_resource type="Script" path="res://crab/step_ray.gd" id="33_yth4f"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="34_pogxy"]
-[ext_resource type="PackedScene" uid="uid://d60p00unrcxi" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
+[ext_resource type="PackedScene" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u1ru0"]
 radius = 2.5
@@ -1483,7 +1484,6 @@ shape = SubResource("SphereShape3D_ht4o5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="R_ClawHotSpot"]
 transform = Transform3D(4.99637, 1.42109e-14, 5.68434e-14, -1.42109e-14, 4.99637, 0, -5.68434e-14, 0, 4.99637, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_ihsr8")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
@@ -1940,6 +1940,9 @@ material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_8h0dl")
 skin = SubResource("Skin_20ix8")
 
+[node name="BubbleParticles" parent="Skeleton3D/Crab_Body" instance=ExtResource("14_kpic8")]
+transform = Transform3D(1, -3.67255e-08, 1.70945e-07, 1.92445e-13, 0.977691, 0.210045, -1.74845e-07, -0.210045, 0.977691, 2.19289e-08, -0.583781, 0.125418)
+
 [node name="Leg_L_3" type="MeshInstance3D" parent="Skeleton3D"]
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_vloai")
@@ -2188,7 +2191,7 @@ actionName = &"crab_right_claw"
 clawMarker = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorRight"]
-transform = Transform3D(0.183351, 0, -0.983048, 0, 1, 0, 0.983048, 0, 0.183351, 0.583214, 0, -13.8648)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.03078, 2, -27.6017)
 
 [node name="Arm_R" type="MeshInstance3D" parent="RootClawRotatorRight"]
 transform = Transform3D(0.925448, 0, -0.378875, 0, 1, 0, 0.378875, 0, 0.925448, -5.87908, 0, 6.39136)
