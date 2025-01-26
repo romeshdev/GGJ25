@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://0lh1q15h00bi" path="res://audio/Crab_Steps_05.wav" id="6_ok35n"]
 [ext_resource type="AudioStream" uid="uid://cniss0534vfon" path="res://audio/Crab_Steps_06.wav" id="7_eb51a"]
 [ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
-[ext_resource type="PackedScene" uid="uid://d2fi83ef3ewir" path="res://crab/bubble_particles.tscn" id="14_kpic8"]
+[ext_resource type="PackedScene" path="res://crab/bubble_particles.tscn" id="14_kpic8"]
 [ext_resource type="AudioStream" uid="uid://fjoe263ovb6s" path="res://audio/Fall_Slide_Whistle_01.wav" id="17_tuxvv"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
@@ -17,7 +17,7 @@
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="33_uert8"]
 [ext_resource type="Script" path="res://crab/step_ray.gd" id="33_yth4f"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="34_pogxy"]
-[ext_resource type="PackedScene" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
+[ext_resource type="PackedScene" uid="uid://d60p00unrcxi" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u1ru0"]
 radius = 2.5

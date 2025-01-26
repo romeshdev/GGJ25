@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk2qxui4d4s0l"]
+[gd_scene load_steps=4 format=3 uid="uid://dk2qxui4d4s0l"]
 
 [ext_resource type="Script" path="res://timer/TimerBehaviour.gd" id="1_houmj"]
+[ext_resource type="FontFile" uid="uid://c63jyn2f1vntm" path="res://fonts/FingerPaint-Regular.ttf" id="2_y6o6i"]
+
+[sub_resource type="Theme" id="Theme_bnkb3"]
+default_font = ExtResource("2_y6o6i")
+default_font_size = 64
 
 [node name="TimerInferface" type="Control" node_paths=PackedStringArray("label")]
 layout_mode = 3
@@ -24,5 +29,8 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = SubResource("Theme_bnkb3")
+theme_override_constants/outline_size = 16
+theme_override_constants/shadow_outline_size = 0
 text = "05:00"
 horizontal_alignment = 1
