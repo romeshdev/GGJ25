@@ -1,7 +1,8 @@
-[gd_scene load_steps=86 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=90 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
+[ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
 [ext_resource type="Script" path="res://crab/ik_target.gd" id="33_rwqql"]
@@ -9,6 +10,14 @@
 [ext_resource type="Script" path="res://crab/step_ray.gd" id="33_yth4f"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="34_pogxy"]
 [ext_resource type="PackedScene" uid="uid://d60p00unrcxi" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u1ru0"]
+radius = 2.5
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ht4o5"]
+radius = 2.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ihsr8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thfaq"]
 resource_name = "Crab_MAT"
@@ -1274,7 +1283,7 @@ bind/1/pose = Transform3D(-0.110432, 1.3524e-17, 0.993884, -1.58887e-14, 1, -1.7
 radius = 4.74912
 height = 18.4457
 
-[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator")]
+[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot")]
 script = ExtResource("1_06tpv")
 cameraTarget = NodePath("CameraTarget")
 cameraTargetStrafeLeft = NodePath("CameraTargetStafeLeft")
@@ -1282,6 +1291,9 @@ cameraTargetStrafeRight = NodePath("CameraTargetStafeRight")
 cameraMan = NodePath("CameraMan")
 leftClawRotator = NodePath("RootClawRotatorLeft")
 rightClawRotator = NodePath("RootClawRotatorRight")
+skeleton = NodePath("Skeleton3D")
+rightClawHotspot = NodePath("R_ClawHotSpot")
+leftClawHotspot = NodePath("L_ClawHotSpot")
 
 [node name="IKTargets" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -1397,6 +1409,38 @@ step_target = NodePath("Step_Target_R3")
 
 [node name="Step_Target_R3" type="Marker3D" parent="StepTargets/RayCast_R3"]
 transform = Transform3D(1, -3.38316e-09, 1.3112e-10, 3.38316e-09, 0.997, -0.0773977, 1.31116e-10, 0.0773977, 0.997, 0, -11.2453, -0.872979)
+
+[node name="L_ClawHotSpot" type="Node3D" parent="."]
+transform = Transform3D(1, 1.84741e-13, -1.74846e-07, -3.67256e-08, 0.977692, -0.210045, 1.70945e-07, 0.210045, 0.977692, -6.09902, -0.759623, -27.0498)
+
+[node name="Area3D" type="Area3D" parent="L_ClawHotSpot"]
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="L_ClawHotSpot/Area3D"]
+transform = Transform3D(1.99061, 0, 0, 0, 1.99061, 0, 0, 0, 1.99061, 0, 0, 0)
+visible = false
+shape = SubResource("SphereShape3D_u1ru0")
+
+[node name="R_ClawHotSpot" type="Node3D" parent="."]
+transform = Transform3D(1, -9.94734e-15, -1.74846e-07, -3.67256e-08, 0.977692, -0.210045, 1.70945e-07, 0.210045, 0.977692, 6, -1.78191, -22.5092)
+
+[node name="Area3D" type="Area3D" parent="R_ClawHotSpot"]
+transform = Transform3D(1, -3.55271e-15, -1.42109e-14, 7.10543e-15, 1, 1.49012e-08, 0, -1.49012e-08, 1, -9.76668e-07, 0.920241, -5.58588)
+visible = false
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="R_ClawHotSpot/Area3D"]
+transform = Transform3D(1.99061, 0, 0, 0, 1.99061, 0, 0, 0, 1.99061, 0, 0, 0)
+visible = false
+shape = SubResource("SphereShape3D_ht4o5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="R_ClawHotSpot"]
+transform = Transform3D(4.99637, 1.42109e-14, 5.68434e-14, -1.42109e-14, 4.99637, 0, -5.68434e-14, 0, 4.99637, 0, 0, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_ihsr8")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 transform = Transform3D(1, 0, -1.74846e-07, -3.67256e-08, 0.977692, -0.210045, 1.70945e-07, 0.210045, 0.977692, 0, 0.597102, 0)
@@ -1873,6 +1917,7 @@ mesh = SubResource("ArrayMesh_pcmns")
 skin = SubResource("Skin_73jrf")
 
 [node name="Arm_L" type="MeshInstance3D" parent="Skeleton3D"]
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_gidfu")
 skin = SubResource("Skin_c20mo")
@@ -1898,6 +1943,7 @@ mesh = SubResource("ArrayMesh_qto3b")
 skin = SubResource("Skin_gt553")
 
 [node name="Arm_R" type="MeshInstance3D" parent="Skeleton3D"]
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_ukskf")
 skin = SubResource("Skin_ebtu5")
@@ -1943,11 +1989,14 @@ mesh = SubResource("ArrayMesh_7wik7")
 skin = SubResource("Skin_02iui")
 
 [node name="Claw_Low" type="MeshInstance3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, -1.42109e-14, 3.55271e-15, 1, 0, 0, 0, 1, -0.0731201, 0, 1.49012e-08)
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_nkmsj")
 skin = SubResource("Skin_gld0l")
 
 [node name="Claw_R" type="MeshInstance3D" parent="Skeleton3D"]
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_rofrt")
 skin = SubResource("Skin_j6ygs")
@@ -1993,11 +2042,13 @@ mesh = SubResource("ArrayMesh_peqfo")
 skin = SubResource("Skin_ohq86")
 
 [node name="Pincer_Low" type="MeshInstance3D" parent="Skeleton3D"]
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_q7c8y")
 skin = SubResource("Skin_vwrlj")
 
 [node name="Pincer_R" type="MeshInstance3D" parent="Skeleton3D"]
+visible = false
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_v5urb")
 skin = SubResource("Skin_tyi45")
@@ -2053,8 +2104,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
 actionName = &"crab_left_claw"
 clawMarker = NodePath("Marker3D")
 
+[node name="Claw" parent="RootClawRotatorLeft" instance=ExtResource("8_44shc")]
+transform = Transform3D(1, 1.27898e-13, -1.74846e-07, 1.59593e-09, 0.999959, 0.00912811, 1.74838e-07, -0.00912811, 0.999959, -0.215002, 0.0728717, -5.61473)
+claw_side = "L"
+
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorLeft"]
-transform = Transform3D(-0.329839, 0, 0.944037, 0, 1, 0, -0.944037, 0, -0.329839, 0, 0, -10.4276)
+transform = Transform3D(-0.13307, 0, 0.991107, 0, 1, 0, -0.991107, 0, -0.13307, -3.68604, 0, -25.4651)
+
+[node name="Arm_L" type="MeshInstance3D" parent="RootClawRotatorLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11764, 0, 6.20737)
+material_override = ExtResource("33_uert8")
+mesh = SubResource("ArrayMesh_gidfu")
+skin = SubResource("Skin_c20mo")
 
 [node name="RootClawRotatorRight" parent="." node_paths=PackedStringArray("clawMarker") instance=ExtResource("36_byrx6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
@@ -2062,5 +2123,19 @@ flip = true
 actionName = &"crab_right_claw"
 clawMarker = NodePath("Marker3D")
 
+[node name="Claw" parent="RootClawRotatorRight" instance=ExtResource("8_44shc")]
+transform = Transform3D(1, -1.06581e-14, -1.74846e-07, 1.59595e-09, 0.999959, 0.00912814, 1.74838e-07, -0.00912814, 0.999959, 0.0032959, -0.180182, -6.38182)
+
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorRight"]
-transform = Transform3D(0.166338, 0, -0.986069, 0, 1, 0, 0.986069, 0, 0.166338, 1.33514, 0, -40.6136)
+transform = Transform3D(0.183351, 0, -0.983048, 0, 1, 0, 0.983048, 0, 0.183351, 0.583214, 0, -13.8648)
+
+[node name="Arm_R" type="MeshInstance3D" parent="RootClawRotatorRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87908, 0, 6.39136)
+material_override = ExtResource("33_uert8")
+mesh = SubResource("ArrayMesh_ukskf")
+skin = SubResource("Skin_ebtu5")
+
+[connection signal="body_entered" from="L_ClawHotSpot/Area3D" to="RootClawRotatorLeft" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="L_ClawHotSpot/Area3D" to="RootClawRotatorLeft" method="_on_area_3d_body_exited"]
+[connection signal="body_entered" from="R_ClawHotSpot/Area3D" to="RootClawRotatorRight" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="R_ClawHotSpot/Area3D" to="RootClawRotatorRight" method="_on_area_3d_body_exited"]
