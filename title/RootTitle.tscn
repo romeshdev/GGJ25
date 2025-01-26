@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://4cwxqhtacnap"]
+[gd_scene load_steps=8 format=3 uid="uid://4cwxqhtacnap"]
 
 [ext_resource type="Script" path="res://title/TitleBehaviour.gd" id="1_n85if"]
 [ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_3w8f5"]
 [ext_resource type="Texture2D" uid="uid://bun8u46plmm7f" path="res://Textures/UI_button_Play.png" id="3_7dql2"]
+[ext_resource type="Script" path="res://utils/ScaleOnGrabbedBehaviour.gd" id="3_78fbb"]
 [ext_resource type="Texture2D" uid="uid://rrmbrwd76uqd" path="res://Textures/UI_Start.png" id="3_s85g0"]
+[ext_resource type="Theme" uid="uid://bcyodthrfoou8" path="res://title/TextureButton.tres" id="4_0gdbi"]
 [ext_resource type="Texture2D" uid="uid://js6agwyocv6x" path="res://Textures/UI_button_Quit.png" id="5_q57bo"]
 
 [node name="Title" type="Control"]
@@ -25,20 +27,16 @@ grow_vertical = 2
 texture = ExtResource("3_s85g0")
 expand_mode = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HSplitContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+split_offset = -36
 
 [node name="PaddingLeft" type="Control" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PaddingMiddle" type="Control" parent="HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -46,16 +44,39 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 48
+theme_override_constants/margin_bottom = 48
 
-[node name="PaddingLeft" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
+theme_override_constants/separation = 300
 
-[node name="ButtonPlay" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+[node name="PlayRoot" type="Control" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ScaleOnGrabbed" type="Node2D" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/PlayRoot" node_paths=PackedStringArray("target")]
+script = ExtResource("3_78fbb")
+target = NodePath("ButtonPlay")
+
+[node name="ButtonPlay" type="Button" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/PlayRoot/ScaleOnGrabbed"]
+custom_minimum_size = Vector2(154, 192)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -96.0
+offset_right = 77.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0gdbi")
 theme_type_variation = &"FlatButton"
 text = "
 
@@ -69,10 +90,30 @@ icon = ExtResource("3_7dql2")
 icon_alignment = 1
 expand_icon = true
 
-[node name="FocusGrabber" parent="HBoxContainer/CenterContainer/HBoxContainer/ButtonPlay" instance=ExtResource("2_3w8f5")]
+[node name="FocusGrabber" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/PlayRoot/ScaleOnGrabbed/ButtonPlay" instance=ExtResource("2_3w8f5")]
 
-[node name="ButtonQuit" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+[node name="QuitRoot" type="Control" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ScaleOnGrabbed2" type="Node2D" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/QuitRoot" node_paths=PackedStringArray("target")]
+script = ExtResource("3_78fbb")
+target = NodePath("ButtonQuit")
+
+[node name="ButtonQuit" type="Button" parent="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/QuitRoot/ScaleOnGrabbed2"]
+custom_minimum_size = Vector2(154, 192)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.0
+offset_top = -73.0
+offset_right = 56.0
+offset_bottom = 73.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_0gdbi")
 theme_type_variation = &"FlatButton"
 text = "
 
@@ -84,13 +125,5 @@ icon = ExtResource("5_q57bo")
 icon_alignment = 1
 expand_icon = true
 
-[node name="PaddingLeft2" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="PaddingLeft3" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
-[connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/PlayRoot/ScaleOnGrabbed/ButtonPlay" to="." method="_on_button_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/CenterContainer/MarginContainer/HBoxContainer/QuitRoot/ScaleOnGrabbed2/ButtonQuit" to="." method="_on_button_quit_pressed"]

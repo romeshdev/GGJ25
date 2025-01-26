@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bc1csvwju4t4j"]
+[gd_scene load_steps=7 format=3 uid="uid://bc1csvwju4t4j"]
 
 [ext_resource type="Script" path="res://victory/VictoryBehaviour.gd" id="1_0i7pn"]
 [ext_resource type="Texture2D" uid="uid://6ydn5nelguve" path="res://Textures/UI_Eggtastic.png" id="2_eiwhs"]
 [ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_etivm"]
 [ext_resource type="Texture2D" uid="uid://cgk7fk5h6cofb" path="res://Textures/UI_button_Again.png" id="3_2npub"]
+[ext_resource type="Script" path="res://utils/ScaleOnGrabbedBehaviour.gd" id="3_sx1gb"]
+[ext_resource type="Theme" uid="uid://bcyodthrfoou8" path="res://title/TextureButton.tres" id="6_088lf"]
 
 [node name="RootVictory" type="Control"]
 layout_mode = 3
@@ -24,28 +26,36 @@ grow_vertical = 2
 texture = ExtResource("2_eiwhs")
 expand_mode = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+[node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 60
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
-[node name="PaddingLeft2" type="Control" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[node name="ScaleOnGrabbed" type="Node2D" parent="MarginContainer/Control" node_paths=PackedStringArray("target")]
+script = ExtResource("3_sx1gb")
+target = NodePath("ButtonTitle")
 
-[node name="PaddingLeft" type="Control" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="ButtonTitle" type="Button" parent="CenterContainer/VBoxContainer"]
-layout_mode = 2
+[node name="ButtonTitle" type="Button" parent="MarginContainer/Control/ScaleOnGrabbed"]
+offset_left = -75.0
+offset_top = -146.0
+offset_right = 75.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme = ExtResource("6_088lf")
 theme_type_variation = &"FlatButton"
 text = "
 
@@ -57,6 +67,19 @@ icon = ExtResource("3_2npub")
 icon_alignment = 1
 expand_icon = true
 
-[node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonTitle" instance=ExtResource("2_etivm")]
+[node name="FocusGrabber" parent="MarginContainer/Control/ScaleOnGrabbed/ButtonTitle" instance=ExtResource("2_etivm")]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("6_088lf")
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonTitle" to="." method="_on_button_title_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/ScaleOnGrabbed/ButtonTitle" to="." method="_on_button_title_pressed"]
