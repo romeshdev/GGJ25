@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 Jukebox="*res://jukebox/RootJukebox.tscn"
 
+[display]
+
+window/size/mode=4
+
 [input]
 
 ui_accept={
