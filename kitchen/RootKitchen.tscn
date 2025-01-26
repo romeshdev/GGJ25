@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dpv7ayoetui6n"]
+[gd_scene load_steps=12 format=3 uid="uid://dpv7ayoetui6n"]
 
 [ext_resource type="PackedScene" uid="uid://csum8rksaovp4" path="res://egg/RootEgg.tscn" id="1_6hr85"]
 [ext_resource type="Script" path="res://kitchen/KitchenBehaviour.gd" id="1_b3h0t"]
@@ -7,12 +7,18 @@
 [ext_resource type="PackedScene" path="res://kitchen/bench.tscn" id="3_k1vau"]
 [ext_resource type="PackedScene" uid="uid://dheaeuvjshvlm" path="res://Meshes/Bubbles.tscn" id="5_63kwm"]
 [ext_resource type="Material" uid="uid://c2fsgofuf5rkj" path="res://Materials/Floor.tres" id="7_nleqn"]
+[ext_resource type="Material" uid="uid://8fymxbj05udx" path="res://Materials/Skybox.tres" id="8_d24im"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
-size = Vector3(300, 0.5, 300)
+size = Vector3(500, 0.5, 500)
 
-[sub_resource type="BoxMesh" id="BoxMesh_t6ff7"]
-size = Vector3(300, 0.5, 300)
+[sub_resource type="PlaneMesh" id="PlaneMesh_bnmhg"]
+size = Vector2(500, 500)
+
+[sub_resource type="SphereMesh" id="SphereMesh_lii5l"]
+flip_faces = true
+radius = 800.0
+height = 1600.0
 
 [node name="RootKitchen" type="Node3D"]
 script = ExtResource("1_b3h0t")
@@ -59,12 +65,11 @@ script = null
 transform = Transform3D(1.93962, 0, 0, 0, 1.93962, 0, 0, 0, 1.93962, 0, -1.31254, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D Floor"]
-transform = Transform3D(0.999999, -0.00132203, -0.000751907, 0.00132111, 0.999998, -0.00122849, 0.000753527, 0.0012275, 0.999999, 0, 0, 0)
 shape = SubResource("BoxShape3D_sihou")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D Floor"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0196056, 0.0575702, -0.0276696)
-mesh = SubResource("BoxMesh_t6ff7")
+mesh = SubResource("PlaneMesh_bnmhg")
 surface_material_override/0 = ExtResource("7_nleqn")
 
 [node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
@@ -73,6 +78,11 @@ transform = Transform3D(0.934819, 0.339375, 0.10458, -0.190938, 0.728635, -0.657
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.1762, 91.0505, -94.0555)
 light_color = Color(1, 0.3625, 0.15, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1.96459, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 165.916, 2.97546)
+material_override = ExtResource("8_d24im")
+mesh = SubResource("SphereMesh_lii5l")
 
 [connection signal="crabInPot" from="Bench/Pot" to="." method="_on_pot_crab_in_pot"]
 [connection signal="eggInPot" from="Bench/Pot" to="." method="_on_pot_egg_in_pot"]
