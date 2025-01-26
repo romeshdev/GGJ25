@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://8fymxbj05udx"]
+
+[ext_resource type="Texture2D" uid="uid://cpqu21fmh2wpj" path="res://Textures/RoomHDRI.jpg" id="1_p3dou"]
+
+[resource]
+albedo_texture = ExtResource("1_p3dou")
+emission_enabled = true
+emission_energy_multiplier = 0.28
+emission_texture = ExtResource("1_p3dou")
