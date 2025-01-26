@@ -17,11 +17,13 @@ const ROTATE_DECELERATION_GROUND : float = 80
 const ROTATE_DECELERATION_AIR : float = 3
 const ROTATE_MAX_SPEED : float = 2
 
-const JUMP_VELOCITY : float = 10
-const GRAVITY_MIN : float = 0.5
-const GRAVITY_MAX : float = 2
+const JUMP_VELOCITY : float = 140
+const GRAVITY_MIN : float = 16
+const GRAVITY_MAX : float = 30
 
 const HEADCHECK_SPEED : float = 2
+
+const PUSH_FORCE : float = 3
 
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
@@ -133,3 +135,9 @@ func _physics_process(delta):
 
  	# Update position
 	move_and_slide()
+	
+	# Push shit around
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is RigidBody3D:
+			c.get_collider().apply_central_impulse(-c.get_normal() * PUSH_FORCE)
