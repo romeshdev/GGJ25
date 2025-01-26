@@ -124,13 +124,18 @@ shape = SubResource("CylinderShape3D_s8xms")
 
 [node name="Bubble" parent="." instance=ExtResource("3_hw7al")]
 
-[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+[node name="Boil" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_87oyk")
-volume_db = 50.356
+volume_db = 70.0
+unit_size = 5.0
 autoplay = true
+max_distance = 200.0
 
-[node name="Splash" type="AudioStreamPlayer" parent="."]
+[node name="Splash" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_tbqah")
+volume_db = 70.0
+unit_size = 5.0
+max_distance = 200.0
 
 [connection signal="body_entered" from="Pot_Water" to="." method="_on_pot_water_body_entered"]
 [connection signal="body_exited" from="Pot_Water" to="." method="_on_pot_water_body_exited"]

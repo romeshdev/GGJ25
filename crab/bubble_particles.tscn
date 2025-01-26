@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2fi83ef3ewir"]
+
+[ext_resource type="Material" uid="uid://bw6e0411oyghy" path="res://Materials/Bubble.tres" id="1_8k20i"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhhp3"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -149.0
+angle_max = 99.3
+inherit_velocity_ratio = 0.12
+direction = Vector3(1, 0, 1)
+spread = 18.976
+gravity = Vector3(0, 0.1, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.0
+radial_accel_max = 2.0
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+scale_max = 6.15
+scale_over_velocity_max = 60.8
+hue_variation_min = -0.3
+hue_variation_max = 0.16
+
+[sub_resource type="SphereMesh" id="SphereMesh_ljq41"]
+radius = 0.25
+height = 0.5
+
+[node name="BubbleParticles" type="Node3D"]
+transform = Transform3D(1, -3.67255e-08, 1.70945e-07, 1.87726e-13, 0.977691, 0.210045, -1.74845e-07, -0.210045, 0.977691, 2.19289e-08, -0.583781, 0.125418)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76003, 4.07249, -7.16969)
+material_override = ExtResource("1_8k20i")
+cast_shadow = 0
+lifetime = 3.04
+speed_scale = 2.29
+explosiveness = 0.02
+randomness = 0.55
+process_material = SubResource("ParticleProcessMaterial_qhhp3")
+draw_pass_1 = SubResource("SphereMesh_ljq41")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09656, 4.07249, -7.16969)
+material_override = ExtResource("1_8k20i")
+cast_shadow = 0
+lifetime = 3.04
+speed_scale = 2.29
+explosiveness = 0.02
+randomness = 0.55
+process_material = SubResource("ParticleProcessMaterial_qhhp3")
+draw_pass_1 = SubResource("SphereMesh_ljq41")
