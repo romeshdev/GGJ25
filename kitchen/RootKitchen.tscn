@@ -1,12 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dpv7ayoetui6n"]
+[gd_scene load_steps=5 format=3 uid="uid://dpv7ayoetui6n"]
 
 [ext_resource type="PackedScene" uid="uid://csum8rksaovp4" path="res://egg/RootEgg.tscn" id="1_6hr85"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
-size = Vector3(300, 0.5, 300)
-
-[sub_resource type="BoxMesh" id="BoxMesh_t6ff7"]
-size = Vector3(300, 0.5, 300)
+[ext_resource type="PackedScene" uid="uid://72sfvxbvk43c" path="res://Meshes/Prop/Import/Bench.fbx" id="1_geseb"]
+[ext_resource type="PackedScene" uid="uid://b6ein3sdef08s" path="res://kitchen/shelf.tscn" id="2_lys7o"]
+[ext_resource type="PackedScene" uid="uid://bhgn140g4n1tt" path="res://kitchen/Pot.tscn" id="3_5dlj7"]
 
 [node name="RootKitchen" type="Node3D"]
 
@@ -15,13 +12,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.31254, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Bench"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bench/StaticBody3D"]
-transform = Transform3D(0.999999, -0.00132203, -0.000751907, 0.00132111, 0.999998, -0.00122849, 0.000753527, 0.0012275, 0.999999, 0, 0, 0)
-shape = SubResource("BoxShape3D_sihou")
+[node name="Shelf2" parent="Bench/StaticBody3D" instance=ExtResource("2_lys7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59501, 8.70082, 21.8303)
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Bench/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00107002, 0.0221336, -0.0108392)
-mesh = SubResource("BoxMesh_t6ff7")
+[node name="Shelf" parent="Bench/StaticBody3D" instance=ExtResource("2_lys7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.59501, 8.70082, 9.54002)
+
+[node name="Bench" parent="Bench" instance=ExtResource("1_geseb")]
+
+[node name="Pot" parent="Bench" instance=ExtResource("3_5dlj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.83118, 8.70708, 9.70625)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0, 4.33209, 0)
