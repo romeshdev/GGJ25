@@ -25,6 +25,7 @@ const HEADCHECK_SPEED : float = 2
 
 const PUSH_FORCE : float = 3
 
+var startPosition : Vector3
 var rotation_speed : float = 0.0
 var input_rotation : float = 0.0 
 var input_advance : float = 0.0
@@ -47,11 +48,12 @@ func _ready():
 	assert(cameraMan != null)
 	assert(leftClawRotator != null)
 	assert(rightClawRotator != null)
+	startPosition = global_position
 
 func _process(_delta):
 	# Restore position if you fall off a cliff
-	if position.y < -10:
-		position = Vector3.UP * 3
+	if position.y < -200:
+		global_position = startPosition
 		velocity = Vector3.ZERO
 		fellOffCliff.emit()
 

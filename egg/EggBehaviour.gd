@@ -1,11 +1,13 @@
 class_name EggBehaviour extends RigidBody3D
 
+var startPosition : Vector3
 
-# Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	startPosition = global_position
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	# Restore position if the egg falls off a cliff
+	if position.y < -200:
+		global_position = startPosition
+		linear_velocity = Vector3.ZERO
+		angular_velocity = Vector3.ZERO
