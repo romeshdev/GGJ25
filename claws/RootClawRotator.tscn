@@ -23,6 +23,7 @@ grabArea = NodePath("ClawHotSpot/Area3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.36454)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClawMesh"]
+visible = false
 material_override = SubResource("StandardMaterial3D_6dsnk")
 mesh = SubResource("BoxMesh_htyoa")
 skeleton = NodePath("../..")
