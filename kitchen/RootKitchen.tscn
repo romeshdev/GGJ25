@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://dpv7ayoetui6n"]
+[gd_scene load_steps=13 format=3 uid="uid://dpv7ayoetui6n"]
 
 [ext_resource type="PackedScene" uid="uid://csum8rksaovp4" path="res://egg/RootEgg.tscn" id="1_6hr85"]
 [ext_resource type="Script" path="res://kitchen/KitchenBehaviour.gd" id="1_b3h0t"]
-[ext_resource type="PackedScene" path="res://kitchen/shelf.tscn" id="2_lys7o"]
+[ext_resource type="PackedScene" uid="uid://b6ein3sdef08s" path="res://kitchen/shelf.tscn" id="2_lys7o"]
 [ext_resource type="PackedScene" uid="uid://bhgn140g4n1tt" path="res://kitchen/Pot.tscn" id="2_yuig1"]
-[ext_resource type="PackedScene" uid="uid://bwhodt8jrbds0" path="res://kitchen/bench.tscn" id="3_k1vau"]
-[ext_resource type="PackedScene" uid="uid://ch51i1uamehab" path="res://Meshes/Bubbles.tscn" id="5_63kwm"]
+[ext_resource type="PackedScene" path="res://kitchen/bench.tscn" id="3_k1vau"]
+[ext_resource type="PackedScene" path="res://kitchen/book.tscn" id="5_vcqv1"]
+[ext_resource type="PackedScene" uid="uid://bafily84xhu35" path="res://kitchen/hob.tscn" id="6_hedsm"]
 [ext_resource type="Material" uid="uid://c2fsgofuf5rkj" path="res://Materials/Floor.tres" id="7_nleqn"]
-[ext_resource type="Material" path="res://Materials/Skybox.tres" id="8_d24im"]
+[ext_resource type="Material" uid="uid://8fymxbj05udx" path="res://Materials/Skybox.tres" id="8_d24im"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
 size = Vector3(500, 0.5, 500)
@@ -33,18 +34,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78004, 9.00867, 5.93942)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78004, 9.00867, 23.0465)
 
 [node name="Bench2" parent="Bench" instance=ExtResource("3_k1vau")]
+transform = Transform3D(1.11893, 0, 0, 0, 1.11893, 0, 0, 0, 1.11893, -0.191126, -0.964606, -2.34338)
 
 [node name="Pot" parent="Bench" instance=ExtResource("2_yuig1")]
-transform = Transform3D(-1.30314, 0, -0.289305, 0, 1.33487, 0, 0.289305, 0, -1.30314, 3.02172, 8.91272, 22.5852)
+transform = Transform3D(-0.976232, 0, -0.216729, 0, 1, 0, 0.216729, 0, -0.976232, 3.22172, 9.81272, 22.5852)
 
-[node name="Bubble" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(13.4928, 0, 0, 0, 13.4928, 0, 0, 0, 13.4928, 1.69719, 11.4672, 23.1272)
+[node name="Book" parent="Bench" instance=ExtResource("5_vcqv1")]
+transform = Transform3D(-0.35745, -0.127009, -0.925256, -0.361018, 0.932488, 0.0114685, 0.861334, 0.338134, -0.379171, 2.69994, 8.92599, 13.3989)
 
-[node name="Bubble2" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(15.2074, 0, 0, 0, 15.2074, 0, 0, 0, 15.2074, 2.8975, 11.7012, 21.2035)
-
-[node name="Bubble3" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(19.9455, 0, 0, 0, 19.9455, 0, 0, 0, 19.9455, 3.37326, 11.9756, 23.4627)
+[node name="Hob" parent="Bench" instance=ExtResource("6_hedsm")]
+transform = Transform3D(0.999966, 0, 0.00820296, 0, 1, 0, -0.00820296, 0, 0.999966, 2.50813, 8.95115, 23.2829)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0, 4.33209, 0)
