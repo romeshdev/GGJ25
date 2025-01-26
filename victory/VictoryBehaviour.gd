@@ -1,7 +1,7 @@
 class_name VictoryBehaviour extends Control
 
 func _ready():
-	Jukebox.playTitleMusic()
+	Jukebox.playVictoryJingle()
 
 func _process(delta):
 	if Input.is_action_just_pressed("ui_cancel"):
