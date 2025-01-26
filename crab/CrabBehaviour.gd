@@ -14,7 +14,7 @@ const STRAFE_DECELERATION_FROM_AIR_FRICTION : float = 1
 
 const ROTATE_ACCELERATION : float = 3
 const ROTATE_DECELERATION_GROUND : float = 80
-const ROTATE_DECELERATION_AIR : float = 3
+const ROTATE_DECELERATION_AIR : float = 1
 const ROTATE_MAX_SPEED : float = 2
 
 const JUMP_VELOCITY : float = 140
