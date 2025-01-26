@@ -35,16 +35,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.78004, 9.00867, 23.0465)
 [node name="Bench2" parent="Bench" instance=ExtResource("3_k1vau")]
 
 [node name="Pot" parent="Bench" instance=ExtResource("2_yuig1")]
-transform = Transform3D(-1.30314, 0, -0.289305, 0, 1.33487, 0, 0.289305, 0, -1.30314, 3.63814, 8.91272, 5.69941)
+transform = Transform3D(-1.30314, 0, -0.289305, 0, 1.33487, 0, 0.289305, 0, -1.30314, 3.02172, 8.91272, 22.5852)
 
 [node name="Bubble" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(13.4928, 0, 0, 0, 13.4928, 0, 0, 0, 13.4928, 2.98567, 11.4672, 6.39903)
+transform = Transform3D(13.4928, 0, 0, 0, 13.4928, 0, 0, 0, 13.4928, 1.69719, 11.4672, 23.1272)
 
 [node name="Bubble2" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(15.2074, 0, 0, 0, 15.2074, 0, 0, 0, 15.2074, 4.18598, 11.7012, 4.47525)
+transform = Transform3D(15.2074, 0, 0, 0, 15.2074, 0, 0, 0, 15.2074, 2.8975, 11.7012, 21.2035)
 
 [node name="Bubble3" parent="Bench" instance=ExtResource("5_63kwm")]
-transform = Transform3D(19.9455, 0, 0, 0, 19.9455, 0, 0, 0, 19.9455, 4.66174, 11.9756, 6.73453)
+transform = Transform3D(19.9455, 0, 0, 0, 19.9455, 0, 0, 0, 19.9455, 3.37326, 11.9756, 23.4627)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0, 4.33209, 0)
