@@ -15,8 +15,9 @@ height = 25.5972
 [sub_resource type="SphereShape3D" id="SphereShape3D_amkeg"]
 radius = 2.5
 
-[node name="RootClawRotator" type="Node3D"]
+[node name="RootClawRotator" type="Node3D" node_paths=PackedStringArray("grabArea")]
 script = ExtResource("1_1u0jg")
+grabArea = NodePath("ClawHotSpot/Area3D")
 
 [node name="ClawMesh" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.36454)
@@ -36,6 +37,11 @@ shape = SubResource("CapsuleShape3D_7usfy")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 
 [node name="Area3D" type="Area3D" parent="ClawHotSpot"]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClawHotSpot/Area3D"]
 shape = SubResource("SphereShape3D_amkeg")
+
+[connection signal="body_entered" from="ClawHotSpot/Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="ClawHotSpot/Area3D" to="." method="_on_area_3d_body_exited"]
