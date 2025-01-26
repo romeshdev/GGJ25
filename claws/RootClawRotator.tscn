@@ -41,6 +41,7 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClawHotSpot/Area3D"]
+transform = Transform3D(1.99061, 0, 0, 0, 1.99061, 0, 0, 0, 1.99061, 0, 0, 0)
 shape = SubResource("SphereShape3D_amkeg")
 
 [connection signal="body_entered" from="ClawHotSpot/Area3D" to="." method="_on_area_3d_body_entered"]

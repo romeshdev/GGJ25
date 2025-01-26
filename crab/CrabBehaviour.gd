@@ -50,7 +50,7 @@ func _ready():
 
 func _process(_delta):
 	# Restore position if you fall off a cliff
-	if position.y < -10:
+	if position.y < -50:
 		position = Vector3.UP * 3
 		velocity = Vector3.ZERO
 		fellOffCliff.emit()
