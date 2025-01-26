@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://cw88hd3ruqhfo"]
+[gd_scene load_steps=4 format=3 uid="uid://cw88hd3ruqhfo"]
 
 [ext_resource type="Script" path="res://defeat/DefeatBehaviour.gd" id="1_pbima"]
+[ext_resource type="Theme" uid="uid://dy148aumuhu5b" path="res://fonts/Button.tres" id="2_d36aa"]
 [ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_e2yms"]
 
 [node name="RootDefeat" type="Control"]
@@ -27,9 +28,11 @@ theme_override_constants/separation = 60
 [node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "You lose!"
+horizontal_alignment = 1
 
 [node name="ButtonTitle" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("2_d36aa")
 text = "Okay"
 
 [node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonTitle" instance=ExtResource("2_e2yms")]
