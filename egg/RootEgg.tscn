@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=4 uid="uid://csum8rksaovp4"]
+[gd_scene load_steps=7 format=4 uid="uid://csum8rksaovp4"]
 
 [ext_resource type="Script" path="res://egg/EggBehaviour.gd" id="1_edx06"]
+[ext_resource type="AudioStream" uid="uid://b553mtfdc6mxh" path="res://audio/Fall_Slide_Whistle_02.wav" id="2_j75a8"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1156"]
 radius = 4.36241
@@ -40,12 +41,13 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qrjuw")
 
-[node name="RootEgg" type="RigidBody3D"]
+[node name="RootEgg" type="RigidBody3D" node_paths=PackedStringArray("fallingSound")]
 collision_layer = 7
 collision_mask = 7
 gravity_scale = 3.0
 freeze_mode = 1
 script = ExtResource("1_edx06")
+fallingSound = NodePath("FallSound")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1.00438, 0, 0, 0, 1.00438, 0, 0, 0, 1.00438, 0, 0, 0)
@@ -55,3 +57,9 @@ shape = SubResource("CapsuleShape3D_a1156")
 transform = Transform3D(0.349177, 0, 0, 0, 0, 0.464504, 0, -0.349177, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_hokqo")
 skeleton = NodePath("")
+
+[node name="FallSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_j75a8")
+volume_db = 40.0
+unit_size = 5.0
+max_distance = 200.0
