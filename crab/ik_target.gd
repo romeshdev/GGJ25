@@ -4,6 +4,8 @@ extends Marker3D
 @export var step_distance: float = 10.0
 @export var fast_step_distance: float = 20.0
 
+@export var stepSound : AudioStreamPlayer
+
 @export var adjacent_target: Node3D
 @export var character: CharacterBody3D
 var previous_position
@@ -28,5 +30,5 @@ func step():
 	var t = get_tree().create_tween()
 	t.tween_property(self, "global_position", half_way + owner.basis.y, 0.1)
 	t.tween_property(self, "global_position", target_pos, 0.1)
-	t.tween_callback(func(): is_stepping = false)
+	t.tween_callback(func(): stepSound.play(); is_stepping = false)
 	previous_position = character.global_position
