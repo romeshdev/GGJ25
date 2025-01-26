@@ -15,7 +15,7 @@ var is_stepping := false
 
 func _process(delta):
 	var character_velocity = character.global_position - previous_position
-	var vel = sqrt(character_velocity.x*character_velocity.x + character_velocity.y*character_velocity.y + character_velocity.z*character_velocity.z)
+	var vel = sqrt(character_velocity.length_squared())
 	var current_step_distance = step_distance if vel < 8 else (fast_step_distance)
 	
 	if !is_stepping && !adjacent_target.is_stepping && abs(global_position.distance_to(step_target.global_position)) > (current_step_distance):

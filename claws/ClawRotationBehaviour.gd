@@ -3,6 +3,7 @@ class_name ClawRotatorBehaviour extends Node3D
 @export var flip : bool = false
 @export var grabArea : Area3D
 @export var actionName : StringName
+@export var clawMarker: Node3D
 
 const ROTATION_SPEED : float = 5.0
 const MIN_ANGLE : float = 0.0
@@ -22,6 +23,7 @@ func _normalizeAngle(angle) -> float:
 
 func _ready():
 	assert(grabArea != null)
+	assert(clawMarker != null)
 	target = Vector2.UP
 
 func _process(delta):
@@ -35,7 +37,8 @@ func _process(delta):
 		target.x = min(0, target.x)
 		angle = _normalizeAngle(-PI/2 -target.angle())
 		angle = clamp(angle, MIN_ANGLE, MAX_ANGLE)
-	rotation.y = lerp_angle(rotation.y, angle, delta * ROTATION_SPEED) 
+	rotation.y = lerp_angle(rotation.y, angle, delta * ROTATION_SPEED)
+	#clawMarker.rotation.y = rotation.y * 1.5 
 	
 	# Grab shit
 	if Input.is_action_just_pressed(actionName) && egg != null:
