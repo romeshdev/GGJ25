@@ -29,15 +29,17 @@ mesh = SubResource("BoxMesh_htyoa")
 skeleton = NodePath("../..")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="ClawMesh"]
+visible = false
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClawMesh/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+visible = false
 shape = SubResource("CapsuleShape3D_7usfy")
 
 [node name="ClawHotSpot" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
 
 [node name="Area3D" type="Area3D" parent="ClawHotSpot"]
 collision_layer = 2
