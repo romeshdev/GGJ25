@@ -1819,6 +1819,34 @@ magnet = Vector3(0, 10, 0)
 target_node = NodePath("../../IKTargets/IK_Target_R3")
 script = ExtResource("32_5wnoc")
 
+[node name="L_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, -1.42109e-14, 3.55271e-15, 1, 0, 0, 0, 1, -1.1678, 1.48447, 10.4526)
+root_bone = &"Swim_L_1"
+tip_bone = &"Swim_L_5"
+target_node = NodePath("../../IKTargets/SwimmerTarget_L")
+script = ExtResource("32_5wnoc")
+
+[node name="R_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, -1.42109e-14, 3.55271e-15, 1, 0, 0, 0, 1, 0.78648, 1.48447, 10.3664)
+root_bone = &"Swim_R_1"
+tip_bone = &"Swim_R_5"
+target_node = NodePath("../../IKTargets/SwimmerTarget_R")
+script = ExtResource("32_5wnoc")
+
+[node name="R_Claw_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, -1.42109e-14, 3.55271e-15, 1, 0, 0, 0, 1, 0.78648, 1.48447, 10.3664)
+root_bone = &"R_Arm"
+tip_bone = &"R_Claw"
+target_node = NodePath("../../RootClawRotatorRight/Marker3D")
+script = ExtResource("32_5wnoc")
+
+[node name="L_Claw_IK" type="SkeletonIK3D" parent="Skeleton3D"]
+transform = Transform3D(1, 0, -1.42109e-14, 3.55271e-15, 1, 0, 0, 0, 1, 0.78648, 1.48447, 10.3664)
+root_bone = &"L_Arm"
+tip_bone = &"L_Claw"
+target_node = NodePath("../../RootClawRotatorLeft/Marker3D")
+script = ExtResource("32_5wnoc")
+
 [node name="Crab_Body" type="MeshInstance3D" parent="Skeleton3D"]
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_8h0dl")
@@ -2004,20 +2032,6 @@ material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_neeg7")
 skin = SubResource("Skin_resro")
 
-[node name="L_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1678, 1.48447, 10.4526)
-root_bone = &"Swim_L_1"
-tip_bone = &"Swim_L_5"
-target_node = NodePath("../../IKTargets/SwimmerTarget_L")
-script = ExtResource("32_5wnoc")
-
-[node name="R_Swimmer_IK" type="SkeletonIK3D" parent="Skeleton3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.78648, 1.48447, 10.3664)
-root_bone = &"Swim_R_1"
-tip_bone = &"Swim_R_5"
-target_node = NodePath("../../IKTargets/SwimmerTarget_R")
-script = ExtResource("32_5wnoc")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -2.46152, 0)
 shape = SubResource("CapsuleShape3D_bj1mu")
@@ -2034,9 +2048,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20, 0, 0)
 [node name="CameraTargetStafeRight" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
 
-[node name="RootClawRotatorLeft" parent="." instance=ExtResource("36_byrx6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
+[node name="RootClawRotatorLeft" parent="." node_paths=PackedStringArray("clawMarker") instance=ExtResource("36_byrx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
+actionName = &"crab_left_claw"
+clawMarker = NodePath("Marker3D")
 
-[node name="RootClawRotatorRight" parent="." instance=ExtResource("36_byrx6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
+[node name="Marker3D" type="Marker3D" parent="RootClawRotatorLeft"]
+transform = Transform3D(-0.329839, 0, 0.944037, 0, 1, 0, -0.944037, 0, -0.329839, 0, 0, -10.4276)
+
+[node name="RootClawRotatorRight" parent="." node_paths=PackedStringArray("clawMarker") instance=ExtResource("36_byrx6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
 flip = true
+actionName = &"crab_right_claw"
+clawMarker = NodePath("Marker3D")
+
+[node name="Marker3D" type="Marker3D" parent="RootClawRotatorRight"]
+transform = Transform3D(0.166338, 0, -0.986069, 0, 1, 0, 0.986069, 0, 0.166338, 1.33514, 0, -40.6136)

@@ -8,6 +8,11 @@ func _goToVictory():
 	get_tree().root.add_child(victory)
 	queue_free()
 
+func _goToDefeat():
+	var defeat = load("res://defeat/RootDefeat.tscn").instantiate()
+	get_tree().root.add_child(defeat)
+	queue_free()
+
 func _ready():
 	assert(crab != null)
 	assert(akimbo != null)
@@ -32,4 +37,10 @@ func _on_timer_inferface_timeout():
 	queue_free()
 
 func _on_root_crab_fell_off_cliff():
+	_goToDefeat()
+
+func _on_root_kitchen_crab_in_pot():
+	_goToDefeat()
+
+func _on_root_kitchen_egg_in_pot():
 	_goToVictory()

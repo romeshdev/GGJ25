@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://csum8rksaovp4"]
+[gd_scene load_steps=6 format=4 uid="uid://csum8rksaovp4"]
+
+[ext_resource type="Script" path="res://egg/EggBehaviour.gd" id="1_edx06"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_a1156"]
-radius = 2.29134
-height = 6.09544
+radius = 4.36241
+height = 11.5235
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbyp0"]
 
@@ -39,12 +41,17 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_qrjuw")
 
 [node name="RootEgg" type="RigidBody3D"]
+collision_layer = 3
+collision_mask = 3
 gravity_scale = 3.0
+freeze_mode = 1
+script = ExtResource("1_edx06")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.00438, 0, 0, 0, 1.00438, 0, 0, 0, 1.00438, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_a1156")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(0.182046, 0, 0, 0, 0, 0.242172, 0, -0.182046, 0, 0, 0, 0)
+transform = Transform3D(0.349177, 0, 0, 0, 0, 0.464504, 0, -0.349177, 0, 0, 0, 0)
 mesh = SubResource("ArrayMesh_hokqo")
 skeleton = NodePath("")
