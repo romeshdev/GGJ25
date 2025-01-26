@@ -20,4 +20,5 @@ func _process(delta):
 		global_position = startPosition
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
+		fallingSound.stop()
 		fallSoundPlayed = false

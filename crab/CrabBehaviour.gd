@@ -14,7 +14,7 @@ const STRAFE_DECELERATION_FROM_AIR_FRICTION : float = 1
 
 const ROTATE_ACCELERATION : float = 3
 const ROTATE_DECELERATION_GROUND : float = 80
-const ROTATE_DECELERATION_AIR : float = 1
+const ROTATE_DECELERATION_AIR : float = 10
 const ROTATE_MAX_SPEED : float = 2
 
 const JUMP_VELOCITY : float = 140
@@ -86,7 +86,12 @@ func _physics_process(delta):
 	var onFloor : bool = is_on_floor()
 	var holdingJump = Input.is_action_pressed("crab_strafe_left") && Input.is_action_pressed("crab_strafe_right")
 	if holdingJump and onFloor:
+		Jukebox.jumpSound.play()
 		velocity.y = JUMP_VELOCITY
+		if abs(rotation_speed) > 1:
+			velocity.y = 2*velocity.y
+			rotation_speed = 4*rotation_speed
+			Jukebox.spinSound.play()
 		
 	# Fall down
 	if not onFloor:
@@ -97,9 +102,9 @@ func _physics_process(delta):
 		else:
 			gravity = gravity * GRAVITY_MAX
 		# Apply helicopter
-		var helicopter : float = abs(rotation_speed) / ROTATE_MAX_SPEED
+		var helicopter : float = min(1, abs(rotation_speed) / ROTATE_MAX_SPEED)
 		helicopter = helicopter * helicopter * helicopter
-		gravity = gravity * (1 - helicopter)
+		gravity = gravity * (1 - 0.1*helicopter)
 		# Apply gravity
 		velocity += gravity * delta
 
@@ -119,10 +124,10 @@ func _physics_process(delta):
 		#rightClawHotspot.global_position = global_bone_pos
 		
 	# Handle rotation
-	if input_rotation and onFloor:
+	if input_rotation and (onFloor or holdingJump):
 		var acceleration : float = ROTATE_ACCELERATION * delta * input_rotation
 		rotation_speed = rotation_speed + acceleration
-		if abs(rotation_speed) > ROTATE_MAX_SPEED:
+		if velocity.y < 0.1 and abs(rotation_speed) > ROTATE_MAX_SPEED:
 			rotation_speed = ROTATE_MAX_SPEED * sign(rotation_speed)
 	else:
 		var deceleration_rate : float = ROTATE_DECELERATION_GROUND if onFloor else ROTATE_DECELERATION_AIR 
