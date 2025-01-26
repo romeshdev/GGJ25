@@ -1,9 +1,8 @@
-[gd_scene load_steps=18 format=4 uid="uid://bhgn140g4n1tt"]
+[gd_scene load_steps=17 format=4 uid="uid://bhgn140g4n1tt"]
 
 [ext_resource type="Material" uid="uid://btuw40vkqghln" path="res://Materials/Pot_MAT.tres" id="1_b101r"]
 [ext_resource type="Script" path="res://kitchen/PotBehaviour.gd" id="1_ul6h8"]
 [ext_resource type="Material" uid="uid://xpssu1fq3qil" path="res://Materials/Water.tres" id="2_c1wes"]
-[ext_resource type="PackedScene" uid="uid://dheaeuvjshvlm" path="res://Meshes/Bubbles.tscn" id="3_hw7al"]
 [ext_resource type="AudioStream" uid="uid://4e33rj6e20k0" path="res://audio/Water_Boil_01.wav" id="5_87oyk"]
 [ext_resource type="AudioStream" uid="uid://bi8be2vor4qjr" path="res://audio/Water_Splash_04.wav" id="6_tbqah"]
 [ext_resource type="Material" uid="uid://bw6e0411oyghy" path="res://Materials/Bubble.tres" id="7_4v76l"]
@@ -147,8 +146,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pot_Water"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.06727, 0)
 shape = SubResource("CylinderShape3D_s8xms")
-
-[node name="Bubble" parent="." instance=ExtResource("3_hw7al")]
 
 [node name="Boil" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("5_87oyk")
