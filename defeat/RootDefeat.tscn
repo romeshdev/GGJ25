@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cw88hd3ruqhfo"]
+[gd_scene load_steps=5 format=3 uid="uid://cw88hd3ruqhfo"]
 
 [ext_resource type="Script" path="res://defeat/DefeatBehaviour.gd" id="1_pbima"]
-[ext_resource type="Theme" uid="uid://dy148aumuhu5b" path="res://fonts/Button.tres" id="2_d36aa"]
+[ext_resource type="Texture2D" uid="uid://cqeaffp5tvtb0" path="res://Textures/UI_Dried.png" id="2_cgnu1"]
 [ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_e2yms"]
+[ext_resource type="Texture2D" uid="uid://cgk7fk5h6cofb" path="res://Textures/UI_button_Again.png" id="3_r7pii"]
 
 [node name="RootDefeat" type="Control"]
 layout_mode = 3
@@ -12,6 +13,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_pbima")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_cgnu1")
+expand_mode = 1
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 1
@@ -25,16 +36,41 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 60
 
-[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+[node name="PaddingLeft2" type="Control" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "You lose!"
-horizontal_alignment = 1
+size_flags_horizontal = 3
+
+[node name="PaddingLeft3" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft4" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft5" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft6" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft" type="Control" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="ButtonTitle" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_d36aa")
-text = "Okay"
+theme_type_variation = &"FlatButton"
+text = "
+
+                             
+                        
+
+                                  "
+icon = ExtResource("3_r7pii")
+icon_alignment = 1
+expand_icon = true
 
 [node name="FocusGrabber" parent="CenterContainer/VBoxContainer/ButtonTitle" instance=ExtResource("2_e2yms")]
-
-[connection signal="pressed" from="CenterContainer/VBoxContainer/ButtonTitle" to="." method="_on_button_title_pressed"]

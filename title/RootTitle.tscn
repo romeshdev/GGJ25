@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://4cwxqhtacnap"]
+[gd_scene load_steps=6 format=3 uid="uid://4cwxqhtacnap"]
 
 [ext_resource type="Script" path="res://title/TitleBehaviour.gd" id="1_n85if"]
 [ext_resource type="PackedScene" uid="uid://cwgsy08ld0su2" path="res://utils/FocusGrabberRoot.tscn" id="2_3w8f5"]
-[ext_resource type="Theme" uid="uid://dy148aumuhu5b" path="res://fonts/Button.tres" id="3_pr57x"]
+[ext_resource type="Texture2D" uid="uid://bun8u46plmm7f" path="res://Textures/UI_button_Play.png" id="3_7dql2"]
 [ext_resource type="Texture2D" uid="uid://rrmbrwd76uqd" path="res://Textures/UI_Start.png" id="3_s85g0"]
+[ext_resource type="Texture2D" uid="uid://js6agwyocv6x" path="res://Textures/UI_button_Quit.png" id="5_q57bo"]
 
 [node name="Title" type="Control"]
 layout_mode = 3
@@ -37,6 +38,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="PaddingMiddle" type="Control" parent="HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -44,21 +46,51 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HBoxContainer/CenterContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/CenterContainer"]
 layout_mode = 2
 theme_override_constants/separation = 60
 
+[node name="PaddingLeft" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="ButtonPlay" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_pr57x")
-text = "Play"
+theme_type_variation = &"FlatButton"
+text = "
+
+                    
+
+
+
+
+                                   "
+icon = ExtResource("3_7dql2")
+icon_alignment = 1
+expand_icon = true
 
 [node name="FocusGrabber" parent="HBoxContainer/CenterContainer/HBoxContainer/ButtonPlay" instance=ExtResource("2_3w8f5")]
 
 [node name="ButtonQuit" type="Button" parent="HBoxContainer/CenterContainer/HBoxContainer"]
 layout_mode = 2
-theme = ExtResource("3_pr57x")
-text = "Quit"
+theme_type_variation = &"FlatButton"
+text = "
+
+
+
+
+                         "
+icon = ExtResource("5_q57bo")
+icon_alignment = 1
+expand_icon = true
+
+[node name="PaddingLeft2" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PaddingLeft3" type="Control" parent="HBoxContainer/CenterContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonPlay" to="." method="_on_button_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/CenterContainer/HBoxContainer/ButtonQuit" to="." method="_on_button_quit_pressed"]
