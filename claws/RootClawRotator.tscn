@@ -29,6 +29,8 @@ mesh = SubResource("BoxMesh_htyoa")
 skeleton = NodePath("../..")
 
 [node name="RigidBody3D" type="RigidBody3D" parent="ClawMesh"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClawMesh/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)

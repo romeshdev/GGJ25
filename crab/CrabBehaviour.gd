@@ -63,6 +63,14 @@ func _process(_delta):
 		global_position = startPosition
 		velocity = Vector3.ZERO
 		fellOffCliff.emit()
+		
+	# Keyboard controls - rotation
+	if input_rotation == 0:
+		input_rotation = -Input.get_axis("crab_rotate_left", "crab_rotate_right")
+		
+	# Keyboard control - advance / retreat
+	if input_advance == 0:
+		input_advance = Input.get_axis("crab_advance", "crab_retreat")
 
 func _physics_process(delta):
 	# Handle jump
