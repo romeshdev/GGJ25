@@ -2,13 +2,13 @@ class_name CrabBehaviour extends CharacterBody3D
 
 signal fellOffCliff
 
-const ADVANCE_ACCELERATION : float = 50
-const RETREAT_ACCELERATION : float = 20
+const ADVANCE_ACCELERATION : float = 200
+const RETREAT_ACCELERATION : float = 200
 const ADVANCE_MAX_SPEED : float = 30
 const RETREAT_MAX_SPEED : float = 20
 
-const STRAFE_ACCELERATION : float = 140
-const STRAFE_DECELERATION : float = 200
+const STRAFE_ACCELERATION : float = 230
+const STRAFE_DECELERATION : float = 100
 const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
 const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
 const STRAFE_DECELERATION_FROM_GROUND_FRICTION : float = 10
@@ -165,7 +165,7 @@ func _physics_process(delta):
 		
 	# Handle friction
 	var airborne = !onFloor or velocity.y > 0
-	if !airborne && input_move_amount == 0:
+	if !airborne:
 		var deceleration = STRAFE_DECELERATION * delta
 		var rotation_friction : float = STRAFE_DECELERATION_FROM_GROUND_ROTATION if airborne else STRAFE_DECELERATION_FROM_AIR_ROTATION
 		deceleration = deceleration * (1 + abs(input_rotation) * rotation_friction)
