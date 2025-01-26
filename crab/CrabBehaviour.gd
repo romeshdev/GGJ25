@@ -2,15 +2,18 @@ class_name CrabBehaviour extends CharacterBody3D
 
 signal fellOffCliff
 
-const ADVANCE_ACCELERATION : float = 5
-const RETREAT_ACCELERATION : float = 2
+const ADVANCE_ACCELERATION : float = 50
+const RETREAT_ACCELERATION : float = 20
+const ADVANCE_MAX_SPEED : float = 30
+const RETREAT_MAX_SPEED : float = 20
 
-const STRAFE_ACCELERATION : float = 20
-const STRAFE_DECELERATION : float = 80
+const STRAFE_ACCELERATION : float = 140
+const STRAFE_DECELERATION : float = 200
 const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
 const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
 const STRAFE_DECELERATION_FROM_GROUND_FRICTION : float = 10
 const STRAFE_DECELERATION_FROM_AIR_FRICTION : float = 1
+const STRAFE_MAX_SPEED : float = 60
 
 const ROTATE_ACCELERATION : float = 3
 const ROTATE_DECELERATION_GROUND : float = 80
@@ -111,17 +114,8 @@ func _physics_process(delta):
 	# Handle claw positions
 	if left_claw_position.length_squared() > 0.1:
 		leftClawRotator.target = left_claw_position
-		#var bone_idx : int = skeleton.find_bone("L_Claw")
-		#var local_bone_transform : Transform3D = skeleton.get_bone_global_pose(bone_idx)
-		#var global_bone_pos : Vector3 = skeleton.to_global(local_bone_transform.origin)
-		#leftClawHotspot.global_position = global_bone_pos
 	if right_claw_position.length_squared() > 0.1:
 		rightClawRotator.target = right_claw_position
-		#var bone_idx : int = skeleton.find_bone("R_Claw")
-		#var local_bone_transform : Transform3D = skeleton.get_bone_global_pose(bone_idx)
-		#var global_bone_pos : Vector3 = skeleton.to_global(local_bone_transform.origin)
-		#print(global_bone_pos)
-		#rightClawHotspot.global_position = global_bone_pos
 		
 	# Handle rotation
 	if input_rotation and (onFloor or holdingJump):
@@ -139,17 +133,23 @@ func _physics_process(delta):
 	var input_strafe : float = Input.get_axis("crab_strafe_left", "crab_strafe_right")
 	if input_strafe != 0:
 		var direction : Vector3 = (transform.basis * Vector3(input_strafe, 0, 0))
-		var acceleration = direction.normalized() * delta * STRAFE_ACCELERATION
-		velocity.x = velocity.x + acceleration.x
-		velocity.z = velocity.z + acceleration.z
+		var isColinearWithVelocity : bool = direction.dot(velocity) > 0
+		if !isColinearWithVelocity || velocity.length() < STRAFE_MAX_SPEED:
+			var acceleration = direction.normalized() * delta * STRAFE_ACCELERATION
+			velocity.x = velocity.x + acceleration.x
+			velocity.z = velocity.z + acceleration.z
 		
 	# Handle advance / retreat
 	if input_advance != 0:
+		var isAdvance : bool =  input_advance < 0
+		var maxSpeed = ADVANCE_MAX_SPEED if isAdvance else RETREAT_MAX_SPEED
 		var direction : Vector3 = (transform.basis * Vector3(0, 0, input_advance))
-		var acceleration_amount = ADVANCE_ACCELERATION if input_advance < 0 else RETREAT_ACCELERATION
-		var acceleration = direction.normalized() * delta * acceleration_amount
-		velocity.x = velocity.x + acceleration.x
-		velocity.z = velocity.z + acceleration.z
+		var isColinearWithVelocity : bool = direction.dot(velocity) > 0
+		if !isColinearWithVelocity || velocity.length() < maxSpeed:
+			var acceleration_amount = ADVANCE_ACCELERATION if isAdvance else RETREAT_ACCELERATION
+			var acceleration = direction.normalized() * delta * acceleration_amount
+			velocity.x = velocity.x + acceleration.x
+			velocity.z = velocity.z + acceleration.z
 		
 	# Update camera target based on strafe
 	var targetInterpolation : float = (input_strafe + 1) / 2
