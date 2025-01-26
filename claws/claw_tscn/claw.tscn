@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=4 uid="uid://b7wc5euwb1h3c"]
+[gd_scene load_steps=14 format=4 uid="uid://b7wc5euwb1h3c"]
 
 [ext_resource type="Script" path="res://claws/claw_tscn/claw.gd" id="1_ai3y7"]
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="2_oepbk"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="3_ltgip"]
+[ext_resource type="AudioStream" uid="uid://b7qrr7ddtffw7" path="res://audio/Crab_Claw_01.wav" id="4_rgmq8"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_thfaq"]
 resource_name = "Crab_MAT"
@@ -136,8 +137,9 @@ bind/1/name = &"L_Pincer"
 bind/1/bone = -1
 bind/1/pose = Transform3D(0.116574, 0, -0.993182, 0, 1, 0, 0.993182, 0, 0.116574, -19.8922, 0, 9.37613)
 
-[node name="Claw" type="Node3D"]
+[node name="Claw" type="Node3D" node_paths=PackedStringArray("snip")]
 script = ExtResource("1_ai3y7")
+snip = NodePath("Snip")
 
 [node name="Claw_R_real" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00905204, 0.499146, -0.00372028)
@@ -149,7 +151,7 @@ mesh = SubResource("ArrayMesh_rdfsb")
 skin = SubResource("Skin_rdda3")
 
 [node name="Pincer" type="Node3D" parent="Claw_R_real"]
-transform = Transform3D(0.919135, 0, -0.393942, 0, 1, 0, 0.393942, 0, 0.919135, 0.947937, 0, -7.46948)
+transform = Transform3D(0.986629, 0, -0.162982, 0, 1, 0, 0.162982, 0, 0.986629, 0.947937, 0, -7.46948)
 
 [node name="Pincer_R" type="MeshInstance3D" parent="Claw_R_real/Pincer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.22387, 0, 20.4173)
@@ -167,10 +169,13 @@ mesh = SubResource("ArrayMesh_1nidr")
 skin = SubResource("Skin_j0srm")
 
 [node name="Pincer" type="Node3D" parent="Claw_L_real"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, -7)
+transform = Transform3D(0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, -1, 0, -7)
 
 [node name="Pincer_Low" type="MeshInstance3D" parent="Claw_L_real/Pincer"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.18593, 0, 20.3577)
 material_override = ExtResource("2_oepbk")
 mesh = SubResource("ArrayMesh_m4p4a")
 skin = SubResource("Skin_jjmfg")
+
+[node name="Snip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_rgmq8")

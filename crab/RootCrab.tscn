@@ -1481,7 +1481,6 @@ shape = SubResource("SphereShape3D_ht4o5")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="R_ClawHotSpot"]
 transform = Transform3D(4.99637, 1.42109e-14, 5.68434e-14, -1.42109e-14, 4.99637, 0, -5.68434e-14, 0, 4.99637, 0, 0, 0)
-visible = false
 mesh = SubResource("CapsuleMesh_ihsr8")
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
@@ -2186,7 +2185,7 @@ actionName = &"crab_right_claw"
 clawMarker = NodePath("Marker3D")
 
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorRight"]
-transform = Transform3D(0.183351, 0, -0.983048, 0, 1, 0, 0.983048, 0, 0.183351, 0.583214, 0, -13.8648)
+transform = Transform3D(0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, 0.707107, 2.03078, 2, -27.6017)
 
 [node name="Arm_R" type="MeshInstance3D" parent="RootClawRotatorRight"]
 transform = Transform3D(0.925448, 0, -0.378875, 0, 1, 0, 0.378875, 0, 0.925448, -5.87908, 0, 6.39136)
