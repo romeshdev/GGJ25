@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=99 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
@@ -9,13 +9,14 @@
 [ext_resource type="AudioStream" uid="uid://0lh1q15h00bi" path="res://audio/Crab_Steps_05.wav" id="6_ok35n"]
 [ext_resource type="AudioStream" uid="uid://cniss0534vfon" path="res://audio/Crab_Steps_06.wav" id="7_eb51a"]
 [ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
+[ext_resource type="Material" uid="uid://bw6e0411oyghy" path="res://Materials/Bubble.tres" id="14_n6vlq"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
 [ext_resource type="Script" path="res://crab/ik_target.gd" id="33_rwqql"]
 [ext_resource type="Material" uid="uid://dhw84spmd70gq" path="res://Materials/Crab_MAT.tres" id="33_uert8"]
 [ext_resource type="Script" path="res://crab/step_ray.gd" id="33_yth4f"]
 [ext_resource type="Texture2D" uid="uid://dmedqdrsydvth" path="res://Meshes/Crab/Import/Crab_C.png" id="34_pogxy"]
-[ext_resource type="PackedScene" uid="uid://d60p00unrcxi" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
+[ext_resource type="PackedScene" path="res://claws/RootClawRotator.tscn" id="36_byrx6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_u1ru0"]
 radius = 2.5
@@ -99,6 +100,31 @@ bind/13/pose = Transform3D(-0.0390758, 4.78541e-18, -0.999236, 2.44836e-16, 1, -
 bind/14/name = &"R_Arm"
 bind/14/bone = -1
 bind/14/pose = Transform3D(-0.0390758, -4.78541e-18, 0.999236, 9.35326e-20, -1, -4.78541e-18, 0.999236, -9.35326e-20, 0.0390758, 1.2092, -5.27393e-18, -5.48017)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_21kiv"]
+lifetime_randomness = 0.33
+emission_shape = 1
+emission_sphere_radius = 1.0
+angle_min = -149.0
+angle_max = 99.3
+inherit_velocity_ratio = 0.12
+direction = Vector3(1, 0, 1)
+spread = 18.976
+gravity = Vector3(0, 0.1, 0)
+linear_accel_min = -2.23517e-06
+linear_accel_max = -2.23517e-06
+radial_accel_min = -2.0
+radial_accel_max = 2.0
+tangential_accel_min = -2.0
+tangential_accel_max = 2.0
+scale_max = 6.15
+scale_over_velocity_max = 60.8
+hue_variation_min = -0.3
+hue_variation_max = 0.16
+
+[sub_resource type="SphereMesh" id="SphereMesh_xtflu"]
+radius = 0.25
+height = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_vloai"]
 resource_name = "Leg_L_3"
@@ -1933,6 +1959,31 @@ script = ExtResource("32_5wnoc")
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_8h0dl")
 skin = SubResource("Skin_20ix8")
+
+[node name="BubbleParticles" type="Node3D" parent="Skeleton3D/Crab_Body"]
+transform = Transform3D(1, -3.67255e-08, 1.70945e-07, 1.87726e-13, 0.977691, 0.210045, -1.74845e-07, -0.210045, 0.977691, 2.19289e-08, -0.583781, 0.125418)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Skeleton3D/Crab_Body/BubbleParticles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.76003, 4.07249, -7.16969)
+material_override = ExtResource("14_n6vlq")
+cast_shadow = 0
+lifetime = 3.04
+speed_scale = 2.29
+explosiveness = 0.02
+randomness = 0.55
+process_material = SubResource("ParticleProcessMaterial_21kiv")
+draw_pass_1 = SubResource("SphereMesh_xtflu")
+
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="Skeleton3D/Crab_Body/BubbleParticles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.09656, 4.07249, -7.16969)
+material_override = ExtResource("14_n6vlq")
+cast_shadow = 0
+lifetime = 3.04
+speed_scale = 2.29
+explosiveness = 0.02
+randomness = 0.55
+process_material = SubResource("ParticleProcessMaterial_21kiv")
+draw_pass_1 = SubResource("SphereMesh_xtflu")
 
 [node name="Leg_L_3" type="MeshInstance3D" parent="Skeleton3D"]
 material_override = ExtResource("33_uert8")
