@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://csum8rksaovp4" path="res://egg/RootEgg.tscn" id="1_6hr85"]
 [ext_resource type="Script" path="res://kitchen/KitchenBehaviour.gd" id="1_b3h0t"]
-[ext_resource type="PackedScene" uid="uid://b6ein3sdef08s" path="res://kitchen/shelf.tscn" id="2_lys7o"]
+[ext_resource type="PackedScene" path="res://kitchen/shelf.tscn" id="2_lys7o"]
 [ext_resource type="PackedScene" uid="uid://bhgn140g4n1tt" path="res://kitchen/Pot.tscn" id="2_yuig1"]
-[ext_resource type="PackedScene" path="res://kitchen/bench.tscn" id="3_k1vau"]
-[ext_resource type="PackedScene" uid="uid://dheaeuvjshvlm" path="res://Meshes/Bubbles.tscn" id="5_63kwm"]
+[ext_resource type="PackedScene" uid="uid://bwhodt8jrbds0" path="res://kitchen/bench.tscn" id="3_k1vau"]
+[ext_resource type="PackedScene" uid="uid://ch51i1uamehab" path="res://Meshes/Bubbles.tscn" id="5_63kwm"]
 [ext_resource type="Material" uid="uid://c2fsgofuf5rkj" path="res://Materials/Floor.tres" id="7_nleqn"]
-[ext_resource type="Material" uid="uid://8fymxbj05udx" path="res://Materials/Skybox.tres" id="8_d24im"]
+[ext_resource type="Material" path="res://Materials/Skybox.tres" id="8_d24im"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
 size = Vector3(500, 0.5, 500)
@@ -53,14 +53,6 @@ transform = Transform3D(1, 0, 0, 0, 0.369049, 0.92941, 0, -0.92941, 0.369049, 0,
 transform = Transform3D(-1.45705e-08, 0.34202, -0.313231, 0, 0.939693, 0.114007, 0.333333, 1.49502e-08, -1.36918e-08, -0.45, 1.65, 0.01)
 fov = 58.6
 
-[node name="RootEgg" parent="." instance=ExtResource("1_6hr85")]
-transform = Transform3D(1, 0, 0, 0, 0.473796, -0.880635, 0, 0.880635, 0.473796, 62.2548, 132.353, -75.8028)
-collision_layer = 1
-collision_mask = 1
-mass = 0.1
-freeze_mode = 0
-script = null
-
 [node name="StaticBody3D Floor" type="StaticBody3D" parent="."]
 transform = Transform3D(1.93962, 0, 0, 0, 1.93962, 0, 0, 0, 1.93962, 0, -1.31254, 0)
 
@@ -83,6 +75,9 @@ light_color = Color(1, 0.3625, 0.15, 1)
 transform = Transform3D(1.96459, 0, 0, 0, 1, 0, 0, 0, 1, 0.00811768, 165.916, 2.97546)
 material_override = ExtResource("8_d24im")
 mesh = SubResource("SphereMesh_lii5l")
+
+[node name="RootEgg" parent="." instance=ExtResource("1_6hr85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 68.4191, 134.382, -60.14)
 
 [connection signal="crabInPot" from="Bench/Pot" to="." method="_on_pot_crab_in_pot"]
 [connection signal="eggInPot" from="Bench/Pot" to="." method="_on_pot_egg_in_pot"]
