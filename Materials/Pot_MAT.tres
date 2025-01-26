@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" load_steps=4 format=3 uid="uid://btuw40vkqghln"]
+
+[ext_resource type="Texture2D" uid="uid://ctqlokbk0vexv" path="res://Textures/Pot_C.png" id="1_5ha67"]
+[ext_resource type="Texture2D" uid="uid://g0f5nhiw1vp6" path="res://Textures/Pot_M.png" id="2_i2bwv"]
+[ext_resource type="Texture2D" uid="uid://b4jibyncigxvu" path="res://Textures/Pot_R.png" id="3_6t5wr"]
+
+[resource]
+albedo_texture = ExtResource("1_5ha67")
+metallic = 1.0
+metallic_texture = ExtResource("2_i2bwv")
+roughness_texture = ExtResource("3_6t5wr")

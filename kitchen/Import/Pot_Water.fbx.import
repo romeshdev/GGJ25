@@ -13,10 +13,10 @@ dest_files=["res://.godot/imported/Pot_Water.fbx-6696836d0ed1a54e397610427693a97
 
 [params]
 
-nodes/root_type="SoftBody3D"
+nodes/root_type="MeshInstance3D"
 nodes/root_name="Pot_Water"
 nodes/apply_root_scale=true
-nodes/root_scale=100.0
+nodes/root_scale=10.0
 nodes/import_as_skeleton_bones=false
 meshes/ensure_tangents=true
 meshes/generate_lods=true

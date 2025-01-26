@@ -2036,7 +2036,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22, 0, 0)
 
 [node name="RootClawRotatorLeft" parent="." instance=ExtResource("36_byrx6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -9)
+actionName = &"crab_left_claw"
 
 [node name="RootClawRotatorRight" parent="." instance=ExtResource("36_byrx6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -9)
 flip = true
+actionName = &"crab_right_claw"
