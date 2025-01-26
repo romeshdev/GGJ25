@@ -41,6 +41,10 @@ var left_claw_position : Vector2
 @export var leftClawRotator : ClawRotatorBehaviour
 @export var rightClawRotator : ClawRotatorBehaviour
 
+@export var skeleton: Skeleton3D
+@export var rightClawHotspot: Node3D
+@export var leftClawHotspot: Node3D
+
 func _ready():
 	assert(cameraTarget != null)
 	assert(cameraTargetStrafeLeft != null)
@@ -48,6 +52,9 @@ func _ready():
 	assert(cameraMan != null)
 	assert(leftClawRotator != null)
 	assert(rightClawRotator != null)
+	assert(skeleton != null)
+	assert(rightClawHotspot != null)
+	assert(leftClawHotspot != null)
 	startPosition = global_position
 
 func _process(_delta):
@@ -82,9 +89,18 @@ func _physics_process(delta):
 	# Handle claw positions
 	if left_claw_position.length_squared() > 0.1:
 		leftClawRotator.target = left_claw_position
+		#var bone_idx : int = skeleton.find_bone("L_Claw")
+		#var local_bone_transform : Transform3D = skeleton.get_bone_global_pose(bone_idx)
+		#var global_bone_pos : Vector3 = skeleton.to_global(local_bone_transform.origin)
+		#leftClawHotspot.global_position = global_bone_pos
 	if right_claw_position.length_squared() > 0.1:
 		rightClawRotator.target = right_claw_position
-
+		#var bone_idx : int = skeleton.find_bone("R_Claw")
+		#var local_bone_transform : Transform3D = skeleton.get_bone_global_pose(bone_idx)
+		#var global_bone_pos : Vector3 = skeleton.to_global(local_bone_transform.origin)
+		#print(global_bone_pos)
+		#rightClawHotspot.global_position = global_bone_pos
+		
 	# Handle rotation
 	if input_rotation and onFloor:
 		var acceleration : float = ROTATE_ACCELERATION * delta * input_rotation

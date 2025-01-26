@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://claws/ClawRotationBehaviour.gd" id="1_1u0jg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6dsnk"]
-albedo_color = Color(1, 0.966667, 0, 1)
+albedo_color = Color(1, 0.968627, 0, 0)
 
 [sub_resource type="BoxMesh" id="BoxMesh_htyoa"]
 size = Vector3(3, 3, 25)
@@ -23,6 +23,7 @@ grabArea = NodePath("ClawHotSpot/Area3D")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -9.36454)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="ClawMesh"]
+visible = false
 material_override = SubResource("StandardMaterial3D_6dsnk")
 mesh = SubResource("BoxMesh_htyoa")
 skeleton = NodePath("../..")
@@ -39,6 +40,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
 [node name="Area3D" type="Area3D" parent="ClawHotSpot"]
 collision_layer = 2
 collision_mask = 2
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClawHotSpot/Area3D"]
 transform = Transform3D(1.99061, 0, 0, 0, 1.99061, 0, 0, 0, 1.99061, 0, 0, 0)
