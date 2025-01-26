@@ -59,7 +59,7 @@ func _ready():
 
 func _process(_delta):
 	# Restore position if you fall off a cliff
-	if position.y < -200:
+	if position.y < 9:
 		global_position = startPosition
 		velocity = Vector3.ZERO
 		fellOffCliff.emit()

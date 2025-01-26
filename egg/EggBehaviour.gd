@@ -7,7 +7,7 @@ func _ready():
 
 func _process(delta):
 	# Restore position if the egg falls off a cliff
-	if position.y < -200:
+	if position.y < 9:
 		global_position = startPosition
 		linear_velocity = Vector3.ZERO
 		angular_velocity = Vector3.ZERO
