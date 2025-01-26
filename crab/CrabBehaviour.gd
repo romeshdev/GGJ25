@@ -32,6 +32,7 @@ var input_advance : float = 0.0
 var camera_target_lateral : float = 0.5
 var right_claw_position : Vector2
 var left_claw_position : Vector2
+var fallSoundPlayed : bool = false
 
 @export var cameraTarget : Node3D
 @export var cameraTargetStrafeLeft : Node3D
@@ -45,6 +46,8 @@ var left_claw_position : Vector2
 @export var rightClawHotspot: Node3D
 @export var leftClawHotspot: Node3D
 
+@export var fallingSound: AudioStreamPlayer3D
+
 func _ready():
 	assert(cameraTarget != null)
 	assert(cameraTargetStrafeLeft != null)
@@ -55,9 +58,15 @@ func _ready():
 	assert(skeleton != null)
 	assert(rightClawHotspot != null)
 	assert(leftClawHotspot != null)
+	assert(fallingSound != null)
 	startPosition = global_position
 
 func _process(_delta):
+	# Play falling sound
+	if position.y < 70 && !fallSoundPlayed:
+		fallingSound.play()
+		fallSoundPlayed = true
+	
 	# Restore position if you fall off a cliff
 	if position.y < 9:
 		global_position = startPosition

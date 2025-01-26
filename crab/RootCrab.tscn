@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=98 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://0lh1q15h00bi" path="res://audio/Crab_Steps_05.wav" id="6_ok35n"]
 [ext_resource type="AudioStream" uid="uid://cniss0534vfon" path="res://audio/Crab_Steps_06.wav" id="7_eb51a"]
 [ext_resource type="PackedScene" uid="uid://b7wc5euwb1h3c" path="res://claws/claw_tscn/claw.tscn" id="8_44shc"]
+[ext_resource type="AudioStream" uid="uid://fjoe263ovb6s" path="res://audio/Fall_Slide_Whistle_01.wav" id="17_tuxvv"]
 [ext_resource type="Script" path="res://crab/step_targets.gd" id="31_i5iqv"]
 [ext_resource type="Script" path="res://crab/start_IK.gd" id="32_5wnoc"]
 [ext_resource type="Script" path="res://crab/ik_target.gd" id="33_rwqql"]
@@ -1293,7 +1294,7 @@ height = 18.4457
 radius = 1.70423
 height = 13.4819
 
-[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot")]
+[node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot", "fallingSound")]
 script = ExtResource("1_06tpv")
 cameraTarget = NodePath("CameraTarget")
 cameraTargetStrafeLeft = NodePath("CameraTargetStafeLeft")
@@ -1304,6 +1305,7 @@ rightClawRotator = NodePath("RootClawRotatorRight")
 skeleton = NodePath("Skeleton3D")
 rightClawHotspot = NodePath("R_ClawHotSpot")
 leftClawHotspot = NodePath("L_ClawHotSpot")
+fallingSound = NodePath("FallSound")
 
 [node name="IKTargets" type="Node3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -2214,3 +2216,9 @@ collision_mask = 4
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorRight/Arm_R/RigidBody3D"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
 shape = SubResource("CapsuleShape3D_60d23")
+
+[node name="FallSound" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_tuxvv")
+volume_db = 30.0
+unit_size = 5.0
+max_distance = 200.0
