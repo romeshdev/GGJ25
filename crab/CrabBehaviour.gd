@@ -7,7 +7,7 @@ const RETREAT_ACCELERATION : float = 200
 const ADVANCE_MAX_SPEED : float = 30
 const RETREAT_MAX_SPEED : float = 20
 
-const STRAFE_ACCELERATION : float = 230
+const STRAFE_ACCELERATION : float = 300
 const STRAFE_DECELERATION : float = 100
 const STRAFE_DECELERATION_FROM_GROUND_ROTATION : float = 2 
 const STRAFE_DECELERATION_FROM_AIR_ROTATION : float = 0.5 
@@ -91,9 +91,9 @@ func _physics_process(delta):
 	if holdingJump and onFloor:
 		Jukebox.jumpSound.play()
 		velocity.y = JUMP_VELOCITY
-		if abs(rotation_speed) > 1:
+		if abs(input_rotation) > 0.2:
 			velocity.y = 2*velocity.y
-			rotation_speed = 4*rotation_speed
+			rotation_speed = 4 * ROTATE_MAX_SPEED * input_rotation
 			Jukebox.spinSound.play()
 		
 	# Fall down
