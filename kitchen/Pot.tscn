@@ -129,7 +129,7 @@ stream = ExtResource("5_87oyk")
 volume_db = 50.356
 autoplay = true
 
-[node name="Splash" type="AudioStreamPlayer" parent="."]
+[node name="Splash" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("6_tbqah")
 
 [connection signal="body_entered" from="Pot_Water" to="." method="_on_pot_water_body_entered"]
