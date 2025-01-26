@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://dcl42qv1uyaky"]
+[gd_scene load_steps=97 format=4 uid="uid://dcl42qv1uyaky"]
 
 [ext_resource type="Script" path="res://crab/CrabBehaviour.gd" id="1_06tpv"]
 [ext_resource type="PackedScene" uid="uid://dcsfeoqhonrnw" path="res://camera/RootCameraMan.tscn" id="2_0bkup"]
@@ -1289,6 +1289,10 @@ bind/1/pose = Transform3D(-0.110432, 1.3524e-17, 0.993884, -1.58887e-14, 1, -1.7
 radius = 4.74912
 height = 18.4457
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_60d23"]
+radius = 1.70423
+height = 13.4819
+
 [node name="RootCrab" type="CharacterBody3D" node_paths=PackedStringArray("cameraTarget", "cameraTargetStrafeLeft", "cameraTargetStrafeRight", "cameraMan", "leftClawRotator", "rightClawRotator", "skeleton", "rightClawHotspot", "leftClawHotspot")]
 script = ExtResource("1_06tpv")
 cameraTarget = NodePath("CameraTarget")
@@ -2144,18 +2148,36 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7, 0, -7)
 actionName = &"crab_left_claw"
 clawMarker = NodePath("Marker3D")
 
-[node name="Claw" parent="RootClawRotatorLeft" instance=ExtResource("8_44shc")]
-transform = Transform3D(1, 1.27898e-13, -1.74846e-07, 1.59593e-09, 0.999959, 0.00912811, 1.74838e-07, -0.00912811, 0.999959, -0.215002, 0.0728717, -5.61473)
-claw_side = "L"
-
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorLeft"]
 transform = Transform3D(-0.13307, 0, 0.991107, 0, 1, 0, -0.991107, 0, -0.13307, -3.68604, 0, -25.4651)
 
 [node name="Arm_L" type="MeshInstance3D" parent="RootClawRotatorLeft"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.11764, 0, 6.20737)
+transform = Transform3D(0.866025, 0, 0.5, 0, 1, 0, -0.5, 0, 0.866025, 6.11764, 0, 6.20737)
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_gidfu")
 skin = SubResource("Skin_c20mo")
+
+[node name="Claw" parent="RootClawRotatorLeft/Arm_L" instance=ExtResource("8_44shc")]
+transform = Transform3D(0.707107, 0.00645455, -0.707078, 1.59593e-09, 0.999959, 0.00912811, 0.707107, -0.00645455, 0.707078, -6.19867, 0.0728717, -14.0541)
+claw_side = "L"
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RootClawRotatorLeft/Arm_L/Claw"]
+transform = Transform3D(1, -1.16415e-09, 1.93715e-07, -1.16415e-09, 1, 0, -1.49012e-08, 1.86265e-09, 1, -0.146123, 0.00456582, -9.12345)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorLeft/Arm_L/Claw/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_60d23")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RootClawRotatorLeft/Arm_L"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87657, 0, -8.62328)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorLeft/Arm_L/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_60d23")
 
 [node name="RootClawRotatorRight" parent="." node_paths=PackedStringArray("clawMarker") instance=ExtResource("36_byrx6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -7)
@@ -2163,14 +2185,32 @@ flip = true
 actionName = &"crab_right_claw"
 clawMarker = NodePath("Marker3D")
 
-[node name="Claw" parent="RootClawRotatorRight" instance=ExtResource("8_44shc")]
-transform = Transform3D(1, -1.06581e-14, -1.74846e-07, 1.59595e-09, 0.999959, 0.00912814, 1.74838e-07, -0.00912814, 0.999959, 0.0032959, -0.180182, -6.38182)
-
 [node name="Marker3D" type="Marker3D" parent="RootClawRotatorRight"]
 transform = Transform3D(0.183351, 0, -0.983048, 0, 1, 0, 0.983048, 0, 0.183351, 0.583214, 0, -13.8648)
 
 [node name="Arm_R" type="MeshInstance3D" parent="RootClawRotatorRight"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.87908, 0, 6.39136)
+transform = Transform3D(0.925448, 0, -0.378875, 0, 1, 0, 0.378875, 0, 0.925448, -5.87908, 0, 6.39136)
 material_override = ExtResource("33_uert8")
 mesh = SubResource("ArrayMesh_ukskf")
 skin = SubResource("Skin_ebtu5")
+
+[node name="Claw" parent="RootClawRotatorRight/Arm_R" instance=ExtResource("8_44shc")]
+transform = Transform3D(0.707107, -0.00645457, 0.707078, 1.59595e-09, 0.999959, 0.00912814, -0.707107, -0.00645457, 0.707078, 6.42895, -0.180182, -14.0775)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RootClawRotatorRight/Arm_R/Claw"]
+transform = Transform3D(1, -1.16415e-09, 1.93715e-07, -1.16415e-09, 1, 0, -1.49012e-08, 1.86265e-09, 1, -0.146123, 0.00456582, -9.12345)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorRight/Arm_R/Claw/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_60d23")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="RootClawRotatorRight/Arm_R"]
+transform = Transform3D(1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 6.11736, 0, -8.21679)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootClawRotatorRight/Arm_R/RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+shape = SubResource("CapsuleShape3D_60d23")

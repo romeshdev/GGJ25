@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://csum8rksaovp4" path="res://egg/RootEgg.tscn" id="1_6hr85"]
 [ext_resource type="Script" path="res://kitchen/KitchenBehaviour.gd" id="1_b3h0t"]
-[ext_resource type="PackedScene" path="res://kitchen/shelf.tscn" id="2_lys7o"]
+[ext_resource type="PackedScene" uid="uid://b6ein3sdef08s" path="res://kitchen/shelf.tscn" id="2_lys7o"]
 [ext_resource type="PackedScene" uid="uid://bhgn140g4n1tt" path="res://kitchen/Pot.tscn" id="2_yuig1"]
 [ext_resource type="PackedScene" uid="uid://bwhodt8jrbds0" path="res://kitchen/bench.tscn" id="3_k1vau"]
 [ext_resource type="PackedScene" uid="uid://ch51i1uamehab" path="res://Meshes/Bubbles.tscn" id="5_63kwm"]
 [ext_resource type="Material" uid="uid://c2fsgofuf5rkj" path="res://Materials/Floor.tres" id="7_nleqn"]
-[ext_resource type="Material" path="res://Materials/Skybox.tres" id="8_d24im"]
+[ext_resource type="Material" uid="uid://8fymxbj05udx" path="res://Materials/Skybox.tres" id="8_d24im"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sihou"]
 size = Vector3(500, 0.5, 500)
